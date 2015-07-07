@@ -8,7 +8,12 @@ gulp.task("default", function() {
 
 gulp.task("server", ["sass"], function() {
     browserSync.init({
-        server: "client",
+        server: {
+            baseDir: "client",
+            routes: {
+                "/bower_components": "bower_components"
+            }
+        },
         notify: false,
         open: false
     });

@@ -1,0 +1,6 @@
+{
+  "name": "le-chef",
+  "dependencies": {
+    "angular": "1.4.2"
+  }
+}
