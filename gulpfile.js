@@ -6,7 +6,7 @@ gulp.task("default", function() {
     console.log("Default task!");
 });
 
-gulp.task("server", function() {
+gulp.task("server", ["sass"], function() {
     browserSync.init({
         server: "client",
         notify: false,
