@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Le Chef | Share recipes</title>
-    <link rel="stylesheet" href="tmp/screen.css">
-    <script src="bower_components/angular/angular.js"></script>
-</head>
-<body>
-    <h1>Welcome to Le Chef</h1>
-</body>
+<html lang="en" ng-app>
+    <head>
+        <meta charset="UTF-8">
+        <title>Le Chef | Share recipes</title>
+        <link rel="stylesheet" href="tmp/screen.css">
+        <script src="bower_components/angular/angular.js"></script>
+    </head>
+    <body>
+        <h1>
+            Welcome to Le Chef<span ng-if="yourName">,</span>
+            {{yourName}}
+        </h1>
+
+        <input type="text" ng-model="yourName">
+    </body>
 </html>
