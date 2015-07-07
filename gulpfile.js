@@ -8,6 +8,7 @@ gulp.task("default", function() {
 gulp.task("server", function() {
     browserSync.init({
         server: "client",
-        notify: false
+        notify: false,
+        open: false
     });
 });
