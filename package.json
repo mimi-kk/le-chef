@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "browser-sync": "2.7.13",
-    "gulp": "3.9.0"
+    "gulp": "3.9.0",
+    "gulp-sass": "2.0.3"
   }
 }
