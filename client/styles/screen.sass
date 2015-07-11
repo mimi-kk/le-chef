@@ -1,6 +1,93 @@
 @import "fonts"
 
+.clearfix:after
+	.clearfix:before
+    content: ""
+    display: block
+    clear: both
+
+*
+	font-family: "Amatic SC Regular"
+
 body
-    margin: 0
-    font-family: "Amatic SC Regular"
+    margin: 0 auto
+    max-width: 1024px
+    font-size: 18px
+    
+
+h1
+	font-family: "Amatic SC Bold"
+	text-align: center
+	font-size: 54px
+
+h2
+	font-family: "Amatic SC Bold"
+	font-size: 36px
+	margin: 0
+
+
+
+#search
+	width: 90%
+	margin: 2em
+	font-size: 18px
+
+.follow-us
+	display: flex
+	justify-content: center
+	
+	font-size: 32px
+	
+	list-style-type: none
+
+	padding: 0
+
+.follow-us a
+	text-decoration: none
+	color: black
+	padding: 0.1em
+
+.follow-us a:hover
+	color: pink
+
+.recipe-container
+	display: flex
+
+.recipe-item
+	float: left
+	position: relative
+	overflow: hidden
+	list-style-type: none
+
+.caption
+	cursor: pointer
+	transition: all 0.15s ease-in-out
+	top: 230px
+	opacity: 0
+	position: absolute
+
+.recipe-item:hover .caption
+	opacity: 1
+	transform: translateY(-100px)
+
+.caption-text
+	z-index: 10
+	position: absolute
+	width: 200px
+	height: 200px
+	text-align: center
+
+.caption-text p
+	margin: 0
+
+.blur
+	background-color: rgba(255,255,255,0.8)
+	height:  200px
+	width: 200px
+	z-index: 5
+	position: absolute
+
+.recipe-item img
+	z-index: 4
+
 

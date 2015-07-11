@@ -2,16 +2,39 @@
 <html lang="en" ng-app>
     <head>
         <meta charset="UTF-8">
-        <title>Le Chef | Share recipes</title>
+        <title>Le Chef | a toujours raison</title>
         <link rel="stylesheet" href="tmp/screen.css">
         <script src="bower_components/angular/angular.js"></script>
     </head>
     <body>
-        <h1>
-            Welcome to Le Chef<span ng-if="yourName">,</span>
-            {{yourName}}
-        </h1>
+        <header>
+            <h1>
+                Le Chef
+            </h1>
 
-        <input type="text" ng-model="yourName">
+            <ul class="follow-us">
+                <li><a class="icon-pinterest-with-circle" href="http://www.pinterest.com/norarusterholz" target="_blank"></a></li>
+                <li><a class="icon-instagram-with-circle" href="https://instagram.com/mimi.k.k/" target="_blank"></a></li>
+                <li><a class="icon-twitter-with-circle" href="https://twitter.com/norarusterholz" target="_blank"></a></li>
+                <li><a class="icon-vimeo-with-circle" href="https://vimeo.com/greenkitchenstories" target="_blank"></a></li>
+            </ul>
+
+            <input id="search" type="search" placeholder="Find recipe">
+        <header>
+
+        <section>
+            <ul class="recipe-container">
+                <li class="recipe-item">
+                <img src="/images/polenta-200x200px.jpg">
+                <div class="caption">
+                <div class="blur"></div>
+                <div class="caption-text">
+                <h2>Polenta</h2>
+                <p>Curry Grilled Vegetables with Chickpeas</p>
+                </div>
+                </div>
+                </li>
+            </ul>
+        </section>
     </body>
 </html>
