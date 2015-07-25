@@ -15,49 +15,65 @@ body
     font-size: 18px
     
 
-h1
+h1, h2, h3
 	font-family: "Amatic SC Bold"
 	text-align: center
+
+h1
 	font-size: 54px
+	margin: 10px 10px 0px 10px
 
 h2
+	font-size: 30px
+	margin: 0
+
+h3
 	font-family: "Amatic SC Bold"
 	font-size: 36px
 	margin: 0
 
 
-
 #search
-	width: 90%
-	margin: 2em
+	width: 100%
+	margin: 5px
+	align: center
 	font-size: 18px
+
 
 .follow-us
 	display: flex
 	justify-content: center
-	
 	font-size: 32px
-	
 	list-style-type: none
-
 	padding: 0
 
-.follow-us a
-	text-decoration: none
-	color: black
-	padding: 0.1em
+	a
+		text-decoration: none
+		color: black
+		padding: 0.1em
 
 .follow-us a:hover
 	color: pink
 
 .recipe-container
 	display: flex
+	flex-flow: row wrap
+	justify-content: center
+	padding: 0px
 
 .recipe-item
 	float: left
 	position: relative
 	overflow: hidden
+	margin: 5px 5px 2px 5px
 	list-style-type: none
+
+	img
+		z-index: 4
+
+.recipe-item:hover .caption
+	opacity: 1
+	transform: translateY(-100px)
 
 .caption
 	cursor: pointer
@@ -66,9 +82,6 @@ h2
 	opacity: 0
 	position: absolute
 
-.recipe-item:hover .caption
-	opacity: 1
-	transform: translateY(-100px)
 
 .caption-text
 	z-index: 10
@@ -77,8 +90,8 @@ h2
 	height: 200px
 	text-align: center
 
-.caption-text p
-	margin: 0
+	p
+		margin: 0
 
 .blur
 	background-color: rgba(255,255,255,0.8)
@@ -86,8 +99,5 @@ h2
 	width: 200px
 	z-index: 5
 	position: absolute
-
-.recipe-item img
-	z-index: 4
 
 
