@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="leChef">
+    
     <head>
         <meta charset="UTF-8">
-        <title>Le Chef | a toujours raison</title>
         <title>Le Chef a toujours raison</title>
         <link rel="stylesheet" href="tmp/screen.css">
         <script src="bower_components/angular/angular.js"></script>
     </head>
-    <body>
+
+    <body ng-controller="RecipeController as cookbook">
         <header>
             <h1>
                 Le Chef
@@ -23,22 +24,41 @@
                 <li><a class="icon-vimeo-with-circle" href="https://vimeo.com/greenkitchenstories" target="_blank"></a></li>
             </ul>
 
-            <input id="search" type="search" placeholder="Find recipe">
+            <input id="search" results="5" type="search" placeholder="Find recipe">
         <header>
 
         <section>
             <ul class="recipe-container">
                 <li class="recipe-item">
-                <img src="/images/polenta-200x200px.jpg">
+                <img src="{{cookbook.recipe.image}}">
                 <div class="caption">
                 <div class="blur"></div>
                 <div class="caption-text">
-                <h2>Polenta</h2>
-                <p>Curry Grilled Vegetables with Chickpeas</p>
+                <h3>{{cookbook.recipe.title}}</h3>
+                <p>{{cookbook.recipe.subtitle}}</p>
                 </div>
                 </div>
                 </li>
             </ul>
         </section>
+
+        <script>
+            (function(){
+              
+              var app = angular.module('leChef', []);
+              
+              app.controller("RecipeController", function(){
+              this.recipe = recipe;
+              });
+
+              var recipe = {
+                image: "/images/polenta-200x200px.jpg",
+                title: "Polenta",
+                subtitle: "Curry Grilled Vegetables with Chickpeas",
+                ingredients: ["Polenta", "Milk", "Olive Oil"],
+                instruction: ["Cook for one Hour", "Wait for another hour"],};
+            })();
+        </script>
+
     </body>
 </html>
