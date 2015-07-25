@@ -29,13 +29,13 @@
 
         <section>
             <ul class="recipe-container">
-                <li class="recipe-item">
-                <img src="{{cookbook.recipe.image}}">
+                <li ng-repeat="recipe in cookbook.recipes" class="recipe-item">
+                <img src="{{recipe.image}}">
                 <div class="caption">
                 <div class="blur"></div>
                 <div class="caption-text">
-                <h3>{{cookbook.recipe.title}}</h3>
-                <p>{{cookbook.recipe.subtitle}}</p>
+                <h3>{{recipe.title}}</h3>
+                <p>{{recipe.subtitle}}</p>
                 </div>
                 </div>
                 </li>
@@ -48,15 +48,25 @@
               var app = angular.module('leChef', []);
               
               app.controller("RecipeController", function(){
-              this.recipe = recipe;
+              this.recipes = recipes;
               });
 
-              var recipe = {
+              var recipes = [
+                {
                 image: "/images/polenta-200x200px.jpg",
                 title: "Polenta",
                 subtitle: "Curry Grilled Vegetables with Chickpeas",
                 ingredients: ["Polenta", "Milk", "Olive Oil"],
-                instruction: ["Cook for one Hour", "Wait for another hour"],};
+                instruction: ["Cook for one Hour", "Wait for another hour"]
+                },
+                {
+                image: "/images/amaranth-200x200px.jpg",
+                title: "Porridge",
+                subtitle: "Amaranth with Blueberries 'n' Cream",
+                ingredients: ["Amaranth", "Water", "Blueberries"],
+                instruction: ["Drain and rinse", "Bring to boild and let simmer for 15 minutes"]
+                }
+                ];
             })();
         </script>
 
