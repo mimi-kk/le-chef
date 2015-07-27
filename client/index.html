@@ -18,26 +18,36 @@
             </h2>
 
             <ul class="follow-us">
-                <li><a class="icon-pinterest-with-circle" href="http://www.pinterest.com/norarusterholz" target="_blank"></a></li>
-                <li><a class="icon-instagram-with-circle" href="https://instagram.com/mimi.k.k/" target="_blank"></a></li>
-                <li><a class="icon-twitter-with-circle" href="https://twitter.com/norarusterholz" target="_blank"></a></li>
-                <li><a class="icon-vimeo-with-circle" href="https://vimeo.com/greenkitchenstories" target="_blank"></a></li>
+                <li>
+                    <a class="icon-pinterest-with-circle" href="http://www.pinterest.com/norarusterholz" target="_blank"></a>
+                </li>
+                <li>
+                    <a class="icon-instagram-with-circle" href="https://instagram.com/mimi.k.k/" target="_blank"></a>
+                </li>
+                <li>
+                    <a class="icon-twitter-with-circle" href="https://twitter.com/norarusterholz" target="_blank"></a>
+                </li>
+                <li>
+                    <a class="icon-vimeo-with-circle" href="https://vimeo.com/greenkitchenstories" target="_blank"></a>
+                </li>
             </ul>
 
-            <input id="search" results="5" type="search" placeholder="Find recipe">
         <header>
+            <input id="search" results="5" type="search" placeholder="Find recipe">
+        </header>
 
         <section>
-            <ul class="recipe-container">
-                <li ng-repeat="recipe in cookbook.recipes" class="recipe-item">
-                <img src="{{recipe.image}}">
-                <div class="caption">
-                <div class="blur"></div>
-                <div class="caption-text">
-                <h3>{{recipe.title}}</h3>
-                <p>{{recipe.subtitle}}</p>
-                </div>
-                </div>
+            <ul class="recipes">
+                <li ng-repeat="recipe in cookbook.recipes" class="recipe">
+                    <img src="{{recipe.image}}">
+                    <div class="caption overlay">
+                        <h3>
+                            {{recipe.title}}
+                        </h3>
+                        <p>
+                            {{recipe.subtitle}}
+                        </p>
+                    </div>
                 </li>
             </ul>
         </section>
