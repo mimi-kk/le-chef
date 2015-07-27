@@ -1,0 +1,67 @@
+{
+    "navigations": [{
+        "id": "",
+        "name": "",
+        "path": ""
+    }],
+    "recipes": [{
+        "id": "",
+        "date": "",
+        "author": "",
+        "title": "",
+        "lead": "",
+        "ready-in": [{
+            "preptime": ""
+        }, {
+            "cooktime": ""
+        }],
+        "instructions": "",
+        "keywords": [],
+        "ingredients": [],
+        "images": [],
+        "videos": [],
+        "mass": [{
+            "us": {
+                "fahrenheit": "",
+                "teaspoon": "",
+                "tablespoon": "",
+                "cup": "",
+                "ounce": "",
+                "pound": ""
+            }
+        }, {
+            "matric": {
+                "g": "",
+                "kg": "",
+                "ml": "",
+                "l": "",
+                "celsius": ""
+            }
+        }],
+        "rating": [],
+        "social-media": [{
+            "type": "comment",
+            "count": 0
+        }, {
+            "type": "pinterest",
+            "count": 0,
+            "url": "http://www.le-chef/navgation-path/id"
+        }, {
+            "type": "instagram",
+            "count": 0,
+            "url": "http://www.le-chef/navgation-path/id"
+        }, {
+            "type": "twitter",
+            "count": 0,
+            "url": "http://www.le-chef/navgation-path/id"
+        }, {
+            "type": "vimeo",
+            "count": 0,
+            "url": "http://www.le-chef/navgation-path/id"
+        }, {
+            "type": "mail",
+            "count": 0,
+            "url": "mailto:http://www.le-chef/navgation-path/id"
+        }]
+    }]
+}
