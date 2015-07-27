@@ -6,6 +6,7 @@
         <title>Le Chef a toujours raison</title>
         <link rel="stylesheet" href="tmp/screen.css">
         <script src="bower_components/angular/angular.js"></script>
+        <script src="js/scripts.js"></script>
     </head>
 
     <body ng-controller="RecipeController as cookbook">
@@ -39,46 +40,18 @@
         <section>
             <ul class="recipes">
                 <li ng-repeat="recipe in cookbook.recipes" class="recipe">
-                    <img src="{{recipe.image}}">
+                    <img src="{{recipe.images}}">
                     <div class="caption overlay">
                         <h3>
                             {{recipe.title}}
                         </h3>
                         <p>
-                            {{recipe.subtitle}}
+                            {{recipe.lead}}
                         </p>
                     </div>
                 </li>
             </ul>
         </section>
-
-        <script>
-            (function(){
-              
-              var app = angular.module('leChef', []);
-              
-              app.controller("RecipeController", function(){
-              this.recipes = recipes;
-              });
-
-              var recipes = [
-                {
-                image: "/images/polenta-200x200px.jpg",
-                title: "Polenta",
-                subtitle: "Curry Grilled Vegetables with Chickpeas",
-                ingredients: ["Polenta", "Milk", "Olive Oil"],
-                instruction: ["Cook for one Hour", "Wait for another hour"]
-                },
-                {
-                image: "/images/amaranth-200x200px.jpg",
-                title: "Porridge",
-                subtitle: "Amaranth with Blueberries 'n' Cream",
-                ingredients: ["Amaranth", "Water", "Blueberries"],
-                instruction: ["Drain and rinse", "Bring to boild and let simmer for 15 minutes"]
-                }
-                ];
-            })();
-        </script>
 
     </body>
 </html>
