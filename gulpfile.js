@@ -24,7 +24,9 @@ gulp.task("server", ["sass"], function() {
 
 gulp.task("sass", function() {
     return gulp.src("client/styles/*.sass")
-        .pipe(sass())
+        .pipe(sass({
+            errLogToConsole: true
+        }))
         .pipe(gulp.dest("client/tmp"))
         .pipe(browserSync.stream());
 });
