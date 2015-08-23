@@ -1,19 +1,19 @@
 @import "resets"
 @import "helpers"
 @import "fonts"
+@import "mixins"
 
 body
 	margin: 0 auto
-	padding: 36px
-	max-width: 978px
+	width: 978px
 	font-size: 18px
-	
+
 	*
 		font-family: "Amatic SC Regular"
 
 	header
-		display: flex
-		flex-direction: column
+		+flex
+		+flex-direction-column
 
 		h1, h2, h3
 			text-align: center
@@ -31,8 +31,10 @@ body
 			font-size: 36px
 
 		.follow-us
-			display: flex
-			justify-content: center
+			+flex
+			+flex-direction-row
+			+justify-content
+
 			font-size: 32px
 			
 			list-style-type: none
@@ -48,13 +50,21 @@ body
 
 		#search
 			width: 952px
-			font-size: 18px
+			height: 40px
+
+			font-family: "Amatic SC Bold"
+			font-size: 30px
+			line-height: 40px
+
+			-webkit-appearance: none
+			appearance: none
 
 			margin: 13px
 
 	.recipes
-		display: flex
-		flex-wrap: wrap
+		+flex
+		+flex-direction-row
+		+flex-wrap
 
 		.recipe
 			position: relative
@@ -94,3 +104,5 @@ body
 				.caption
 					opacity: 1
 					transform: translateY(-80px)
+
+@import "media-queries"
