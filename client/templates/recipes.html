@@ -1,6 +1,6 @@
 <section>
     <ul class="recipes">
-        <li ng-repeat="recipe in cookbook.recipes" class="recipe">
+        <li ng-repeat="recipe in cookbook.recipes | filter:search" class="recipe">
             <img ng-src="{{recipe.images}}">
             <div class="caption overlay">
                 <h3>
