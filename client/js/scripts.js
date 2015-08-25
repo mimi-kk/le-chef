@@ -1,6 +1,6 @@
 var app = angular.module('leChef', [
     "ngRoute",
-    "RecipeControllers"
+    "RecipeController"
 ]);
 
 app.config(["$routeProvider",
