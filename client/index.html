@@ -3,11 +3,18 @@
     
     <head>
         <meta charset="UTF-8">
-        <title>Le Chef a toujours raison</title>
-        <link rel="stylesheet" href="tmp/screen.css">
-        <script src="bower_components/angular/angular.js"></script>
-        <script src="js/scripts.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        
+        <script src="js/scripts.js"></script>
+        <script src="js/routes.js"></script>
+        <script src="js/controllers/recipe-controller.js"></script>
+        
+        <link rel="stylesheet" href="tmp/screen.css">
+        
+        <title>Le Chef a toujours raison</title>
     </head>
 
     <body ng-controller="RecipeController as cookbook">
