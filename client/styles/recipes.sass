@@ -1,45 +1,50 @@
 @import "mixins"
 
-.recipes
-	+flex
-	+flex-direction-row
-	+flex-wrap
+section
+	margin: 0 auto
+	width: 80%
 
-	.recipe
-		position: relative
-		overflow: hidden
-		list-style-type: none
+	.recipes
+		+flex
+		+flex-direction-row
+		+flex-wrap
+		+justify-content
 
-		width: 218px
-		height: 218px
+		.recipe
+			position: relative
+			overflow: hidden
+			list-style-type: none
 
-		margin: 13px
+			width: 218px
+			height: 218px
 
-		img
-			width: 100%
-			height: 100%
+			margin: 13px
 
-		.caption
-			opacity: 0
-			transition: all 0.15s ease-in-out
-
-			text-align: center
-
-			h3
-				font-family: "Amatic SC Bold"
-				font-size: 36px
-
-		.overlay
-			position: absolute
-			
-			width: 100%
-			height: 100%
-			
-			background-color: rgba(255, 255, 255, 0.8)
-
-		&:hover 
-			cursor: pointer
+			img
+				width: 100%
+				height: 100%
 
 			.caption
-				+transform-translateY-80px
-				opacity: 1
+				opacity: 0
+				transition: all 0.15s ease-in-out
+
+				text-align: center
+
+				h3
+					font-family: "Amatic SC Bold"
+					font-size: 36px
+
+			.overlay
+				position: absolute
+				
+				width: 100%
+				height: 100%
+				
+				background-color: rgba(255, 255, 255, 0.8)
+
+			&:hover 
+				cursor: pointer
+
+				.caption
+					+transform-translateY-80px
+					opacity: 1
