@@ -6,14 +6,15 @@ var app = angular.module('leChef', [
 app.config(["$routeProvider",
     function($routeProvider){
         $routeProvider.
-            when("/recipes", {
+            when("/", {
                 templateUrl: "templates/recipes.html",
                 controller: "RecipeController"
             }).
             when("/recipe", {
                 templateUrl: "templates/recipe.html",
+                controller: "RecipeController"
             }).
             otherwise({
-                redirectTo: "/recipes"
+                redirectTo: "/"
             }); 
 }]);
