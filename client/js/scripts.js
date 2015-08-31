@@ -10,6 +10,9 @@ app.config(["$routeProvider",
                 templateUrl: "templates/recipes.html",
                 controller: "RecipeController"
             }).
+            when("/recipe", {
+                templateUrl: "templates/recipe.html",
+            }).
             otherwise({
                 redirectTo: "/recipes"
             }); 

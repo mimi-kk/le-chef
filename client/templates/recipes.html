@@ -1,6 +1,7 @@
 <section>
     <ul class="recipes">
         <li ng-repeat="recipe in cookbook.recipes | filter:search" class="recipe">
+        <a ng-href="#/recipe" ng-click="cookbook.recipes($index)">
             <img ng-src="{{recipe.images}}">
             <div class="caption overlay">
                 <h3>
@@ -9,7 +10,7 @@
                 <p>
                     {{recipe.lead}}
                 </p>
-            </div>
+            </div></a>
         </li>
     </ul>
 </section>
