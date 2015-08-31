@@ -1,6 +1,7 @@
 var app = angular.module('leChef', [
     "ngRoute",
-    "RecipeController"
+    "RecipeController",
+    "RecipeIdController"
 ]);
 
 app.config(["$routeProvider",
@@ -10,9 +11,10 @@ app.config(["$routeProvider",
                 templateUrl: "templates/recipes.html",
                 controller: "RecipeController"
             }).
-            when("/recipe", {
+            when("/recipe/:id", {
                 templateUrl: "templates/recipe.html",
-                controller: "RecipeController"
+                controller: "RecipeIdController",
+                controllerAs: "idController"
             }).
             otherwise({
                 redirectTo: "/"
