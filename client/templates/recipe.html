@@ -1,9 +1,11 @@
-<main>
+<main ng-repeat="recipe in cookbook.recipes">
 
 	<img ng-src="{{recipe.images}}">
 
+	<p ng-bind="search"></p>
+
 	<ul>
-		<li>{{recipe.keyword}}<li>
+		<li class="keywords" ng-repeat="keyword in recipe.keywords">{{keyword}}</li>
 	</ul>
 
 	<h2>{{recipe.title}}</h2>
@@ -11,10 +13,10 @@
 
 	<section>
 		<ul>
-			<li>{{recipe.ingredient}}</li>
+			<li class="ingredients" ng-repeat="ingredient in recipe.ingredients">{{ingredient}}</li>
 		</ul>
 
-		<ul class="follow-us">
+		<ul class="share">
             <li>
                 <a class="icon-pinterest-with-circle" href="http://www.pinterest.com/norarusterholz" target="_blank"></a>
             </li>
@@ -31,11 +33,14 @@
     </section>
 
     <section>
-    	<time>{{recipe.readytime}}</time>
+    	<time ng-repeat="time in recipe.times">
+    	<span>{{time.preptime}}</span>
+    	<span>{{time.cooktime}}</span>
+    	</time>
     	
     	<p>{{recipe.instructions}}</p>
 
-    	<div>{{recipe.rating}}</div>
+    	<div>{{recipe.rating}} Stars</div>
     </section>
 
-</main>
+</main ng-repeat-end>

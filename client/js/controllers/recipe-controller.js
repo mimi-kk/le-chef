@@ -11,10 +11,10 @@
         author: "Ella",
         title: "Polenta",
         lead: "Curry Grilled Vegetables with Chickpeas",
-        readytime: [{
-            preptime: ""
+        times: [{
+            preptime: "0.5"
         }, {
-            cooktime: ""
+            cooktime: "1.0"
         }],
         instructions: "Drain and rinse. Bring to boild and let simmer for 15 minutes",
         keywords: ["Glutenfree", "Healthy", "Corn"],
@@ -39,14 +39,14 @@
                 celsius: ""
             }
         }],
-        rating: [],
+        rating: "4",
         }, {
-        id: "1",
+        id: "2",
         date: "",
         author: "Ella",
         title: "Porridge",
         lead: "Blueberries ‘n’ Cream Amaranth",
-        readytime: [{
+        times: [{
             preptime: ""
         }, {
             cooktime: ""
@@ -76,12 +76,12 @@
         }],
         rating: [],
         }, {
-        id: "1",
+        id: "3",
         date: "",
         author: "Ella",
         title: "Pizza",
         lead: "Baby spinach 'n' red onions",
-        readytime: [{
+        times: [{
             preptime: ""
         }, {
             cooktime: ""
@@ -111,12 +111,12 @@
         }],
         rating: [],
         }, {
-        id: "1",
+        id: "4",
         date: "",
         author: "Ella",
         title: "Carrot Soup",
         lead: "Curry 'n' coconut",
-        readytime: [{
+        times: [{
             preptime: ""
         }, {
             cooktime: ""
@@ -146,12 +146,12 @@
         }],
         rating: [],
         }, {
-        id: "1",
+        id: "5",
         date: "",
         author: "Ella",
         title: "Tacos",
         lead: "Avocado and Microgreens",
-        readytime: [{
+        times: [{
             preptime: ""
         }, {
             cooktime: ""
