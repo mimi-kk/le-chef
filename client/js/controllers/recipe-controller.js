@@ -1,5 +1,7 @@
-var app = angular.module("RecipeController", []);
+app.controller("RecipesController", function($scope) {
+    $scope.recipes = window.FIXTURES;
+});
 
-app.controller("RecipeController", function(){
-    this.recipes = recipes;
+app.controller("RecipeController", function($scope, $location, $routeParams) {
+    $scope.recipe = window.FIXTURES[$routeParams.id];
 });

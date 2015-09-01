@@ -1,7 +1,7 @@
 <section>
     <ul class="recipes">
-        <li ng-repeat="recipe in cookbook.recipes | filter:search" class="recipe">
-        <a ng-href="#/recipe" ng-click="cookbook.recipes($index)">
+        <li ng-repeat="recipe in recipes | filter:search" ng-controller="RecipesController" class="recipe">
+        <a ng-href="#/recipe/{{$index}}">
             <img ng-src="{{recipe.images}}">
             <div class="caption overlay">
                 <h3>

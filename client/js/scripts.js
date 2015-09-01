@@ -1,22 +1,18 @@
-var app = angular.module('leChef', [
-    "ngRoute",
-    "RecipeController",
-    "RecipeIdController"
+var app = angular.module("leChef", [
+    "ngRoute"
 ]);
 
-app.config(["$routeProvider",
-    function($routeProvider){
-        $routeProvider.
-            when("/", {
-                templateUrl: "templates/recipes.html",
-                controller: "RecipeController"
-            }).
-            when("/recipe/:id", {
-                templateUrl: "templates/recipe.html",
-                controller: "RecipeIdController",
-                controllerAs: "idController"
-            }).
-            otherwise({
-                redirectTo: "/"
-            }); 
-}]);
+app.config(function($routeProvider) {
+    $routeProvider.
+    when("/", {
+        templateUrl: "templates/recipes.html",
+        controller: "RecipesController"
+    }).
+    when("/recipe/:id", {
+        templateUrl: "templates/recipe.html",
+        controller: "RecipeController"
+    }).
+    otherwise({
+        redirectTo: "/"
+    });
+});

@@ -1,5 +1,4 @@
-<main ng-repeat="recipe in cookbook.recipes">
-
+<main ng-controller="RecipeController" id="{{recipe.id}}">
 	<img ng-src="{{recipe.images}}">
 
 	<p ng-bind="search"></p>
