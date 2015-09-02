@@ -19,6 +19,7 @@ gulp.task("server", ["sass"], function() {
     });
 
     gulp.watch("client/*.html").on("change", browserSync.reload);
+    gulp.watch("client/templates/*.html").on("change", browserSync.reload);
     gulp.watch("client/styles/*.sass", ["sass"]);
 });
 
