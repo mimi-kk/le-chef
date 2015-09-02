@@ -1,21 +1,28 @@
-<main ng-controller="RecipeController" id="{{recipe.id}}">
+<main id="{{recipe.id}}">
 	<img ng-src="{{recipe.images}}">
 
-	<p ng-bind="search"></p>
+    <section class="headColumn">
+    <p ng-bind="search"></p>
 
-	<ul>
-		<li class="keywords" ng-repeat="keyword in recipe.keywords">{{keyword}}</li>
+    <h2>{{recipe.title}} - </h2>
+    <h3>{{recipe.lead}}</h3>
+
+	<ul class="keywords">
+        <li>Categories: </li>
+		<li ng-repeat="keyword in recipe.keywords">{{keyword}}</li>
 	</ul>
 
-	<h2>{{recipe.title}}</h2>
-	<h3>{{recipe.lead}}</h3>
+	
+    </section>
 
-	<section>
+	<section class="sideColumn">
+    <h4>Ingredients</h4>
 		<ul>
 			<li class="ingredients" ng-repeat="ingredient in recipe.ingredients">{{ingredient}}</li>
 		</ul>
 
 		<ul class="share">
+        <h4>Share this recipe</h4>
             <li>
                 <a class="icon-pinterest-with-circle" href="http://www.pinterest.com/norarusterholz" target="_blank"></a>
             </li>
@@ -31,15 +38,16 @@
         </ul>
     </section>
 
-    <section>
+    <section class="mainColumn">
+    <h4>Time until ready</h4>
     	<time ng-repeat="time in recipe.times">
     	<span>{{time.preptime}}</span>
     	<span>{{time.cooktime}}</span>
     	</time>
-    	
+    	<h4>Instructions</h4>
     	<p>{{recipe.instructions}}</p>
-
+        <h4>Raiting</h4>
     	<div>{{recipe.rating}} Stars</div>
     </section>
 
-</main ng-repeat-end>
+</main>
