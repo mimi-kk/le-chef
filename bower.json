@@ -2,6 +2,7 @@
   "name": "le-chef",
   "dependencies": {
     "angular": "1.4.2",
-    "angular-route": "1.4.4"
+    "angular-route": "1.4.4",
+    "angular-animate": "1.4.5"
   }
 }

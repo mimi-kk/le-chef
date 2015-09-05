@@ -1,5 +1,5 @@
 var app = angular.module("leChef", [
-    "ngRoute"
+    "ngRoute", "ngAnimate"
 ]);
 
 app.config(function($routeProvider) {

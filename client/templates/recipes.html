@@ -2,7 +2,7 @@
     <ul class="recipes">
         <li ng-repeat="recipe in recipes | filter:search" ng-controller="RecipesController" class="recipe">
         <a ng-href="#/recipe/{{$index}}">
-            <img ng-src="{{recipe.images}}">
+            <img ng-src="{{recipe.thumbail}}">
             <div class="caption overlay">
                 <h3>
                     {{recipe.title}}

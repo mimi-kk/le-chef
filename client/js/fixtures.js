@@ -15,12 +15,26 @@ window.FIXTURES = [{
         "Healthy",
         "Corn"
     ],
-    ingredients: [
-        "Polenta",
-        "Milk",
-        "Olive Oil"
+    ingredients: [ 
+        "2 cups water", 
+        "2 cups vegetable broth", 
+        "1/4 teasoon sea salt", 
+        "1 cup polenta",
+        "2 tablespoons butter",
+        "1 medium zucchini",
+        "1 red pepper",
+        "1 tablespoon olive oil",
+        "2 1/2 teaspoons curry powder",
+        "1/2 cup cooked chickpeas",
+        "Feta and cilantro, garnish"
     ],
-    images: "../images/polenta-200x200px.jpg",
+    thumbail: "../images/polenta-200x200px.jpg",
+    slides: [
+        {image: "../images/Polenta-with-Curry-Grilled-Vegetables-1-of-4.jpg", description: 'Image 00'},
+        {image: "../images/Polenta-with-Curry-Grilled-Vegetables-2-of-4.jpg", description: 'Image 01'},
+        {image: "../images/Polenta-with-Curry-Grilled-Vegetables-3-of-4.jpg", description: 'Image 02'},
+        {image: "../images/Polenta-with-Curry-Grilled-Vegetables-4-of-4.jpg", description: 'Image 03'}
+        ],
     videos: [],
     mass: [{
         us: {
@@ -63,7 +77,12 @@ window.FIXTURES = [{
         "Water",
         "Blueberries"
     ],
-    images: "../images/amaranth-200x200px.jpg",
+    thumbail: "../images/amaranth-200x200px.jpg",
+    slides: [
+        {image: "../images/amaranth-porridge-1-of-3.jpg", description: 'Image 00'},
+        {image: "../images/amaranth-porridge-2-of-3.jpg", description: 'Image 01'},
+        {image: "../images/amaranth-porridge-3-of-3.jpg", description: 'Image 02'}
+        ],
     videos: [],
     mass: [{
         us: {
@@ -106,7 +125,12 @@ window.FIXTURES = [{
         "Onions",
         "Flour"
     ],
-    images: "../images/pizza-200x200px.jpg",
+    thumbail: "../images/pizza-200x200px.jpg",
+    slides: [
+        {image: "../images/spinach-pizza-1-of-4.jpg", description: 'Image 00'},
+        {image: "../images/spinach-pizza-2-of-4.jpg", description: 'Image 01'},
+        {image: "../images/spinach-pizza-3-of-4.jpg", description: 'Image 02'}
+        ],
     videos: [],
     mass: [{
         us: {
@@ -149,7 +173,12 @@ window.FIXTURES = [{
         "Water",
         "Coconut milk"
     ],
-    images: "../images/carrot-200x200px.jpg",
+    thumbail: "../images/carrot-200x200px.jpg",
+    slides: [
+        {image: "../images/carrot-soup-1-of-3.jpg", description: 'Image 00'},
+        {image: "../images/carrot-soup-2-of-3.jpg", description: 'Image 01'},
+        {image: "../images/carrot-soup-3-of-3.jpg", description: 'Image 02'}
+        ],
     videos: [],
     mass: [{
         us: {
@@ -192,7 +221,12 @@ window.FIXTURES = [{
         "Greens",
         "Corn meal"
     ],
-    images: "../images/tacos-200x200px.jpg",
+    thumbail: "../images/tacos-200x200px.jpg",
+    slides: [
+        {image: "../images/lentil-tacos-1-of-3.jpg", description: 'Image 00'},
+        {image: "../images/lentil-tacos-2-of-3.jpg", description: 'Image 01'},
+        {image: "../images/lentil-tacos-3-of-3.jpg", description: 'Image 02'}
+        ],
     videos: [],
     mass: [{
         us: {
