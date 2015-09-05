@@ -54,15 +54,37 @@
     </section>
 
     <section class="mainColumn">
-    <h4>Time until ready</h4>
+    <div class="readytime">
+        <h4>Time until ready</h4>
     	<time ng-repeat="time in recipe.times">
     	<span>{{time.preptime}}</span>
     	<span>{{time.cooktime}}</span>
     	</time>
+    </div>
+    <div class="instructions">
     	<h4>Instructions</h4>
     	<p>{{recipe.instructions}}</p>
-        <h4>Raiting</h4>
-    	<div>{{recipe.rating}} Stars</div>
+    </div>
+    <div class="reviews">
+        <h4>Reviews</h4>
+    	<blockquote ng-repeat="review in recipe.reviews"> 
+        <b>Stars: {{review.stars}}</b> {{review.body}} - <cite>by: {{review.author}}</cite>  
+        </blockquote> 
+        <form class="reviewForm">
+        <label>Stars</label>
+        <select ng-model="review.stars">
+        <option value="1">1 star</option> 
+        <option value="2">2 stars</option> 
+        <option value="3">3 stars</option> 
+        <option value="4">4 stars</option> 
+        <option value="5">5 stars</option> 
+        </select>
+        <label>Write a review</label>
+        <textarea ng-model="review.body"></textarea>
+        <label>by:</label>
+        <input ng-model="review.author" type="email" />
+        <input type="submit" value="Submit" />  </form>
+    </div>
     </section>
 
 </main>

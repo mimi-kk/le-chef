@@ -54,7 +54,13 @@ window.FIXTURES = [{
             celsius: ""
         }
     }],
-    rating: "4"
+    reviews: [ { 
+        stars: 5, 
+        body: "I love this product!",  author: "joe@thomas.com" }, 
+        { 
+        stars: 1, 
+        body: "This product sucks",  author: "tim@hater.com" 
+    } ],
 }, {
     id: "1",
     date: "",
@@ -102,7 +108,13 @@ window.FIXTURES = [{
             celsius: ""
         }
     }],
-    rating: "2"
+    reviews: [ { 
+        stars: 5, 
+        body: "I love this product!",  author: "joe@thomas.com" }, 
+        { 
+        stars: 1, 
+        body: "This product sucks",  author: "tim@hater.com" 
+    } ],
 }, {
     id: "2",
     date: "",
@@ -150,7 +162,13 @@ window.FIXTURES = [{
             celsius: ""
         }
     }],
-    rating: "5"
+    reviews: [ { 
+        stars: 5, 
+        body: "I love this product!",  author: "joe@thomas.com" }, 
+        { 
+        stars: 1, 
+        body: "This product sucks",  author: "tim@hater.com" 
+    } ],
 }, {
     id: "3",
     date: "",
@@ -198,7 +216,13 @@ window.FIXTURES = [{
             celsius: ""
         }
     }],
-    rating: "8"
+    reviews: [ { 
+        stars: 5, 
+        body: "I love this product!",  author: "joe@thomas.com" }, 
+        { 
+        stars: 1, 
+        body: "This product sucks",  author: "tim@hater.com" 
+    } ],
 }, {
     id: "4",
     date: "",
@@ -246,5 +270,11 @@ window.FIXTURES = [{
             celsius: ""
         }
     }],
-    rating: "3"
+    reviews: [ { 
+        stars: 5, 
+        body: "I love this product!",  author: "joe@thomas.com" }, 
+        { 
+        stars: 1, 
+        body: "This product sucks",  author: "tim@hater.com" 
+    } ],
 }];
