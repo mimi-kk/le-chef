@@ -1,33 +1,37 @@
-<main id="{{recipe.id}}">
+<main ng-controller= "RecipeController" id="{{recipe.id}}">
     
     <div class="container slider">
         <img ng-repeat="slide in recipe.slides" class="slide" ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()" ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.image}}">
 
-             <a class="arrow prev" href="" ng-click="nextSlide()"></a>
-             <a class="arrow next" href="" ng-click="prevSlide()"></a>
+        <a class="arrow prev" href="" ng-click="nextSlide()"></a>
+        <a class="arrow next" href="" ng-click="prevSlide()"></a>
 
          <nav class="nav">
             <div class="wrapper">
                 <ul class="dots">
-                    <li class="dot" ng-repeat="slide in recipe.slides"> <a href="" ng-class="{'active':isCurrentSlideIndex($index)}" ng-click="setCurrentSlideIndex($index);">{{slide.description}}</a></li>
+                    <li class="dot" ng-repeat="slide in recipe.slides">
+                        <a href="" ng-class="{'active':isCurrentSlideIndex($index)}" ng-click="setCurrentSlideIndex($index);">{{slide.description}}</a>
+                    </li>
                 </ul>
             </div>
         </nav>
-</div>
-
-    <section class="headColumn">
-    <div class="mySearch">
-    <p>My search: </p>
-    <p ng-bind="search"></p>
     </div>
 
-    <h2>{{recipe.title}} - </h2>
-    <h3>{{recipe.lead}}</h3>
+    <section class="headColumn">
+        <div class="mySearch">
+            <span>My search: </span>
+            <span ng-bind="search"></span>
+        </div>
 
-	<ul class="keywords">
-        <li>Categories: </li>
-		<li ng-repeat="keyword in recipe.keywords">{{keyword}}</li>
-	</ul>
+        <h2>
+            {{recipe.title}} -
+            <span>{{recipe.lead}}</span> 
+        </h2>
+
+    	<ul class="keywords">
+            <li>Categories: </li>
+    		<li ng-repeat="keyword in recipe.keywords">{{keyword}}</li>
+    	</ul>
     </section>
 
 	<section class="sideColumn">
@@ -54,37 +58,37 @@
     </section>
 
     <section class="mainColumn">
-    <div class="readytime">
-        <h4>Time until ready</h4>
-    	<time ng-repeat="time in recipe.times">
-    	<span>{{time.preptime}}</span>
-    	<span>{{time.cooktime}}</span>
-    	</time>
-    </div>
-    <div class="instructions">
-    	<h4>Instructions</h4>
-    	<p>{{recipe.instructions}}</p>
-    </div>
-    <div class="reviews">
-        <h4>Reviews</h4>
-    	<blockquote ng-repeat="review in recipe.reviews"> 
-        <b>Stars: {{review.stars}}</b> {{review.body}} - <cite>by: {{review.author}}</cite>  
-        </blockquote> 
-        <form class="reviewForm">
-        <label>Stars</label>
-        <select ng-model="review.stars">
-        <option value="1">1 star</option> 
-        <option value="2">2 stars</option> 
-        <option value="3">3 stars</option> 
-        <option value="4">4 stars</option> 
-        <option value="5">5 stars</option> 
-        </select>
-        <label>Write a review</label>
-        <textarea ng-model="review.body"></textarea>
-        <label>by:</label>
-        <input ng-model="review.author" type="email" />
-        <input type="submit" value="Submit" />  </form>
-    </div>
+        <div class="readytime">
+            <h4>Time until ready</h4>
+        	<time ng-repeat="time in recipe.times">
+        	<span>{{time.preptime}}</span>
+        	<span>{{time.cooktime}}</span>
+        	</time>
+        </div>
+        <div class="instructions">
+        	<h4>Instructions</h4>
+        	<p>{{recipe.instructions}}</p>
+        </div>
+        <div class="reviews">
+            <h4>Reviews</h4>
+        	<blockquote ng-repeat="review in recipe.reviews"> 
+                <b>Stars: {{review.stars}}</b> {{review.body}} - <cite>by: {{review.author}}</cite>  
+            </blockquote> 
+            <form class="reviewForm">
+                <label>Stars</label>
+                    <select ng-model="review.stars">
+                    <option value="1">1 star</option> 
+                    <option value="2">2 stars</option> 
+                    <option value="3">3 stars</option> 
+                    <option value="4">4 stars</option> 
+                    <option value="5">5 stars</option> 
+                </select>
+                <label>Write a review</label>
+                    <textarea ng-model="review.body"></textarea>
+                <label>by:</label>
+                    <input ng-model="review.author" type="email" />
+                <input type="submit" value="Submit" /> 
+            </form>
+        </div>
     </section>
-
 </main>
