@@ -1,6 +1,6 @@
-<main ng-controller= "RecipeController" id="{{recipe.id}}">
+<section ng-controller="RecipeController" id="{{recipe.id}}" class="recipe-description">
     
-    <div class="container slider">
+    <section class="container slider">
         <img ng-repeat="slide in recipe.slides" class="slide" ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()" ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.image}}">
 
         <a class="arrow prev" href="" ng-click="nextSlide()"></a>
@@ -15,7 +15,7 @@
                 </ul>
             </div>
         </nav>
-    </div>
+    </section>
 
     <section class="headColumn">
         <div class="mySearch">
@@ -35,13 +35,13 @@
     </section>
 
 	<section class="sideColumn">
-    <h4>Ingredients</h4>
-		<ul>
+        <h4>Ingredients</h4>
+        <ul>
 			<li class="ingredients" ng-repeat="ingredient in recipe.ingredients">{{ingredient}}</li>
 		</ul>
 
-		<ul class="share">
         <h4>Share this recipe</h4>
+        <ul class="share-this-recipe">
             <li>
                 <a class="icon-pinterest-with-circle" href="http://www.pinterest.com/norarusterholz" target="_blank"></a>
             </li>
@@ -91,4 +91,4 @@
             </form>
         </div>
     </section>
-</main>
+</section>

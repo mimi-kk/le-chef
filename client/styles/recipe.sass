@@ -1,68 +1,66 @@
 @import "mixins"
 
-main
+.recipe-description
 	margin: 0 auto
 	width: 80%
+
 	+flex
 	+flex-direction-row
 	+flex-wrap
 	+justify-content
+
 	align-content: flex-start
     align-items: flex-start
 
-	img
-		order: 1
-
 	h4
-		margin: 10px 0 5px 0
+		margin: 13px 0 4px
+
+	.slider
+		order: 1
+		flex: 1 100%
 
 	.headColumn
 		order: 2
-		width: 100%
-		height: 100px
-		margin-bottom: 15px
+		flex: 1 100%
+		margin-bottom: 13px
 
 		.mySearch
-			margin: 10px 0 10px
+			margin: 13px 0 13px
 
 		h2
 			span
 				font-size: 20px
 
-		.keywords li
-			display: inline
-			margin-right: 5px
-			padding-top: 10px
+		.keywords
+			+flex
+			+flex-direction-row
+
+			li
+				padding-top: 13px
+				padding-right: 4px
 
 	.sideColumn
 		order: 3
-		width: 30%
-		height: 250px
-		flex-shrink: 20%
+		flex: 1 30%
 
-		.ingredients
-			list-style-type: none
+		.share-this-recipe
+			+flex
+			+flex-direction-row
+			
+			li
+				font-size: 24px
+				padding-right: 4px
 
-
-		.share li
-			display: inline
-			font-size: 24px
-
-			a
-				text-decoration: none
-				color: black
-				padding: 0.1em
+				a
+					color: black
 
 	.mainColumn
 		order: 4
-		width: 70%
-		height: 250px
-		flex-shrink: 80%
+		flex: 1 70%
 
 		.reviews
-
 			blockquote
-				margin-bottom: 10px
+				margin-bottom: 13px
 
 			form
 				select
@@ -71,10 +69,10 @@ main
 				textarea
 					display: block
 					width: 80%
-					height: 50px
+					height: 48px
 
 				input
-					margin: 10px 0 10px 0
+					margin: 13px 0
 					width: 40%
 
 				input[type=submit]

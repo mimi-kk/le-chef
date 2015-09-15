@@ -3,6 +3,11 @@
 	display: -webkit-flex
 	display: -moz-flex
 
+@mixin box
+	display: -webkit-box
+	display: -moz-box
+	display: -ms-flexbox
+
 @mixin flex-wrap
 	flex-wrap: wrap
 	-webkit-flex-wrap: wrap
@@ -37,3 +42,18 @@
 	transform: translateY(-80px)
 	-webkit-transform: translateY(-80px)
 	-moz-transform: translateY(-80px)
+
+@mixin box-shadow
+	-webkit-box-shadow: none
+	-moz-box-shadow: none
+	box-shadow: none
+
+@mixin border-radius-50-percent
+	-webkit-border-radius: 50%
+	-moz-border-radius: 50%
+	border-radius: 50%
+
+@mixin transition-25-ms
+	-webkit-transition: background-color 0.25s, border-color 0.25s
+	-moz-transition: background-color 0.25s, border-color 0.25s
+	transition: background-color 0.25s, border-color 0.25s
