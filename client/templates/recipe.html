@@ -60,9 +60,9 @@
     <section class="mainColumn">
         <div class="readytime">
             <h4>Time until ready</h4>
-        	<time ng-repeat="time in recipe.times">
-        	<span>{{time.preptime}}</span>
-        	<span>{{time.cooktime}}</span>
+        	<time>
+        	<span>{{recipe.times[0] + " +"}}</span>
+        	<span>{{recipe.times[1]}}</span>
         	</time>
         </div>
         <div class="instructions">

@@ -4,11 +4,10 @@ window.FIXTURES = [{
     author: "Ella",
     title: "Polenta",
     lead: "Curry Grilled Vegetables with Chickpeas",
-    times: [{
-        preptime: "20"
-    }, {
-        cooktime: "30"
-    }],
+    times: [
+        "20min preptime",
+        "30min cooktime"
+    ],
     instructions: "Bring the water, broth and salt to a boil. Stir in polenta; cook until polenta begins to thicken. Cover and reduce heat to lowest setting. Simmer polenta for 25 to 30 minutes, stirring and scraping the pan bottom and sides every 8 to 10 minutes. Remove from heat and stir in butter. Preheat grill. Slice the zucchini and pepper into strips; toss with oil and curry powder. Grill until zucchini and peppers are slightly charred, 3 to 5 minutes per side. Roughly chop the vegetables and toss them with the chickpeas. Divide polenta among individual serving bowls. Top with grilled vegetables, cilantro and feta.",
     keywords: [
         "Glutenfree",
@@ -70,11 +69,10 @@ window.FIXTURES = [{
     author: "Ella",
     title: "Porridge",
     lead: "Blueberries ‘n’ Cream Amaranth",
-    times: [{
-        preptime: "5"
-    }, {
-        cooktime: "25"
-    }],
+    times: [
+        "5min preptime",
+        "25min cooktime"
+    ],
     instructions: "Soak Amaranth over night (if possible). Drain and rinse amaranth. Combine with one cup water and pinch of salt. Bring amaranth to a boil, and reduce to a simmer (all the way to low.) Cover and let simmer for 15 minutes. Remove from heat and let sit for 10 more minutes to thicken amaranth. In a separate pot add blueberries, maple syrup, and 1 tablespoon of heavy cream. Scrap out vanilla bean and toss both the seeds and the pod into the blueberries. Heat over low until blueberries are heated through (making sure not to boil the heavy cream.) Serve by pouring blueberry liquid in the bottom, followed by amaranth, then top with blueberries.",
     keywords: [
         "Glutenfree",
@@ -130,11 +128,10 @@ window.FIXTURES = [{
     author: "Ella",
     title: "Pizza",
     lead: "Baby spinach 'n' red onions",
-    times: [{
-        preptime: "20"
-    }, {
-        cooktime: "15"
-    }],
+    times: [
+        "20min preptime",
+        "15min cooktime"
+    ],
     instructions: "In a bowl of a stand mixer, combine the water, yeast, and honey- stir with a wooden spoon until yeast is dissolved. Let sit until yeast begins to activate, 5-10 minutes. Once yeast is ready, add in oil, salt, and 1 cup of flour. Turn your mixer on low with the dough hook on and let mix, scrapping down the sides as needed. From here on out, add 2-4 tablespoons of flour at a time, letting the dough mix for a bit until adding more flour. When the dough starts to come together, continue to let the mixer run for 1-2 minutes and adding more flour until your dough has pulled away from the sides of the mixer. Remove from the mixer and place in a warm spot. Brush with oil and let rise for 1 hour. In a small bowl, stir together all ingredients for the ranch dressing except for the buttermilk. Taste and adjust the ranch flavors if need be. Stir in buttermilk, 1 tablespoon at a time, as needed to thin out the ranch if desired. Once your dough has double in size, preheat your oven to 500˚. Return to your dough and punch it down. Let rise for 20 more minutes. Roll the dough out onto a surface covered in cornmeal (I used a large wood cutting board put some of you may have a pizza peel.) Roll it out to the size of your pizza stone. Spread enough ranch over pizza to cover (you may not use all). Cut onion into thin slices and layer over ranch, followed by the spinach. Top pizza with enough cheese to cover most of the spinach. Slide pizza onto stone and let bake until crust and mozzarella is golden brown, 12-15 minutes. Let sit for a few minutes before slicing.",
     keywords: [
         "Pizza",
@@ -193,11 +190,10 @@ window.FIXTURES = [{
     author: "Ella",
     title: "Carrot Soup",
     lead: "Curry 'n' coconut",
-    times: [{
-        preptime: "5"
-    }, {
-        cooktime: "25"
-    }],
+    times: [
+        "5min preptime",
+        "25min cooktime"
+    ],
     instructions: "In a large pot, heat olive oil over medium heat. Finely dice green onions and carrots, throw into pot, and let cook for 3-4 minutes or until carrots begin to soften. Next, add lentils, curry powder, ginger, and chili powder. Stir and let cook until spices become fragrant, 1-2 minutes. Stir in veggie broth and bring to a boil then reduce to a simmer, cooking until lentils are soft, 10-15 minutes. Remove from heat and using either an immersion blender or a regular blender, puree until soup is smooth. Return soup back to stove, stir in coconut milk, and heat soup for another two minutes, tasting and adding spices as you like.",
     keywords: [
         "Glutenfree",
@@ -254,11 +250,10 @@ window.FIXTURES = [{
     author: "Ella",
     title: "Tacos",
     lead: "Avocado and Microgreens",
-    times: [{
-        preptime: "15"
-    }, {
-        cooktime: "20"
-    }],
+    times: [
+        "15min preptime",
+        "20min cooktime"
+    ],
     instructions: "Rinse the lentils. Place them in a sauce pan with the broth, minced chipotle, 1 tablespoon adobo sauce, lime juice, salt, cumin and coriander. Bring to a boil, then reduce to a simmer; cover and cook until lentils are tender but not mushy, 22 to 25 minutes. Taste and add more adobo sauce, if you'd like more heat. Combine the avocado and microgreens. In a small bowl, beat together lime juice, honey and olive oil. Pour over the microgreens and avocado, tossing until greens are coated. Divide the lentil mixture among the tortillas. Top with the avocado salad, crumbled cheese and minced cilantro.",
     keywords: [
         "Glutenfree",
