@@ -10,20 +10,27 @@
 			#search
 				width: 254px
 
-		.recipes
+		main
+				#recipes-overview
 
-			.recipe
-				width: 254px
-				height: 254px
+					.recipes
 
-				.caption
-					opacity: 1
-					+transform-translateY-80px
+						.recipe
+							width: 254px
+							height: 254px
 
-				.overlay
-					position: absolute
-					
-					width: 100%
-					height: 100%
-					
-					background-color: rgba(255, 255, 255, 0.8)
+							.caption
+								opacity: 1
+								+transform-translateY-80px
+
+							.overlay
+								position: absolute
+								
+								width: 100%
+								height: 100%
+								
+								background-color: rgba(255, 255, 255, 0.8)
+		.recipe-description
+		
+			.sideColumn
+				flex: 1 100%
