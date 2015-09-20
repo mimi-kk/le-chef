@@ -31,3 +31,17 @@ app.controller("RecipeController", function($scope, $location, $routeParams) {
         $scope.currentIndex = ($scope.currentIndex > 0) ? --$scope.currentIndex : $scope.recipe.slides.length - 1;
     };
 });
+
+app.controller("EditorController", [ "$scope", function($scope) {
+    $scope.data = {};
+
+    $scope.update = function(recipe) {
+        $scope.data = angular.copy(recipe);
+    };
+
+    $scope.reset = function() {
+        $scope.recipe = angular.copy($scope.data);
+    }
+
+    $scope.reset();
+}]);
