@@ -5,6 +5,13 @@ app.controller("RecipesController", function($scope) {
 app.controller("RecipeController", function($scope, $location, $routeParams) {
     $scope.recipe = window.FIXTURES[$routeParams.id];
 
+    $scope.review = {};
+
+    $scope.addReview = function(recipe) {
+        recipe.reviews.push(this.review);
+        $scope.review = {};
+    };
+
     $scope.direction = 'left';
     $scope.currentIndex = 0;
 
