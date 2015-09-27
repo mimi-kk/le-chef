@@ -1,37 +1,51 @@
-<main ng-controller="EditorController" id="{{recipe.id}}">
+<main>
     <h1>
         Write your recipe!
     </h1>
 
-    <form novalidate class="recipe-form" name="form">
+    <ul>
+        <li ng-repeat="recipe in recipes">
+            {{recipe.title}}
+            {{recipe.keywords}}
+            {{recipe.ingredients}}
+            {{recipe.instructions}}
+        </li>
+    </ul>
+
+    <form novalidate class="recipe-form" name="form" ng-submit="addRecipe()">
         <label for="title">Title</label>
-        <input type="text" ng-model="recipe.title" name="recipeTitle" required="">
+        <input type="text" ng-model="title" name="recipeTitle" required="">
         <div ng-show="form.$submitted || form.recipeTitle.$touched">
              <div ng-show="form.recipeTitle.$error.required">What are you going to cook?</div>
         </div>
         
         <label for="keywords">Keywords</label>
-        <input type="text" type="text" ng-model="recipe.keywords" name="recipeKeywords" required="">
+        <input type="text" type="text" ng-model="keywords" name="recipeKeywords" required="">
         <div ng-show="form.$submitted || form.recipeKeywords.$touched">
              <div ng-show="form.recipeKeywords.$error.required">Add the keywords</div>
         </div>
 
         <label for="ingredients">Ingredients</label>
-        <input type="text" ng-model="recipe.ingredients" name="recipeIngredients" required="">
+        <input type="text" ng-model="ingredients" name="recipeIngredients" required="">
         <div ng-show="form.$submitted || form.recipeIngredients.$touched">
              <div ng-show="form.recipeIngredients.$error.required">Don't forget to write ingredients</div>
         </div>
 
-        <label for="description">Description</label>
-        <input type="text" ng-model="recipe.description" name="recipeDescription" required="">
-        <div ng-show="form.$submitted || form.recipeDescription.$touched">
-             <div ng-show="form.recipeDescription.$error.required">How can I cook without description?</div>
+        <label for="instructions">instructions</label>
+        <input type="text" ng-model="instructions" name="recipeinstructions" required="">
+        <div ng-show="form.$submitted || form.recipeinstructions.$touched">
+             <div ng-show="form.recipeinstructions.$error.required">How can I cook without instructions?</div>
         </div>
     
         <input type="button" ng-click="reset()" value="Reset">
-        <input type="submit" ng-click="update(recipe)" value="Save">
+        <input type="submit" value="Save">
     </form>
-
-    <pre>recipe = {{recipe | json}} </pre>
-    <pre>data = {{data | json}} </pre>
+    
+    <!-- <pre>recipe = {{recipe | json}} </pre>
+    <pre>data = {{data | json}} </pre> -->
+    
+    <!-- <form ng-submit="addRecipe()">
+        <input type="text" ng-model="title">        
+        <input type="submit" value="Add a recipe">        
+    </form> -->
 </main>

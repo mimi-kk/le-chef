@@ -1,6 +1,7 @@
 var app = angular.module("leChef", [
     "ngRoute", 
-    "ngAnimate"
+    "ngAnimate",
+    "firebase"
 ]);
 
 app.config(function($routeProvider) {
@@ -13,10 +14,14 @@ app.config(function($routeProvider) {
         templateUrl: "templates/recipe.html",
         controller: "RecipeController"
     }).
-    when("/editor/:id", {
+    when("/editor/", {
         templateUrl: "templates/editor.html",
-        controller: "EditorController"
+        controller: "AddRecipeController"
     }).
+    // when("/editor/:recipeId", {
+    //     templateUrl: "templates/editor.html",
+    //     controller: "EditRecipeController"
+    // }).
     otherwise({
         redirectTo: "/"
     });
