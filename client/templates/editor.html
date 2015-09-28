@@ -1,4 +1,4 @@
-<main>
+<main id="{{$id}}">
     <h1>
         Write your recipe!
     </h1>
@@ -6,8 +6,8 @@
     <ul>
         <li ng-repeat="recipe in recipes">
             {{recipe.title}}
-            {{recipe.keywords}}
-            {{recipe.ingredients}}
+            {{recipe.lead}}
+            {{recipe.author}}
             {{recipe.instructions}}
         </li>
     </ul>
@@ -18,8 +18,14 @@
         <div ng-show="form.$submitted || form.recipeTitle.$touched">
              <div ng-show="form.recipeTitle.$error.required">What are you going to cook?</div>
         </div>
+
+        <label for="lead">lead</label>
+        <input type="text" ng-model="lead" name="recipeLead" required="">
+        <div ng-show="form.$submitted || form.recipeLead.$touched">
+             <div ng-show="form.recipeTitle.$error.required">What are you going to cook?</div>
+        </div>
         
-        <label for="keywords">Keywords</label>
+        <!-- <label for="keywords">Keywords</label>
         <input type="text" type="text" ng-model="keywords" name="recipeKeywords" required="">
         <div ng-show="form.$submitted || form.recipeKeywords.$touched">
              <div ng-show="form.recipeKeywords.$error.required">Add the keywords</div>
@@ -29,9 +35,15 @@
         <input type="text" ng-model="ingredients" name="recipeIngredients" required="">
         <div ng-show="form.$submitted || form.recipeIngredients.$touched">
              <div ng-show="form.recipeIngredients.$error.required">Don't forget to write ingredients</div>
+        </div> -->
+
+        <label for="author">author</label>
+        <input type="text" ng-model="author" name="recipeAuthor" required="">
+        <div ng-show="form.$submitted || form.recipeAuthor.$touched">
+             <div ng-show="form.recipeAuthor.$error.required">How can I cook without author?</div>
         </div>
 
-        <label for="instructions">instructions</label>
+        <label for="instructions">Instructions</label>
         <input type="text" ng-model="instructions" name="recipeinstructions" required="">
         <div ng-show="form.$submitted || form.recipeinstructions.$touched">
              <div ng-show="form.recipeinstructions.$error.required">How can I cook without instructions?</div>

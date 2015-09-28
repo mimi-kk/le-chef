@@ -1,16 +1,21 @@
 <section id="recipes-overview">
     <ul class="recipes">
-        <li ng-repeat="recipe in recipes | filter:search" ng-controller="RecipesController" id="{{recipe.id}}" class="recipe">
-        <a ng-href="#/recipe/{{recipe.id}}">
-            <img ng-src="{{recipe.thumbail}}">
-            <div class="caption overlay">
-                <h3>
-                    {{recipe.title}}
-                </h3>
-                <p>
-                    {{recipe.lead}}
-                </p>
-            </div></a>
+        <li ng-repeat="recipe in recipes | filter:search" id="{{recipe.$id}}" class="recipe">
+            <a ng-href="#/recipe/{{recipe.$id}}">
+                <img ng-src="{{recipe.thumbail}}">
+                <div class="caption overlay">
+
+                    {{recipe | json}}
+
+                    <h3>
+                        {{recipe["-K-EMzxYbCBs3fzAM6-c"].title}}
+
+                    </h3>
+                    <p>
+                        {{recipe["-K-EMzxYbCBs3fzAM6-c"].lead}}
+                    </p>
+                </div>
+            </a>
         </li>
     </ul>
 </section>

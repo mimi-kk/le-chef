@@ -14,14 +14,14 @@ app.config(function($routeProvider) {
         templateUrl: "templates/recipe.html",
         controller: "RecipeController"
     }).
-    when("/editor/", {
+    when("/editor/:id", {
         templateUrl: "templates/editor.html",
         controller: "AddRecipeController"
     }).
-    // when("/editor/:recipeId", {
-    //     templateUrl: "templates/editor.html",
-    //     controller: "EditRecipeController"
-    // }).
+    when("/editor-edit/", {
+        templateUrl: "templates/editor-edit.html",
+        controller: "EditRecipeController"
+    }).
     otherwise({
         redirectTo: "/"
     });
