@@ -14,7 +14,7 @@ app.config(function($routeProvider) {
         templateUrl: "templates/recipe.html",
         controller: "RecipeController"
     }).
-    when("/editor/:id", {
+    when("/editor/", {
         templateUrl: "templates/editor.html",
         controller: "AddRecipeController"
     }).

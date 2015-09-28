@@ -2,8 +2,9 @@
 //     $scope.recipes = window.FIXTURES;
 // });
 
-app.controller("RecipesController", [ "$scope", "$firebaseArray", function($scope, $firebaseArray) {
-        var ref = new Firebase("https://fiery-inferno-8595.firebaseio.com/");
+app.controller("RecipesController", [ "$scope", "$firebaseArray", 
+    function($scope, $firebaseArray) {
+        var ref = new Firebase("https://fiery-inferno-8595.firebaseio.com/recipes/");
         $scope.recipes = $firebaseArray(ref);
     }
 ]);
@@ -41,8 +42,7 @@ app.controller("RecipeController", function($scope, $location, $routeParams) {
 app.factory("allRecipes", ["$firebaseArray",
   function($firebaseArray) {
     // create a reference to the database location where we will store our data
-    var recipeId = Math.round(Math.random() * 100000000);
-    var ref = new Firebase("https://fiery-inferno-8595.firebaseio.com/" + recipeId);
+    var ref = new Firebase("https://fiery-inferno-8595.firebaseio.com/recipes/");
 
     // this uses AngularFire to create the synchronized array
     return $firebaseArray(ref);
