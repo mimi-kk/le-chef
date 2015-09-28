@@ -9,8 +9,9 @@ app.controller("RecipesController", [ "$scope", "$firebaseArray",
     }
 ]);
 
-app.controller("RecipeController", function($scope, $location, $routeParams) {
-    $scope.recipe = window.FIXTURES[$routeParams.id];
+app.controller("RecipeController", function($scope, $location, $routeParams, $firebaseArray) {
+    $scope.recipes.$loaded().then(function(x) {
+    $scope.recipe = x.$getRecord($routeParams.id);})
 
     $scope.review = {};
 
