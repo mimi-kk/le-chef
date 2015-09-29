@@ -1,6 +1,9 @@
-// app.controller("RecipesController", function($scope) {
-//     $scope.recipes = window.FIXTURES;
-// });
+app.factory("allRecipes", ["$firebaseArray",
+  function($firebaseArray) {
+    var ref = new Firebase("https://fiery-inferno-8595.firebaseio.com/recipes/");
+    return $firebaseArray(ref);
+  }
+]);
 
 app.controller("RecipesController", [ "$scope", "$firebaseArray", 
     function($scope, $firebaseArray) {
@@ -10,8 +13,8 @@ app.controller("RecipesController", [ "$scope", "$firebaseArray",
 ]);
 
 app.controller("RecipeController", function($scope, $location, $routeParams, $firebaseArray) {
-    $scope.recipes.$loaded().then(function(x) {
-    $scope.recipe = x.$getRecord($routeParams.id);})
+    $scope.recipes.$loaded().then(function(recipeid) {
+    $scope.recipe = recipeid.$getRecord($routeParams.id);})
 
     $scope.review = {};
 
@@ -40,35 +43,29 @@ app.controller("RecipeController", function($scope, $location, $routeParams, $fi
     };
 });
 
-app.factory("allRecipes", ["$firebaseArray",
-  function($firebaseArray) {
-    // create a reference to the database location where we will store our data
-    var ref = new Firebase("https://fiery-inferno-8595.firebaseio.com/recipes/");
-
-    // this uses AngularFire to create the synchronized array
-    return $firebaseArray(ref);
-  }
-]);
-
 app.controller("AddRecipeController", ["$scope", "allRecipes",
-  // we pass our new allRecipes factory into the controller
   function($scope, allRecipes) {
-    // we add allRecipes array to the scope to be used in our ng-repeat
     $scope.recipes = allRecipes;
 
-    // a method to create new recipes; called by ng-submit
     $scope.addRecipe = function() {
-      // calling $add on a synchronized array is like Array.push(),
-      // except that it saves the changes to our database!
+
       $scope.recipes.$add({
         title: $scope.title,
         lead: $scope.lead,
-        author: $scope.author,        
+        author: $scope.author,
         instructions: $scope.instructions
       });
 
-      // reset the recipe input
       $scope.recipe = "";
     };
   }
 ]);
+
+app.controller("EditRecipeController", function($scope, $location, $routeParams, $firebaseArray) {
+    $scope.recipes.$loaded().then(function(recipeid) {
+    $scope.recipe = recipeid.$getRecord($routeParams.id);})
+
+    $scope.editRecipe = function(recipe) {
+      $scope.recipes.$save(recipe);
+    }
+  });
