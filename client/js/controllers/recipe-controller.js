@@ -1,4 +1,4 @@
-app.factory("allRecipes", ["$firebaseArray",
+app.factory("createRecipes", ["$firebaseArray",
   function($firebaseArray) {
     var ref = new Firebase("https://fiery-inferno-8595.firebaseio.com/recipes/");
     return $firebaseArray(ref);
@@ -13,8 +13,8 @@ app.controller("RecipesController", [ "$scope", "$firebaseArray",
 ]);
 
 app.controller("RecipeController", function($scope, $location, $routeParams, $firebaseArray) {
-    $scope.recipes.$loaded().then(function(recipeid) {
-    $scope.recipe = recipeid.$getRecord($routeParams.id);})
+    $scope.recipes.$loaded().then(function(payload) {
+    $scope.recipe = payload.$getRecord($routeParams.id);})
 
     $scope.review = {};
 
@@ -43,9 +43,9 @@ app.controller("RecipeController", function($scope, $location, $routeParams, $fi
     };
 });
 
-app.controller("AddRecipeController", ["$scope", "allRecipes",
-  function($scope, allRecipes) {
-    $scope.recipes = allRecipes;
+app.controller("AddRecipeController", ["$scope", "createRecipes",
+  function($scope, createRecipes) {
+    $scope.recipes = createRecipes;
 
     $scope.addRecipe = function() {
 
@@ -56,6 +56,7 @@ app.controller("AddRecipeController", ["$scope", "allRecipes",
         instructions: $scope.instructions
       });
 
+      // reset the recipe input
       $scope.recipe = "";
     };
   }
@@ -63,9 +64,10 @@ app.controller("AddRecipeController", ["$scope", "allRecipes",
 
 app.controller("EditRecipeController", function($scope, $location, $routeParams, $firebaseArray) {
     $scope.recipes.$loaded().then(function(recipeid) {
-    $scope.recipe = recipeid.$getRecord($routeParams.id);})
+      $scope.recipe = recipeid.$getRecord($routeParams.id);
+    })
 
     $scope.editRecipe = function(recipe) {
       $scope.recipes.$save(recipe);
     }
-  });
+});
