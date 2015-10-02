@@ -1,64 +1,68 @@
 <section id="{{recipe.$id}}" class="recipe-description editor">
-    
-    <section class="container slider">
-        <img ng-repeat="slide in recipe.slides" class="slide" ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()" ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.image}}">
 
-        <a class="arrow prev" href="" ng-click="nextSlide()"></a>
-        <a class="arrow next" href="" ng-click="prevSlide()"></a>
+    <form ng-submit="addRecipe()">
+        <section class="container slider">
+            <img ng-repeat="slide in recipe.slides" class="slide" ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()" ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.image}}">
 
-         <nav class="nav">
-            <div class="wrapper">
-                <ul class="dots">
-                    <li class="dot" ng-repeat="slide in recipe.slides">
-                        <a href="" ng-class="{'active':isCurrentSlideIndex($index)}" ng-click="setCurrentSlideIndex($index);">{{slide.description}}</a>
-                    </li>
-                </ul>
+            <a class="arrow prev" href="" ng-click="nextSlide()"></a>
+            <a class="arrow next" href="" ng-click="prevSlide()"></a>
+
+             <nav class="nav">
+                <div class="wrapper">
+                    <ul class="dots">
+                        <li class="dot" ng-repeat="slide in recipe.slides">
+                            <a href="" ng-class="{'active':isCurrentSlideIndex($index)}" ng-click="setCurrentSlideIndex($index);">{{slide.description}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </section>
+
+        <section class="headColumn">
+            <div class="mySearch">
+                <span>My search: </span>
+                <span ng-bind="search.$"></span>
             </div>
-        </nav>
-    </section>
 
-    <section class="headColumn">
-        <div class="mySearch">
-            <span>My search: </span>
-            <span ng-bind="search.$"></span>
-        </div>
+            <h2>
+                <input type="text" ng-model="title" name="recipeTitle" ng-value="recipe.title" required="">-
+                <input type="text" ng-model="lead" name="recipeLead" ng-value="recipe.lead" required="">
+            </h2>
 
-        <h2>
-            <input type="text" ng-model="title" name="recipeTitle" ng-value="recipe.title" required="">-
-            <input type="text" ng-model="lead" name="recipeLead" ng-value="recipe.lead" required="">
-        </h2>
+            <ul class="keywords">
+                <li><label></label>Categories: </li>
+                <li>
+                    <input ng-repea="keyword" type="text" ng-model="keyword" name="recipeKeyword" ng-value="recipe.keyword" required="">
+                </li>
+            </ul>
+        </section>
 
-        <ul class="keywords">
-            <li>Categories: </li>
-            <li ng-repeat="keyword in recipe.keywords">
-                <input type="text" ng-model="lead" name="recipeLead" ng-value="recipe.keyword" required="">
-            </li>
-        </ul>
-    </section>
+        <section class="sideColumn">
+            <h4>Ingredients</h4>
+            <ul>
+                <li class="ingredients">
+                    <input type="text" ng-model="ingredient" name="recipeIngredient" ng-value="recipe.ingredient" required="">
+                </li>
+            </ul>
+        </section>
 
-    <section class="sideColumn">
-        <h4>Ingredients</h4>
-        <ul>
-            <li class="ingredients" ng-repeat="ingredient in recipe.ingredients">
-                <input type="text" ng-model="ingredient" name="recipeLead" ng-value="recipe.ingredient" required="">
-            </li>
-        </ul>
-    </section>
+        <section class="mainColumn">
+            <!-- <div class="readytime">
+                <h4>Time until ready</h4>
+                <time>
+                    <input type="text" ng-model="time" name="recipeLead" ng-value="recipe.time[0]" required="">
+                    +
+                    <input type="text" ng-model="time" name="recipeLead" ng-value="recipe.time[1]" required="">
+                </time>
+            </div> -->
+            <div class="instructions">
+                <h4>Instructions</h4>
+                <p>
+                    <input type="text" ng-model="instructions" name="recipeInstructions" ng-value="recipe.instructions" required="">
+                </p>
+            </div>
+        </section>
 
-    <section class="mainColumn">
-        <div class="readytime">
-            <h4>Time until ready</h4>
-            <time>
-                <input type="text" ng-model="time" name="recipeLead" ng-value="recipe.time[0]" required="">
-                +
-                <input type="text" ng-model="time" name="recipeLead" ng-value="recipe.time[1]" required="">
-            </time>
-        </div>
-        <div class="instructions">
-            <h4>Instructions</h4>
-            <p>
-                <input type="text" ng-model="instructions" name="recipeinstructions" ng-value="recipe.instructions" required="">
-            </p>
-        </div>
-    </section>
+        <button type="submit">Save the Recipe</button>
+    </form>
 </section>

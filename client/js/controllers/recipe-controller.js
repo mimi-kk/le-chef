@@ -1,8 +1,17 @@
+/*Do not delete yet to test*/
+// app.controller("RecipesController", function($scope) {
+//     $scope.recipes = window.FIXTURES;
+// });
+
+// app.controller("RecipeController", function($scope, $location, $routeParams) {
+//     $scope.recipe = window.FIXTURES[$routeParams.id];
+// });
+
 app.factory("createRecipes", ["$firebaseArray",
-  function($firebaseArray) {
-    var ref = new Firebase("https://fiery-inferno-8595.firebaseio.com/recipes/");
-    return $firebaseArray(ref);
-  }
+   function($firebaseArray) {
+     var ref = new Firebase("https://fiery-inferno-8595.firebaseio.com/recipes/");
+     return $firebaseArray(ref);
+   }
 ]);
 
 app.controller("RecipesController", [ "$scope", "$firebaseArray", 
@@ -48,14 +57,16 @@ app.controller("AddRecipeController", ["$scope", "createRecipes",
     $scope.recipes = createRecipes;
 
     $scope.addRecipe = function() {
-
       $scope.recipes.$add({
         title: $scope.title,
         lead: $scope.lead,
-        author: $scope.author,
+        keyword: $scope.keyword,
+        ingredient: $scope.ingredient,
         instructions: $scope.instructions
       });
-
+        
+      alert("Your recipe has been succefully saved!")
+      
       // reset the recipe input
       $scope.recipe = "";
     };
