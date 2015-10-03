@@ -58,12 +58,28 @@
     </section>
 
     <section class="mainColumn">
-        <div class="readytime">
             <h4>Time until ready</h4>
-        	<time>
-        	<span>{{recipe.times[0] + " +"}}</span>
-        	<span>{{recipe.times[1]}}</span>
-        	</time>
+            
+            <ul>
+                <li>
+                     <span>Preperation Time: </span>
+                    {{recipe.preptime}}
+                </li>
+                <li>
+                    <span>+</span>
+                </li>
+                <li>
+                     <span>Cooking Time: </span>
+                    {{recipe.cookingtime}}
+                </li>
+            </ul>
+
+            <!--
+            Commented out in case to use ng-repeat
+            <ul class="readytime">
+                <li ng-repeat="time in recipe.times">{{time}}</li>
+        	</ul>
+            -->
         </div>
         <div class="instructions">
         	<h4>Instructions</h4>

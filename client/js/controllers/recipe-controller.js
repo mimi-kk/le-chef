@@ -60,8 +60,10 @@ app.controller("AddRecipeController", ["$scope", "createRecipes",
       $scope.recipes.$add({
         title: $scope.title,
         lead: $scope.lead,
-        keyword: $scope.keyword,
-        ingredient: $scope.ingredient,
+        preptime: $scope.preptime,
+        cookingtime: $scope.cookingtime,
+        keywords: $scope.keywords,
+        ingredients: $scope.ingredients,
         instructions: $scope.instructions
       });
         
@@ -70,7 +72,28 @@ app.controller("AddRecipeController", ["$scope", "createRecipes",
       // reset the recipe input
       $scope.recipe = "";
     };
-  }
+
+    $scope.keywords = [];
+    $scope.ingredients = [];
+
+        $scope.addKeyword = function() {
+          $scope.keywords.push("");
+        };
+        
+        $scope.addIngredient = function() {
+          $scope.ingredients.push("");
+        };
+
+        $scope.removeKeyword = function() {
+          var lastKeyword = $scope.keywords.length-1;
+          $scope.keywords.splice(lastKeyword);
+        };
+
+        $scope.removeIngredient = function() {
+          var lastIngredient = $scope.keywords.length-1;
+          $scope.ingredients.splice(lastIngredient);
+        };
+      }
 ]);
 
 app.controller("EditRecipeController", function($scope, $location, $routeParams, $firebaseArray) {
