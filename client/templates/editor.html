@@ -25,14 +25,14 @@
             </div>
 
             <h2>
-                <input type="text" ng-model="title" name="recipeTitle" ng-value="recipe.title">-
-                <input type="text" ng-model="lead" name="recipeLead" ng-value="recipe.lead">
+                <input type="text" ng-model="recipe.title" name="recipeTitle" ng-value="recipe.title">-
+                <input type="text" ng-model="recipe.lead" name="recipeLead" ng-value="recipe.lead">
             </h2>
 
-            <ul class="keywords">
+            <!-- <ul class="keywords">
                 <li><label></label>Categories: </li>
-                <li ng-repeat="keyword in keywords track by $index">
-                    <input type="text" ng-model="keywords[$index]" name="recipeKeyword" ng-value="recipe.keywords" placeholder="Add a keyword">
+                <li ng-repeat="keyword in recipe.keyword track by $index">
+                    <input type="text" ng-model="recipe.keyword[$index]" name="recipeKeyword" ng-value="recipe.keyword" placeholder="Add a keyword">
                     
                     <button class="remove-field" ng-show="$last" ng-click="removeKeyword()">-</button>
                 </li>
@@ -45,13 +45,13 @@
             <h4>Ingredients</h4>
             <ul class="ingredients">
                 <li ng-repeat="ingredient in ingredients track by $index">
-                    <input type="text" ng-model="ingredients[$index]" name="recipeIngredient" ng-value="recipe.ingredients" placeholder="Add an ingredient">
+                    <input type="text" ng-model="recipe.ingredients[$index]" name="recipeIngredient" ng-value="recipe.ingredients" placeholder="Add an ingredient">
                     <button class="remove-field" ng-show="$last" ng-click="removeIngredient()">-</button>
                 </li>
                 
                 <button class="add-field" ng-click="addIngredient()">+</button>
             </ul>
-        </section>
+        </section> -->
 
         <section class="mainColumn">
             <div class="readytime">
@@ -59,22 +59,22 @@
                 <ul>
                     <li>
                         <span>Preperation Time: </span>
-                        <input type="text" ng-model="preptime" name="recipePreptime" ng-value="recipe.preptime" placeholder="Add preperation Time">
+                        <input type="text" ng-model="recipe.preptime" name="recipePreptime" ng-value="recipe.preptime" placeholder="Add preperation Time">
                     </li>
                     <li>
                         <span>Cooking Time: </span>
-                        <input type="text" ng-model="cookingtime" name="recipeCookingtime" ng-value="recipe.cookingtime" placeholder="Add cooking Time">
+                        <input type="text" ng-model="recipe.cookingtime" name="recipeCookingtime" ng-value="recipe.cookingtime" placeholder="Add cooking Time">
                     </li>
                 </ul>
             </div>
             <div class="instructions">
                 <h4>Instructions</h4>
                 <!--TO DO: This input should work like textarea -->
-                <input type="text" ng-model="instructions" name="recipeInstructions" ng-value="recipe.instructions">
+                <input type="text" ng-model="recipe.instructions" name="recipeInstructions" ng-value="recipe.instructions">
             </div>
         </section>
 
-        <button ng-click="addRecipe()" ng-hide="recipe" type="submit">Save the Recipe</button>
-        <button ng-click="editRecipe()" type="submit" ng-show="recipe">Update the Recipe</button>
+        <button ng-click="addRecipe()" ng-hide="recipe.$id" type="submit">Save the Recipe</button>
+        <button ng-click="editRecipe()" type="submit" ng-show="recipe.$id">Update the Recipe</button>
     </form>
 </section>

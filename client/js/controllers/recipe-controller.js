@@ -58,13 +58,13 @@ app.controller("AddRecipeController", ["$scope", "createRecipes",
 
     $scope.addRecipe = function() {
       $scope.recipes.$add({
-        title: $scope.title,
-        lead: $scope.lead,
-        preptime: $scope.preptime,
-        cookingtime: $scope.cookingtime,
-        keywords: $scope.keywords,
-        ingredients: $scope.ingredients,
-        instructions: $scope.instructions
+        title: $scope.recipe.title,
+        lead: $scope.recipe.lead,
+        preptime: $scope.recipe.preptime,
+        cookingtime: $scope.recipe.cookingtime,
+        // keywords: $scope.keywords,
+        // ingredients: $scope.ingredients,
+        instructions: $scope.recipe.instructions
       });
         
       alert("Your recipe has been succefully saved!")
@@ -101,7 +101,10 @@ app.controller("EditRecipeController", function($scope, $location, $routeParams,
       $scope.recipe = recipeid.$getRecord($routeParams.id);
     })
 
-    $scope.editRecipe = function(recipe) {
-      $scope.recipes.$save(recipe);
-    }
+    $scope.editRecipe = function(){
+    $scope.recipes.$save($scope.recipe).then(function(){
+      console.log($scope.recipe);
+    });
+    alert("Your recipe has been succefully updated!")
+}
 });
