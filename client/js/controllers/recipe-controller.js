@@ -21,44 +21,46 @@ app.controller("RecipesController", ["$scope", "$firebaseArray",
   }
 ]);
 
-app.controller("RecipeController", function($scope, $location, $routeParams, $firebaseArray) {
-  $scope.recipes.$loaded().then(function(payload) {
-    $scope.recipe = payload.$getRecord($routeParams.id);
-  })
+app.controller("RecipeController", ["$scope", "$location", "$routeParams", "$firebaseArray",
+  function($scope, $location, $routeParams, $firebaseArray) {
+      $scope.recipes.$loaded().then(function(payload) {
+      $scope.recipe = payload.$getRecord($routeParams.id);
+    });
 
-  $scope.review = {};
-
-  $scope.addReview = function(recipe) {
-    recipe.reviews.push(this.review);
     $scope.review = {};
-  };
 
-  $scope.direction = 'left';
-  $scope.currentIndex = 0;
+    $scope.addReview = function(recipe) {
+      recipe.reviews.push(this.review);
+      $scope.review = {};
+    };
 
-  $scope.setCurrentSlideIndex = function (index) {
-    $scope.currentIndex = index;
-  };
+    $scope.direction = 'left';
+    $scope.currentIndex = 0;
 
-  $scope.isCurrentSlideIndex = function (index) {
-    return $scope.currentIndex === index;
-  };
+    $scope.setCurrentSlideIndex = function (index) {
+      $scope.currentIndex = index;
+    };
 
-  $scope.prevSlide = function () {
-    $scope.currentIndex = ($scope.currentIndex < $scope.recipe.slides.length - 1) ? ++$scope.currentIndex : 0;
-  };
+    $scope.isCurrentSlideIndex = function (index) {
+      return $scope.currentIndex === index;
+    };
 
-  $scope.nextSlide = function () {
-    $scope.currentIndex = ($scope.currentIndex > 0) ? --$scope.currentIndex : $scope.recipe.slides.length - 1;
-  };
+    $scope.prevSlide = function () {
+      $scope.currentIndex = ($scope.currentIndex < $scope.recipe.slides.length - 1) ? ++$scope.currentIndex : 0;
+    };
 
-  $scope.goToEditor = function () {
-    $location.path("/editor/" + $scope.recipe.$id);
-  };
-});
+    $scope.nextSlide = function () {
+      $scope.currentIndex = ($scope.currentIndex > 0) ? --$scope.currentIndex : $scope.recipe.slides.length - 1;
+    };
 
-app.controller("AddRecipeController", ["$scope", "createRecipes",
-  function($scope, createRecipes) {
+    $scope.goToEditor = function () {
+      $location.path("/editor/" + $scope.recipe.$id);
+    };
+  }
+]);
+
+app.controller("AddRecipeController", ["$scope", "createRecipes", "$location",
+  function($scope, createRecipes, $location) {
     $scope.initRecipe = function() {
       // Initialize new recipe (with default values)
       $scope.recipe = {
@@ -76,7 +78,8 @@ app.controller("AddRecipeController", ["$scope", "createRecipes",
       $scope.recipes = createRecipes;
 
       $scope.recipes.$add($scope.recipe).then(function() {
-        alert("Your recipe has been succefully saved!")
+        alert("Your recipe has been succefully saved!");
+        $location.path("/");
       });
       
       // reset the recipe input
@@ -105,38 +108,42 @@ app.controller("AddRecipeController", ["$scope", "createRecipes",
   }
 ]);
 
-app.controller("EditRecipeController", function($scope, $location, $routeParams, $firebaseArray) {
-  $scope.recipes.$loaded().then(function(recipeid) {
-    $scope.recipe = recipeid.$getRecord($routeParams.id);
-  })
-
-  $scope.addKeyword = function() {
-    $scope.recipe.keywords.push("");
-  };
-  
-  $scope.addIngredient = function() {
-    $scope.recipe.ingredients.push("");
-  };
-
-  $scope.removeKeyword = function() {
-    var lastKeyword = $scope.recipe.keywords.length-1;
-    $scope.recipe.keywords.splice(lastKeyword);
-  };
-
-  $scope.removeIngredient = function() {
-    var lastIngredient = $scope.recipe.ingredients.length-1;
-    $scope.recipe.ingredients.splice(lastIngredient);
-  };
-
-  $scope.editRecipe = function(){
-    $scope.recipes.$save($scope.recipe).then(function(){
-    alert("Your recipe has been succefully updated!")
+app.controller("EditRecipeController", ["$scope", "$location", "$routeParams", "$firebaseArray",
+  function($scope, $location, $routeParams, $firebaseArray) {
+    $scope.recipes.$loaded().then(function(recipeid) {
+      $scope.recipe = recipeid.$getRecord($routeParams.id);
     });
-  }
 
-  $scope.deleteRecipe = function(){
-    $scope.recipes.$remove($scope.recipe).then(function(){
-    alert("Your recipe has been succefully deleted!")
-    });
+    $scope.addKeyword = function() {
+      $scope.recipe.keywords.push("");
+    };
+    
+    $scope.addIngredient = function() {
+      $scope.recipe.ingredients.push("");
+    };
+
+    $scope.removeKeyword = function() {
+      var lastKeyword = $scope.recipe.keywords.length-1;
+      $scope.recipe.keywords.splice(lastKeyword);
+    };
+
+    $scope.removeIngredient = function() {
+      var lastIngredient = $scope.recipe.ingredients.length-1;
+      $scope.recipe.ingredients.splice(lastIngredient);
+    };
+
+    $scope.editRecipe = function(){
+      $scope.recipes.$save($scope.recipe).then(function(){
+        alert("Your recipe has been succefully updated!");
+        $location.path("/recipe/" + $scope.recipe.$id);
+      });
+    };
+
+    $scope.deleteRecipe = function(){
+      $scope.recipes.$remove($scope.recipe).then(function(){
+        alert("Your recipe has been succefully deleted!");
+        $location.path("/");
+      });
+    };
   }
-});
+]);
