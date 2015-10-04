@@ -92,13 +92,13 @@ app.controller("AddRecipeController", ["$scope", "createRecipes",
     };
 
     $scope.removeKeyword = function() {
-      var lastKeyword = $scope.keywords.length-1;
-      $scope.keywords.splice(lastKeyword);
+      var lastKeyword = $scope.recipe.keywords.length-1;
+      $scope.recipe.keywords.splice(lastKeyword);
     };
 
     $scope.removeIngredient = function() {
-      var lastIngredient = $scope.ingredients.length-1;
-      $scope.ingredients.splice(lastIngredient);
+      var lastIngredient = $scope.recipe.ingredients.length-1;
+      $scope.recipe.ingredients.splice(lastIngredient);
     };
 
     $scope.initRecipe();
@@ -109,6 +109,24 @@ app.controller("EditRecipeController", function($scope, $location, $routeParams,
   $scope.recipes.$loaded().then(function(recipeid) {
     $scope.recipe = recipeid.$getRecord($routeParams.id);
   })
+
+  $scope.addKeyword = function() {
+    $scope.recipe.keywords.push("");
+  };
+  
+  $scope.addIngredient = function() {
+    $scope.recipe.ingredients.push("");
+  };
+
+  $scope.removeKeyword = function() {
+    var lastKeyword = $scope.recipe.keywords.length-1;
+    $scope.recipe.keywords.splice(lastKeyword);
+  };
+
+  $scope.removeIngredient = function() {
+    var lastIngredient = $scope.recipe.ingredients.length-1;
+    $scope.recipe.ingredients.splice(lastIngredient);
+  };
 
   $scope.editRecipe = function(){
     $scope.recipes.$save($scope.recipe).then(function(){
