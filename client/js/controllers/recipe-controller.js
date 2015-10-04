@@ -111,4 +111,11 @@ app.controller("EditRecipeController", function($scope, $location, $routeParams,
     });
     alert("Your recipe has been succefully updated!")
 }
+
+  $scope.deleteRecipe = function(){
+    $scope.recipes.$remove($scope.recipe).then(function(){
+      console.log($scope.recipe);
+    });
+    alert("Your recipe has been succefully deleted!")
+  }
 });
