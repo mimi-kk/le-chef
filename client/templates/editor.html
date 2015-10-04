@@ -1,5 +1,4 @@
 <section id="{{recipe.$id}}" class="recipe-description editor">
-
     <form>
         <section class="container slider">
             <img ng-repeat="slide in recipe.slides" class="slide" ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()" ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.image}}">
@@ -29,10 +28,12 @@
                 <input type="text" ng-model="recipe.lead" name="recipeLead" ng-value="recipe.lead">
             </h2>
 
-            <!-- <ul class="keywords">
-                <li><label></label>Categories: </li>
-                <li ng-repeat="keyword in recipe.keyword track by $index">
-                    <input type="text" ng-model="recipe.keyword[$index]" name="recipeKeyword" ng-value="recipe.keyword" placeholder="Add a keyword">
+            <h4>
+                Categories: 
+            </h4>
+            <ul class="keywords">
+                <li ng-repeat="keyword in recipe.keywords track by $index">
+                    <input type="text" ng-model="recipe.keywords[$index]" name="recipeKeyword" ng-value="keyword" placeholder="Add a keyword">
                     
                     <button class="remove-field" ng-show="$last" ng-click="removeKeyword()">-</button>
                 </li>
@@ -42,16 +43,16 @@
         </section>
 
         <section class="sideColumn">
-            <h4>Ingredients</h4>
+            <h4>Ingredients: </h4>
             <ul class="ingredients">
-                <li ng-repeat="ingredient in ingredients track by $index">
-                    <input type="text" ng-model="recipe.ingredients[$index]" name="recipeIngredient" ng-value="recipe.ingredients" placeholder="Add an ingredient">
+                <li ng-repeat="ingredient in recipe.ingredients track by $index">
+                    <input type="text" ng-model="recipe.ingredients[$index]" name="recipeIngredient" ng-value="ingredient" placeholder="Add an ingredient">
                     <button class="remove-field" ng-show="$last" ng-click="removeIngredient()">-</button>
                 </li>
                 
                 <button class="add-field" ng-click="addIngredient()">+</button>
             </ul>
-        </section> -->
+        </section>
 
         <section class="mainColumn">
             <div class="readytime">
@@ -76,6 +77,6 @@
 
         <button ng-click="addRecipe()" ng-hide="recipe.$id" type="submit">Save the Recipe</button>
         <button ng-click="editRecipe()" type="submit" ng-show="recipe.$id">Update the Recipe</button>
-        <button ng-click="deleteRecipe()"type="submit" ng-show="recipe.$id">Delete Recipe</button>
+        <button ng-click="deleteRecipe()" type="submit" ng-show="recipe.$id">Delete Recipe</button>
     </form>
 </section>
