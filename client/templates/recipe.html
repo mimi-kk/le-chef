@@ -103,8 +103,9 @@
                     <textarea ng-model="review.body"></textarea>
                 <label>by:</label>
                     <input ng-model="review.author" type="email" />
-                <input type="submit" value="Submit" /> 
+                <button type="submit" value="Submit">Add Review</button>
             </form>
+            <button type="submit" ng-click="goToEditor()">Change Recipe</button>
         </div>
     </section>
 </section>

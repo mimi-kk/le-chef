@@ -50,6 +50,10 @@ app.controller("RecipeController", function($scope, $location, $routeParams, $fi
     $scope.nextSlide = function () {
         $scope.currentIndex = ($scope.currentIndex > 0) ? --$scope.currentIndex : $scope.recipe.slides.length - 1;
     };
+
+    $scope.goToEditor = function () {
+      $location.path("/editor/" + $scope.recipe.$id);
+};
 });
 
 app.controller("AddRecipeController", ["$scope", "createRecipes",
