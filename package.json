@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "angular-socialshare": "0.1.14",
     "angularfire": "1.1.2",
     "browser-sync": "2.7.13",
     "firebase": "2.3.0",
