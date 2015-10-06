@@ -87,25 +87,32 @@
         </div>
         <div class="reviews">
             <h4>Reviews</h4>
-        	<blockquote ng-repeat="review in recipe.reviews"> 
-                <b>Stars: {{review.stars}}</b>  {{review.body}} - <cite>by: {{review.author}}</cite>  
-            </blockquote> 
-            <form class="reviewForm" ng-submit="addReview(recipe)">
+        	<div ng-repeat="review in recipe.reviews track by $index"> 
+                <span ng-model="recipe.review.stars[$index]">Stars:  {{review.stars}}</span>
+                <span ng-model="recipe.review.body[$index]">{{review.body}} -</span>
+                <author ng-model="recipe.review.author[$index]">by: {{review.author}}</author>  
+            </div> 
+
+            <form class="reviewForm">
                 <label>Stars</label>
-                    <select ng-model="review.stars">
+                <select ng-model="recipe.review.stars">
                     <option value="1">1 star</option> 
                     <option value="2">2 stars</option> 
                     <option value="3">3 stars</option> 
                     <option value="4">4 stars</option> 
                     <option value="5">5 stars</option> 
                 </select>
+
                 <label>Write a review</label>
-                    <textarea ng-model="review.body"></textarea>
+                <textarea ng-model="recipe.review.body"></textarea>
+                
                 <label>by:</label>
-                    <input ng-model="review.author" type="email" />
-                <button type="submit" value="Submit">Add Review</button>
+                <input ng-model="recipe.review.author" type="email">
+                
+                <button ng-click="addReview()">ClickAdd Review</button>
             </form>
-            <button type="submit" ng-click="goToEditor()">Change Recipe</button>
+            
+            <button ng-click="goToEditor()">Change Recipe</button>
         </div>
     </section>
 </section>

@@ -23,16 +23,22 @@ app.controller("RecipesController", ["$scope", "$firebaseArray",
 
 app.controller("RecipeController", ["$scope", "$location", "$routeParams", "$firebaseArray",
   function($scope, $location, $routeParams, $firebaseArray) {
-      $scope.recipes.$loaded().then(function(payload) {
-      $scope.recipe = payload.$getRecord($routeParams.id);
-    });
-
-    $scope.review = {};
-
-    $scope.addReview = function(recipe) {
-      recipe.reviews.push(this.review);
-      $scope.review = {};
+    $scope.addReview = function() {
+      $scope.recipe.reviews.push($scope.recipe.review);
+      $scope.recipes.$save($scope.recipe).then(function(){
+        alert("Your recipe has been succefully updated!");
+        $location.path("/recipe/" + $scope.recipe.$id);
+      });
+      $scope.recipe.review = {};
     };
+
+    $scope.recipes.$loaded().then(function(payload) {
+      $scope.recipe = payload.$getRecord($routeParams.id);
+
+      if (typeof $scope.recipe.reviews === "undefined") {
+        $scope.recipe.reviews = [{}];
+      }
+    });
 
     $scope.direction = 'left';
     $scope.currentIndex = 0;
