@@ -87,7 +87,7 @@
         </div>
         <div class="reviews">
             <h4>Reviews</h4>
-        	<div ng-repeat="review in recipe.reviews track by $index"> 
+        	<div ng-repeat="review in recipe.reviews track by $index" ng-show="recipe.reviews.length > 1"> 
                 <span ng-model="recipe.review.stars[$index]">Stars:  {{review.stars}}</span>
                 <span ng-model="recipe.review.body[$index]">{{review.body}} -</span>
                 <author ng-model="recipe.review.author[$index]">by: {{review.author}}</author>  
