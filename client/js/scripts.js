@@ -2,7 +2,8 @@ var app = angular.module("leChef", [
     "ngRoute", 
     "ngAnimate",
     "firebase",
-    "720kb.socialshare"
+    "720kb.socialshare",
+    "flow"
 ]);
 
 app.config(function($routeProvider) {

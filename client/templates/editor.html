@@ -17,12 +17,35 @@
             </nav>
         </section>
 
-        <section class="headColumn">
-            <div class="mySearch">
-                <span>My search: </span>
-                <span ng-bind="search.$"></span>
-            </div>
+        <section>
+            <div flow-init flow-files-submitted="$flow.upload()" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
+                <div class="drop" flow-drop ng-class="dropClass">
+                    <span class="btn btn-default" flow-btn>
+                        Upload Image
+                    </span>
+                    <span class="btn btn-default" flow-btn>
+                        Upload Image
+                    </span>
+                    
+                    <b>OR</b>
+                    <span>Drag And Drop your images here</span>
+                </div>
 
+                <br>
+                
+                
+                <div class="clear" ng-repeat="file in $flow.files track by $index">
+                    <td>{{$index+1}}</td>
+                    <td>{{file.name}}</td>
+                    <div class="thumbnail" style="width: 100px; height: 100px;" ng-show="$flow.files.length">
+                        <img flow-img="$flow.files[$index]" style="width: 100px; height: 100px;" />
+                    </div>
+                </div>        
+            </div>
+        </section>
+
+
+        <section class="headColumn">
             <h2>
                 <input type="text" ng-model="recipe.title" name="recipeTitle" ng-value="recipe.title">-
                 <input type="text" ng-model="recipe.lead" name="recipeLead" ng-value="recipe.lead">

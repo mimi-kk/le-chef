@@ -6,7 +6,6 @@
 // app.controller("RecipeController", function($scope, $location, $routeParams) {
 //     $scope.recipe = window.FIXTURES[$routeParams.id];
 // });
-
 app.factory("createRecipes", ["$firebaseArray",
   function($firebaseArray) {
     var ref = new Firebase("https://fiery-inferno-8595.firebaseio.com/recipes/");
@@ -76,7 +75,9 @@ app.controller("AddRecipeController", ["$scope", "createRecipes", "$location",
         cookingtime: "",
         instructions: "",
         ingredients: [],
-        keywords: []
+        keywords: [],
+        thumbnail: "",
+        slides: []
       };
     };
 
