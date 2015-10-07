@@ -25,11 +25,11 @@ app.controller("RecipeController", ["$scope", "$location", "$routeParams", "$fir
   function($scope, $location, $routeParams, $firebaseArray) {
     $scope.addReview = function() {
       $scope.recipe.reviews.push($scope.recipe.review);
+      $scope.recipe.review = {};
       $scope.recipes.$save($scope.recipe).then(function(){
         alert("Your recipe has been succefully updated!");
         $location.path("/recipe/" + $scope.recipe.$id);
       });
-      $scope.recipe.review = {};
     };
 
     $scope.recipes.$loaded().then(function(payload) {
