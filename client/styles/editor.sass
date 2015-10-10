@@ -1,10 +1,13 @@
 .editor
-    .recipe-form 
-        input.ng-invalid.ng-touched
-            background-color: #FA787E
+    .recipeForm 
+        input.ng-invalid.ng-dirty.ng-invalid-required
+            border-color: #D90048
 
-        input.ng-valid.ng-touched
-            background-color: #78FA89
+        input.ng-invalid-required
+        	border-color: #D90048
+
+        input.ng-valid.ng-dirty
+            border-color: #C8DBBF
 
     *
         font-size: 30px
