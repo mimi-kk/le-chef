@@ -93,9 +93,9 @@
                 <author ng-model="recipe.review.author[$index]">by: {{review.author}} created on {{review.createdOn | date}}</author>  
             </div> 
 
-            <form class="reviewForm">
+            <form class="reviewForm" novalidate>
                 <label>Stars</label>
-                <select ng-model="recipe.review.stars">
+                <select ng-model="recipe.review.stars" required>
                     <option value="1">1 star</option> 
                     <option value="2">2 stars</option> 
                     <option value="3">3 stars</option> 
@@ -104,12 +104,12 @@
                 </select>
 
                 <label>Write a review</label>
-                <textarea ng-model="recipe.review.body"></textarea>
+                <textarea ng-model="recipe.review.body" required></textarea>
                 
                 <label>by:</label>
-                <input ng-model="recipe.review.author" type="email">
+                <input ng-model="recipe.review.author" type="email" required>
                 
-                <button ng-click="addReview()">ClickAdd Review</button>
+                <button ng-click="reviewForm.$valid && addReview()">ClickAdd Review</button>
             </form>
             
             <button ng-click="goToEditor()">Change Recipe</button>
