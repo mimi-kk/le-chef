@@ -1,7 +1,7 @@
 <section id="{{recipe.$id}}" class="recipe-description">
     
     <section class="container slider">
-        <img ng-repeat="slide in recipe.slides" class="slide" ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()" ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.image}}">
+        <img ng-repeat="slide in recipe.slides" class="slide" ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()" ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide}}">
 
         <a class="arrow prev" href="" ng-click="nextSlide()"></a>
         <a class="arrow next" href="" ng-click="prevSlide()"></a>

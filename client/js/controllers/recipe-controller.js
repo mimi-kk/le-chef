@@ -77,8 +77,8 @@ app.controller("AddRecipeController", ["$scope", "createRecipes", "$location",
         instructions: "",
         ingredients: [],
         keywords: [],
-        thumbnail: "",
-        slides: []
+        slides: [],
+        thumbnail: ""
       };
     };
 
@@ -111,6 +111,29 @@ app.controller("AddRecipeController", ["$scope", "createRecipes", "$location",
       var lastIngredient = $scope.recipe.ingredients.length-1;
       $scope.recipe.ingredients.splice(lastIngredient);
     };
+
+    $scope.imageStrings = [];
+    console.log($scope.imageStrings)
+
+    $scope.processFiles = function(files){
+      angular.forEach(files, function(flowFile, i){
+        var fileReader = new FileReader();
+
+          fileReader.onload = function (event) {
+            var uri = event.target.result;
+
+            $scope.imageStrings[i] = uri;
+            $scope.recipe.slides.push(uri);
+
+            console.log("uri->", uri);
+            console.log("uri type->", typeof uri);
+            console.log("slides->", $scope.recipe.slides);
+            console.log("imagesString->", imageStrings[i]);
+          };
+          
+          fileReader.readAsDataURL(flowFile.file);
+        });
+      };   
 
     $scope.initRecipe();
   }

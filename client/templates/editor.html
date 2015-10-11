@@ -1,7 +1,7 @@
 <section id="{{recipe.$id}}" class="recipe-description editor">
     <form class="recipeForm" name="recipeForm" novalidate>
         <section class="container slider">
-            <img ng-repeat="slide in recipe.slides" class="slide" ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()" ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.image}}">
+            <img ng-repeat="slide in recipe.slides" class="slide" ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()" ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide}}">
 
             <a class="arrow prev" href="" ng-click="nextSlide()"></a>
             <a class="arrow next" href="" ng-click="prevSlide()"></a>
@@ -17,33 +17,17 @@
             </nav>
         </section>
 
-        <section>
-            <div flow-init flow-files-submitted="$flow.upload()" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
-                <div class="drop" flow-drop ng-class="dropClass">
-                    <span class="btn btn-default" flow-btn>
-                        Upload Image
-                    </span>
-                    <span class="btn btn-default" flow-btn>
-                        Upload Image
-                    </span>
-                    
-                    <b>OR</b>
-                    <span>Drag And Drop your images here</span>
-                </div>
 
-                <br>
-                
-                
-                <div class="clear" ng-repeat="file in $flow.files track by $index">
-                    <td>{{$index+1}}</td>
-                    <td>{{file.name}}</td>
-                    <div class="thumbnail" style="width: 100px; height: 100px;" ng-show="$flow.files.length">
-                        <img flow-img="$flow.files[$index]" style="width: 100px; height: 100px;" />
-                    </div>
-                </div>        
+
+        <section>
+            <div flow-init flow-name="uploader.flow" flow-files-added="processFiles($files)">
+                <button flow-btn type="file">Add Images</button>
+            <div ng-repeat="image in uploader.flow.files track by $index">
+                <span class="text">Blob image displayed with "flow-img"</span><img class="preview" flow-img="image"/><br>
+                <span class="text">Base64 image displayed with "ng-src"</span> <img class="preview" ng-src="{{imageStrings[$index]}}" ng-model="recipe.thumbnail"/>
+            </div>
             </div>
         </section>
-
 
         <section class="headColumn">
             <h2>
