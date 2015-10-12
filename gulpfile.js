@@ -2,6 +2,7 @@ var gulp = require("gulp");
 var sass = require("gulp-sass");
 var browserSync = require("browser-sync");
 var ftp = require("vinyl-ftp");
+var gutil = require("gulp-util");
 
 gulp.task("default", function() {
     console.log("Default task!");
@@ -37,8 +38,9 @@ gulp.task("deploy", function () {
     var connection = ftp.create({
         host: "noerdli.ch",
         user: "noerdli",
-        password: "nora86!!",
-        parallel: 10
+        password: "TEv593uPk",
+        parallel: 10,
+        log: gutil.log
     });
 
     var globs = [
