@@ -1,8 +1,7 @@
 var gulp = require("gulp");
 var sass = require("gulp-sass");
 var browserSync = require("browser-sync");
-var ftp = require("vinyl-ftp");
-var gutil = require("gulp-util");
+var scp = require("gulp-scp2");
 
 gulp.task("default", function() {
     console.log("Default task!");
@@ -34,21 +33,16 @@ gulp.task("sass", function() {
         .pipe(browserSync.stream());
 });
 
-gulp.task("deploy", function () {
-    var connection = ftp.create({
-        host: "noerdli.ch",
-        user: "noerdli",
-        password: "TEv593uPk",
-        parallel: 10,
-        log: gutil.log
-    });
-
-    var globs = [
-        "client/**/*"
-    ];
-
-    return gulp.src(globs, { base: "client", buffer: false } )
-        .pipe(connection.newer("/lechef.noerdli.ch")) // only upload newer files
-        .pipe(connection.dest("/lechef.noerdli.ch"));
-
+gulp.task("deploy", function() {
+    return gulp.src("client/**/*")
+        .pipe(scp({
+            host: "noerdli.ch",
+            username: "noerdli",
+            password: "TEv593uPk",
+            port: 2121,
+            dest: "/lechef.noerdli.ch"
+        }))
+        .on("error", function(err) {
+            console.log(err);
+        });
 });

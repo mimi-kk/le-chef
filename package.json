@@ -6,7 +6,6 @@
     "firebase": "2.3.0",
     "gulp": "3.9.0",
     "gulp-sass": "2.0.3",
-    "gulp-util": "3.0.6",
-    "vinyl-ftp": "0.4.5"
+    "gulp-scp2": "0.2.0"
   }
 }
