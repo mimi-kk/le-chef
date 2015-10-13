@@ -80,9 +80,19 @@ app.controller("AddRecipeController", ["$scope", "createRecipes", "$location",
         slides: [],
         thumbnail: ""
       };
+      console.log($scope.recipe);
     };
 
+    console.log($scope.recipes);
+    
+
+
+
     $scope.addRecipe = function() {
+      for(i = 0; i < $scope.recipe.slides.flow.files.length; i++) {
+        $scope.recipe.slides.push("/images/"+$scope.recipe.slides.flow.files[i].relativePath);
+      };
+
       $scope.recipes = createRecipes;
 
       $scope.recipes.$add($scope.recipe).then(function() {
@@ -112,32 +122,23 @@ app.controller("AddRecipeController", ["$scope", "createRecipes", "$location",
       $scope.recipe.ingredients.splice(lastIngredient);
     };
 
-    $scope.imageStrings = [];
-    console.log($scope.imageStrings)
-
-    $scope.processFiles = function(files){
-      angular.forEach(files, function(flowFile, i){
-        var fileReader = new FileReader();
-
-          fileReader.onload = function (event) {
-            var uri = event.target.result;
-
-            $scope.imageStrings[i] = uri;
-            $scope.recipe.slides.push(uri);
-
-            console.log("uri->", uri);
-            console.log("uri type->", typeof uri);
-            console.log("slides->", $scope.recipe.slides);
-            console.log("imagesString->", imageStrings[i]);
-          };
-          
-          fileReader.readAsDataURL(flowFile.file);
-        });
-      };   
-
     $scope.initRecipe();
   }
 ]);
+
+app.config(["flowFactoryProvider", function (flowFactoryProvider) {
+    flowFactoryProvider.defaults = {
+      target: "http://lechef.noerdli.ch/images/",
+      permanentErrors: [500, 501],
+      maxChunkRetries: 1,
+      headers: {"Access-Control-Allow-Origin": "http://localhost:3000"},
+      chunkRetryInterval: 5000,
+      simultaneousUploads: 1
+    };
+    flowFactoryProvider.on("catchAll", function (event) {
+      console.log("catchAll", arguments);
+    });
+  }]);
 
 app.controller("EditRecipeController", ["$scope", "$location", "$routeParams", "$firebaseArray",
   function($scope, $location, $routeParams, $firebaseArray) {

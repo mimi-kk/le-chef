@@ -20,11 +20,22 @@
 
 
         <section>
-            <div flow-init flow-name="uploader.flow" flow-files-added="processFiles($files)">
-                <button flow-btn type="file">Add Images</button>
-            <div ng-repeat="image in uploader.flow.files track by $index">
-                <span class="text">Blob image displayed with "flow-img"</span><img class="preview" flow-img="image"/><br>
-                <span class="text">Base64 image displayed with "ng-src"</span> <img class="preview" ng-src="{{imageStrings[$index]}}" ng-model="recipe.thumbnail"/>
+            <div flow-init flow-files-submitted="$flow.upload()" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-file-success="$file.msg = $message" flow-name="recipe.slides.flow">
+
+            <input type="file" flow-btn/>
+            Input OR Other element as upload button
+            <span class="btn" flow-btn>Upload File</span>
+            *{{recipe.slides.flow.files.length}}*
+            *{{recipe.slides.flow.files.image}}*
+            <table>
+            <tr ng-repeat="file in recipe.slides.flow.files track by $index">
+            <td>{{$index+1}}</td>
+            <td>{{file.name}}</td>
+            <td>{{file.relativePath}}</td>
+            </tr>
+            </table>
+            <div ng-repeat="image in recipe.slides.flow.files track by $index">
+            <img class="preview" flow-img="image" />
             </div>
             </div>
         </section>
