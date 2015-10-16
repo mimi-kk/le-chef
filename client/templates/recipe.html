@@ -1,5 +1,4 @@
 <section id="{{recipe.$id}}" class="recipe-description">
-    
     <section class="container slider">
         <img ng-repeat="slide in recipe.slides" class="slide" ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()" ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide}}">
 
@@ -17,102 +16,114 @@
         </nav>
     </section>
 
-    <section class="headColumn">
-        <div class="mySearch">
-            <span>My search: </span>
-            <span ng-bind="search.$"></span>
-        </div>
-
-        <h2>
-            {{recipe.title}} -
-            <span>{{recipe.lead}}</span> 
-        </h2>
-
-    	<ul class="keywords">
-            <li>Categories: </li>
-    		<li ng-repeat="keyword in recipe.keywords">{{keyword}}</li>
-    	</ul>
-    </section>
-
-	<section class="sideColumn">
-        <h4>Ingredients</h4>
-        <ul>
-			<li class="ingredients" ng-repeat="ingredient in recipe.ingredients">{{ingredient}}</li>
-		</ul>
-
-        <h4>Share this recipe</h4>
-        <ul class="share-this-recipe">
-            <li>
-                <a class="icon-pinterest-with-circle" href="#/recipe/{{recipe.$id}}" socialshare socialshare-provider="pinterest" socialshare-text="{{recipe.title}} - {{recipe.lead}}" socialshare-url="http://localhost:3000/#/recipe/{{recipe.$id}}" socialshare-media="{{recipe.thumbnail}}"></a>
-            </li>
-            <li>
-                <a class="icon-facebook-with-circle" href="#/recipe/{{recipe.$id}}" socialshare socialshare-provider="facebook" socialshare-type="feed" socialshare-via="774079302702991" socialshare-redirect-uri="http://localhost:3000/#/recipe/{{recipe.$id}}" socialshare-text="{{recipe.title}} - {{recipe.lead}}" socialshare-url="http://localhost:3000/#/recipe/{{recipe.$id}}" socialshare-media="{{recipe.thumbnail}}"></a>
-            </li>
-            <li>
-                <a class="icon-twitter-with-circle" href="#/recipe/{{recipe.$id}}" socialshare socialshare-provider="twitter" socialshare-text="{{recipe.title}} - {{recipe.lead}}" socialshare-url="http://localhost:3000/#/recipe/{{recipe.$id}}" socialshare-media="{{recipe.thumbnail}}" socialshare-hashtags="lechef, foodlove, {{recipe.keywords[0]}}, {{recipe.keywords[1]}}, {{recipe.keywords[2]}}"></a>
-            </li>
-            <li>
-                <a class="icon-google-with-circle" href="#/recipe/{{recipe.$id}}" socialshare socialshare-provider="google+" socialshare-text="{{recipe.title}} - {{recipe.lead}}" socialshare-url="http://localhost:3000/#/recipe/{{recipe.$id}}" socialshare-media="{{recipe.thumbnail}}"></a>
-            </li>
-        </ul>
-    </section>
-
-    <section class="mainColumn">
-            <h4>Time until ready</h4>
+    <section class="content">
+        <section class="head-column">
+            <h4 class="label">My search</h4>
+            <ul class="search-keywords">
+                <li ng-bind="search.$"></li>
+            </ul>
             
-            <ul>
+            <h4 class="label">Keywords</h4>
+            <ul class="keywords">
+                <li ng-repeat="keyword in recipe.keywords">{{keyword}}. </li>
+            </ul>
+        </section>
+    	
+        <section class="side-column">
+            <h4>Ingredients</h4>
+            <ul class="ingredients">
+    			<li class="ingredient" ng-repeat="ingredient in recipe.ingredients">{{ingredient}}</li>
+    		</ul>
+
+            <h4>Share this recipe</h4>
+            <ul class="share-this-recipe">
                 <li>
-                     <span>Preperation Time: </span>
-                    {{recipe.preptime}}
+                    <a class="icon-pinterest-with-circle" href="#/recipe/{{recipe.$id}}" socialshare socialshare-provider="pinterest" socialshare-text="{{recipe.title}} - {{recipe.lead}}" socialshare-url="http://localhost:3000/#/recipe/{{recipe.$id}}" socialshare-media="{{recipe.thumbnail}}"></a>
                 </li>
                 <li>
-                    <span>+</span>
+                    <a class="icon-facebook-with-circle" href="#/recipe/{{recipe.$id}}" socialshare socialshare-provider="facebook" socialshare-type="feed" socialshare-via="774079302702991" socialshare-redirect-uri="http://localhost:3000/#/recipe/{{recipe.$id}}" socialshare-text="{{recipe.title}} - {{recipe.lead}}" socialshare-url="http://localhost:3000/#/recipe/{{recipe.$id}}" socialshare-media="{{recipe.thumbnail}}"></a>
                 </li>
                 <li>
-                     <span>Cooking Time: </span>
-                    {{recipe.cookingtime}}
+                    <a class="icon-twitter-with-circle" href="#/recipe/{{recipe.$id}}" socialshare socialshare-provider="twitter" socialshare-text="{{recipe.title}} - {{recipe.lead}}" socialshare-url="http://localhost:3000/#/recipe/{{recipe.$id}}" socialshare-media="{{recipe.thumbnail}}" socialshare-hashtags="lechef, foodlove, {{recipe.keywords[0]}}, {{recipe.keywords[1]}}, {{recipe.keywords[2]}}"></a>
+                </li>
+                <li>
+                    <a class="icon-google-with-circle" href="#/recipe/{{recipe.$id}}" socialshare socialshare-provider="google+" socialshare-text="{{recipe.title}} - {{recipe.lead}}" socialshare-url="http://localhost:3000/#/recipe/{{recipe.$id}}" socialshare-media="{{recipe.thumbnail}}"></a>
                 </li>
             </ul>
+        </section>
 
-            <!--
-            Commented out in case to use ng-repeat
-            <ul class="readytime">
-                <li ng-repeat="time in recipe.times">{{time}}</li>
-        	</ul>
-            -->
-        </div>
-        <div class="instructions">
-        	<h4>Instructions</h4>
-        	<p>{{recipe.instructions}}</p>
-        </div>
-        <div class="reviews">
-            <h4>Reviews</h4>
-        	<div ng-repeat="review in recipe.reviews track by $index" ng-show="recipe.reviews.length > 1"> 
-                <span ng-model="recipe.review.stars[$index]">Stars:  {{review.stars}}</span>
-                <span ng-model="recipe.review.body[$index]">{{review.body}} -</span>
-                <author ng-model="recipe.review.author[$index]">by: {{review.author}} created on {{review.createdOn | date}}</author>  
-            </div> 
+        <section class="main-column">
+            <div>
+                <div class="header">
+                    <h2>
+                        {{recipe.title}} -
+                        <span>{{recipe.lead}}</span> 
+                    </h2>
+                    <button ng-click="goToEditor()">Change Recipe</button>
+                </div>
 
-            <form class="reviewForm" novalidate>
-                <label>Stars</label>
-                <select ng-model="recipe.review.stars" required>
-                    <option value="1">1 star</option> 
-                    <option value="2">2 stars</option> 
-                    <option value="3">3 stars</option> 
-                    <option value="4">4 stars</option> 
-                    <option value="5">5 stars</option> 
-                </select>
+                <h4>Time until ready</h4>
+                <ul class="cooking-time">
+                    <li class="timeline"></li>
+                    <li>
+                        <span class="time">{{recipe.preptime}}</span>
+                        <span>Prep</span>
+                    </li>
+                    <li class="timeline"></li>
+                    <li>
+                        <span class="time">{{recipe.cookingtime}}</span>
+                        <span>Cook</span>
+                    </li>
+                    <li class="timeline"></li>
+                    <li>
+                        <span class="time">{{recipe.totaltime}}</span>
+                        <span>Total</span>
+                    </li>
+                    <li class="timeline"></li>
+                </ul>
 
-                <label>Write a review</label>
-                <textarea ng-model="recipe.review.body" required></textarea>
-                
-                <label>by:</label>
-                <input ng-model="recipe.review.author" type="email" required>
-                
-                <button ng-click="reviewForm.$valid && addReview()">ClickAdd Review</button>
-            </form>
-            
-            <button ng-click="goToEditor()">Change Recipe</button>
-        </div>
+                <div class="instructions">
+                	<h4>Instructions</h4>
+                	<p>{{recipe.instructions}}</p>
+                </div>
+            </div>
+
+            <div class="review-column">
+                <h4>Reviews</h4>
+                <div class="reviews">
+                    <div class="review" ng-repeat="review in recipe.reviews track by $index" ng-show="recipe.reviews.length > 1"> 
+                        <p class="rating" ng-model="recipe.review.stars[$index]">Stars:  {{review.stars}}</p>
+                        <p class="message" ng-model="recipe.review.body[$index]">{{review.body}}</p>
+                        <p class="author" ng-model="recipe.review.author[$index]">by: {{review.author}} created on {{review.createdOn | date}}</p>
+                    </div>
+                </div>
+                <div class="review-editor">
+                    <h4>Write a Review</h4>
+                    <form class="review-form" novalidate>
+                        <div>
+                            <label>Give Stars </label>
+                            <select ng-model="recipe.review.stars" required>
+                                <option value="1">1 star</option> 
+                                <option value="2">2 stars</option> 
+                                <option value="3">3 stars</option> 
+                                <option value="4">4 stars</option> 
+                                <option value="5">5 stars</option> 
+                            </select>
+                            
+                        </div>
+
+                        <div>
+                            <textarea ng-model="recipe.review.body" required placeholder="Write a review"></textarea>
+                        </div>
+
+                        <div>
+                            <label>by:</label>
+                            <input ng-model="recipe.review.author" placeholder="name" required>
+                        </div>
+                        <button ng-click="addReview()">Send my review</button>
+                    </form>
+                </div> 
+            </div>
+        </section>
     </section>
 </section>

@@ -1,115 +1,85 @@
 @import mixins
 
 .slider 
-	width: 100%
-	height: 250px
-	overflow: hidden
 	position: relative
-	background: #e6e6e6
-	border: 20px solid #FFF
+	overflow: hidden
+	width: 100%
+	height: 470px
+	background: #393A3D
 
 	.slide 
 		position: absolute
-		width: 100%
-		margin: auto
 		top: 0
-		left: 0
 		right: 0
 		bottom: 0
-
+		left: 0
+		width: 100%
+		margin: auto
 
 	.arrow 
 		position: absolute
-		z-index: 1002
-		display: block
-		top: 50%
-		margin-top: -35px
+		top: 199px
 		width: 36px
-		height: 71px
-		outline: none
+		height: 72px
 		cursor: pointer
 		background: url(../images/blank.gif) no-repeat
-
-
-	.arrow.prev 
 		opacity: 0.2
-		left: 20px
-		background-image: url(../images/paddle_prev_999.png)
 		transition: 0.2s linear all
 
+		&.prev
+			left: 13px
+			background-image: url(../images/paddle_prev_999.png)
 
-	.arrow.next 
-		opacity: 0.2
-		right: 20px
-		background-image: url(../images/paddle_next_999.png)
-		transition: 0.2s linear all
+			&:hover 
+				opacity: 1
+				background-image: url(../images/paddle_prev_fff.png)
 
+		&.next 
+			right: 13px
+			background-image: url(../images/paddle_next_999.png)
 
-	.arrow.prev:hover 
-		opacity: 1
-		background-image: url(../images/paddle_prev_fff.png)
-
-
-	.arrow.next:hover 
-		opacity: 1
-		background-image: url(../images/paddle_next_fff.png)
+			&:hover 
+				opacity: 1
+				background-image: url(../images/paddle_next_fff.png)
 
 	.nav 
+		position: absolute
 		text-align: center
-		display: block
-		position: absolute
-		z-index: 1002
-		left: 0
-		bottom: -4px
+		z-index: 2
 		right: 0
-		height: 48px
+		bottom: 0
+		left: 0
 
+		.wrapper 
+			width: 100%
+			padding: 13px
+			margin: 0 auto
 
-	.nonDraggableImage
-		-webkit-user-drag: none
+		.dots
+			width: 100%
+			margin: 0
 
+			.dot, a
+				display: inline-block
 
-	.nav .wrapper 
-		margin: 0 auto
-		width: 100%
-		padding: 1em 0 .8em
+			.dot 
+				width: 13px
+				height: 13px
+				margin: 0 7px
 
+				a 
+					+box-shadow
+					+border-radius-50-percent
+					+transition-25-ms
+					
+					overflow: hidden
+					
+					width: 7px
+					height: 7px
+					
+					background: #FFF
+					border: 1px solid transparent
 
-	.nav ul 
-		margin: 0
-		width: 100%
-
-
-	.nav .dot, .nav .dot a 
-		display: inline-block
-		zoom: 1
-
-
-	.dots .dot 
-		position: relative
-		margin: 0 8px
-		width: 12px
-		height: 12px
-
-
-	.dots .dot a 
-		+box-shadow
-		+border-radius-50-percent
-		+transition-25-ms
-		
-		position: absolute
-		top: 2px
-		left: 2px
-		width: 6px
-		height: 6px
-		
-		text-indent: 100%
-		white-space: nowrap
-		overflow: hidden
-		background: #FFF
-		border: 1px solid transparent
-		outline: none
-
-	.dots .dot a.active 
-		border-color: #FFF
-		background-color: transparent
+					&.active
+						border-color: #FFF
+						background-color: transparent

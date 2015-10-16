@@ -1,5 +1,37 @@
+@import "mixins"
+
 .clearfix
     &:after, &:before
         content: ""
         display: block
         clear: both
+
+button
+    font-family: "Josefin Regular"
+    font-size: 19px
+    line-height: 24px
+
+    padding: 4px
+
+    background-color: #D90048
+    color: #E1FCEB
+
+    border: none
+    border-radius: 7px
+
+textarea, input
+    border-radius: 5px
+    border-color: #bfbfbf
+
+    font-size: 19px
+    font-family: "Josefin Regular"
+
+    padding: 4px
+
+select
+    +appearance
+    border: none
+    background-color: transparent
+    padding: 4px
+    font-size: 19px
+    font-family: "Josefin Regular"

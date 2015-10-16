@@ -1,17 +1,53 @@
+@import "mixins"
+
 .editor
-	.recipeForm
+	width: 80%
+
+	.recipe-form
+		.drop
+			border: 1px dashed #D90048
+			height: 109px
+			text-align: center
+			padding: 42px
+
+		.preview-title
+			li
+				margin: 13px 0
+
 		.preview
-			display: block
-			width: 100px
-			height: auto
+			+flex
+			+flex-direction-row
 
-		input.ng-invalid.ng-dirty.ng-invalid-required
-			border-color: #D90048
+			img
+				height: 109px
+				margin-right: 0 13px
 
-		input.ng-invalid-required
-			border-color: #D90048
+				&:last-child
+					margin: 0
 
-		input.ng-valid.ng-dirty
-			border-color: #C8DBBF
-	*
-		font-size: 30px
+		input
+			margin-bottom: 7px
+			
+			&.ng-invalid.ng-dirty.ng-invalid-required
+				border-color: #D90048
+				width: 100%
+
+			&.ng-invalid-required
+				border-color: #D90048
+
+			&.ng-valid.ng-dirty
+				border-color: #C8DBBF
+
+			&.title
+				width: 100%
+
+			&.lead
+				width: 100%
+
+		.cooking-time
+			input
+				margin-right: 7px
+		
+		textarea
+			width: 100%
+			height: 218px

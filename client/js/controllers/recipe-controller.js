@@ -67,19 +67,14 @@ app.controller("AddRecipeController", ["$scope", "createRecipes", "$location",
         lead: "",
         preptime: "",
         cookingtime: "",
+        totaltime: "",
         instructions: "",
         ingredients: [],
         keywords: [],
         slides: [],
         thumbnail: ""
       };
-      console.log($scope.recipe);
     };
-
-    console.log($scope.recipes);
-    
-
-
 
     $scope.addRecipe = function() {
       for(i = 0; i < $scope.recipe.slides.flow.files.length; i++) {
