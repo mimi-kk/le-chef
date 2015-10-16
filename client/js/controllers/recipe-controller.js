@@ -1,11 +1,3 @@
-/*Do not delete yet to test*/
-// app.controller("RecipesController", function($scope) {
-//     $scope.recipes = window.FIXTURES;
-// });
-
-// app.controller("RecipeController", function($scope, $location, $routeParams) {
-//     $scope.recipe = window.FIXTURES[$routeParams.id];
-// });
 app.factory("createRecipes", ["$firebaseArray",
   function($firebaseArray) {
     var ref = new Firebase("https://fiery-inferno-8595.firebaseio.com/recipes/");
@@ -13,12 +5,13 @@ app.factory("createRecipes", ["$firebaseArray",
   }
 ]);
 
-app.controller("RecipesController", ["$scope", "$firebaseArray", 
-  function($scope, $firebaseArray) {
+app.controller("RecipesController", ["$scope", "$firebaseArray", "$scope", "$location",
+  function($scope, $firebaseArray, $location) {
     var ref = new Firebase("https://fiery-inferno-8595.firebaseio.com/recipes/");
     $scope.recipes = $firebaseArray(ref);
-  }
-]);
+    $scope.currentPath = window.location;
+  }]
+);
 
 app.controller("RecipeController", ["$scope", "$location", "$routeParams", "$firebaseArray",
   function($scope, $location, $routeParams, $firebaseArray) {

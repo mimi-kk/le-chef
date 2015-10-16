@@ -29,11 +29,10 @@
             <h1><a ng-href="#/">
                 Le Chef <img src="/images/lechef-logo-150px.png">
             </a></h1>
-            <h2>
+            <h2 ng-show="currentPath.hash === '#/'">
                 a toujours raison
             </h2>
-
-            <ul class="follow-us">
+            <ul class="follow-us" ng-show="currentPath.hash === '#/'">
                 <li>
                     <a class="icon-pinterest-with-circle" href="http://www.pinterest.com/norarusterholz" target="_blank"></a>
                 </li>
@@ -48,7 +47,7 @@
                 </li>
             </ul>
 
-            <input ng-model="search.$" id="search" results="5" type="search" placeholder="Find recipe">
+            <input ng-model="search.$" id="search" results="5" type="search" placeholder="Find recipe" ng-show="currentPath.hash === '#/'">
         </header>
 
         <main ng-view></main>
