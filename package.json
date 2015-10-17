@@ -6,6 +6,8 @@
     "firebase": "2.3.0",
     "gulp": "3.9.0",
     "gulp-sass": "2.0.3",
-    "gulp-scp2": "0.2.0"
+    "gulp-scp2": "0.2.0",
+    "jasmine": "2.3.2",
+    "karma": "0.13.11"
   }
 }
