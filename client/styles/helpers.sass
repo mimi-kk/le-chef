@@ -9,7 +9,7 @@
 button
     font-family: "Josefin Regular"
     font-size: 19px
-    line-height: 24px
+    line-height: 25px
 
     padding: 4px
 
@@ -32,6 +32,48 @@ select
     +appearance
     border: none
     background-color: transparent
-    padding: 4px
+    padding: 7px 0
     font-size: 19px
     font-family: "Josefin Regular"
+
+.tooltips
+    color: #D90048
+    position: relative
+    padding: 13px
+
+    span
+        position: absolute
+        visibility: hidden
+
+        width: 187px
+        height: 36px
+
+        border-radius: 5px
+
+        background: #D90048
+        color: #E1FCEB
+        text-align: center
+        line-height: 32px
+        
+        &:after
+            content: ''
+            position: absolute
+            
+            top: 100%
+            left: 50%
+            
+            width: 0
+            height: 0
+            
+            border-top: 8px solid #D90048
+            border-right: 8px solid transparent
+            border-left: 8px solid transparent
+        
+            margin-left: -8px
+    
+    &:hover span
+      visibility: visible
+
+      bottom: 100%
+      left: 50%
+      margin-left: -90px

@@ -24,10 +24,12 @@
                 <ul class="keywords">
                     <li ng-repeat="keyword in recipe.keywords track by $index">
                         <input type="text" ng-model="recipe.keywords[$index]" name="recipeKeyword" ng-value="keyword" placeholder="Add a keyword" required>
-                        
-                        <button class="remove-field" ng-show="$last" ng-click="removeKeyword()">-</button>
-                    </li>                
-                    <button class="add-field" ng-click="addKeyword()">+</button>
+
+                        <span class="remove-field icon-circle-with-minus tooltips" ng-show="$last" ng-click="removeKeyword()">
+                        <span>Add a keyword</span>
+                    </span>
+                    </li>
+                    <span class="add-field icon-circle-with-plus" ng-click="addKeyword()"></span>  
                 </ul>
             </section>
 
@@ -36,10 +38,11 @@
                 <ul class="ingredients">
                     <li ng-repeat="ingredient in recipe.ingredients track by $index">
                         <input type="text" ng-model="recipe.ingredients[$index]" name="recipeIngredient" ng-value="ingredient" placeholder="Add an ingredient" required>
-                        <button class="remove-field" ng-show="$last" ng-click="removeIngredient()">-</button>
+
+                        <span class="remove-field icon-circle-with-minus tooltips" ng-click="removeIngredient()">
                     </li>
                     
-                    <button class="add-field" ng-click="addIngredient()">+</button>
+                    <span class="add-field icon-circle-with-plus" ng-click="addIngredient()"></span>
                 </ul>
             </section>
 

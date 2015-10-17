@@ -49,6 +49,7 @@
 
 			ul
 				+flex
+				margin-bottom: 13px
 				
 				&.ingredients
 					+flex-direction-column
@@ -76,41 +77,60 @@
 				h2
 					flex: 2 80%
 					font-size: 48px
+					line-height: 44px
 					margin: 13px 0
 
-			.cooking-time
-				+flex
-				
-				li
-					position: relative
-					text-align: center
-
-					&.timeline
-						top: 25px
-						
-						width: 84px
-						border-top: 1px dashed #393A3D
-					
-					.time
-						+border-radius-50-percent
-
+					span
 						display: block
 
-						width: 50px
-						height: 50px
+						font-family: "Josefin Light"
+						font-size: 24px
+						line-height: 36px
 
-						background-color: #5D9E9B
-						color: #C8DBBF
+						margin: 13px 0
 
-						padding: 16px 13px
-						margin-bottom: 7px
+			ul
+				margin-bottom: 13px
+				
+				&.cooking-time
+					+flex
+					margin: 13px 0
+					
+					li
+						position: relative
+						text-align: center
+
+						&.timeline
+							top: 35px
+							
+							width: 84px
+							border-top: 1px dashed #393A3D
+						
+						.time
+							+border-radius-50-percent
+
+							display: block
+
+							width: 70px
+							height: 70px
+
+							background-color: #5D9E9B
+							color: #C8DBBF
+
+							padding: 24px 4px
+							margin-bottom: 7px
+
+			.instructions
+				margin-bottom: 13px
 
 			.review-column
 				border-top: 1px dashed #5D9E9B
 
 				.reviews
+					margin-bottom: 13px
+					
 					.review
-						font-size: 15px
+						font-size: 17px
 
 						&:first-of-type
 							display: none
@@ -138,9 +158,17 @@
 						input
 							width: 100%
 
-						select
-							+appearance
-							width: 218px
-
 						button
 							margin: 13px 0
+
+					.select-form
+						position: relative
+
+						select
+							width: 82px
+
+						span
+							color: #D90048
+							position: absolute
+							top: 7px
+							left: 62px							

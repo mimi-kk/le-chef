@@ -56,10 +56,14 @@
             <div>
                 <div class="header">
                     <h2>
-                        {{recipe.title}} -
-                        <span>{{recipe.lead}}</span> 
+                        {{recipe.title}}
+                        <span>
+                            {{recipe.lead}}
+                        </span>
                     </h2>
-                    <button ng-click="goToEditor()">Change Recipe</button>
+                    <span ng-click="goToEditor()" class="icon-pencil tooltips">
+                        <span>Change the Recipe</span>
+                    </span>
                 </div>
 
                 <h4>Time until ready</h4>
@@ -91,7 +95,8 @@
             <div class="review-column">
                 <h4>Reviews</h4>
                 <div class="reviews">
-                    <div class="review" ng-repeat="review in recipe.reviews track by $index" ng-show="recipe.reviews.length > 1"> 
+                    <p ng-show="recipe.reviews.length === 1">There is no comment yet. Write the first comment!</p>
+                    <div class="review" ng-repeat="review in recipe.reviews track by $index"> 
                         <p class="rating" ng-model="recipe.review.stars[$index]">Stars:  {{review.stars}}</p>
                         <p class="message" ng-model="recipe.review.body[$index]">{{review.body}}</p>
                         <p class="author" ng-model="recipe.review.author[$index]">by: {{review.author}} created on {{review.createdOn | date}}</p>
@@ -100,16 +105,15 @@
                 <div class="review-editor">
                     <h4>Write a Review</h4>
                     <form class="review-form" novalidate>
-                        <div>
-                            <label>Give Stars </label>
+                        <div class="select-form">
                             <select ng-model="recipe.review.stars" required>
-                                <option value="1">1 star</option> 
-                                <option value="2">2 stars</option> 
-                                <option value="3">3 stars</option> 
+                                <option value="5" ng-selected="true">5 stars</option> 
                                 <option value="4">4 stars</option> 
-                                <option value="5">5 stars</option> 
+                                <option value="3">3 stars</option> 
+                                <option value="2">2 stars</option> 
+                                <option value="1">1 star</option> 
                             </select>
-                            
+                            <span class="icon-chevron-down"></span>
                         </div>
 
                         <div>
