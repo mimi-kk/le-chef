@@ -11,8 +11,17 @@
                 </ul>
                 
                 <ul class="preview">
-                    <li ng-repeat="image in recipe.slides.flow.files track by $index">
-                        <img flow-img="image" />
+                    <li ng-repeat="file in recipe.slides.flow.files track by $index">
+                        <img ng-src="../images/{{file.relativePath}}" />
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h4>Images: </h4>
+                <ul class="preview">
+                    <li ng-repeat="slide in recipe.slides">
+                        <img ng-src="{{slide}}" />
                     </li>
                 </ul>
             </div>
