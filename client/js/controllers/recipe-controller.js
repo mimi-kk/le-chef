@@ -116,10 +116,9 @@ app.controller("AddRecipeController", ["$scope", "createRecipes", "$location",
 
 app.config(["flowFactoryProvider", function (flowFactoryProvider) {
     flowFactoryProvider.defaults = {
-      target: "http://lechef.noerdli.ch/images/",
+      target: "/images/upload.php",
       permanentErrors: [500, 501],
       maxChunkRetries: 1,
-      headers: {"Access-Control-Allow-Origin": "http://localhost:3000"},
       chunkRetryInterval: 5000,
       simultaneousUploads: 1
     };
@@ -153,6 +152,10 @@ app.controller("EditRecipeController", ["$scope", "$location", "$routeParams", "
     };
 
     $scope.editRecipe = function(){
+      for(i = 0; i < $scope.recipe.slides.flow.files.length; i++) {
+        $scope.recipe.slides.push("/images/"+$scope.recipe.slides.flow.files[i].relativePath);
+      };
+
       $scope.recipes.$save($scope.recipe).then(function(){
         alert("Your recipe has been succefully updated!");
         $location.path("/recipe/" + $scope.recipe.$id);
