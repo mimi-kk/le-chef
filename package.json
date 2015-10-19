@@ -7,7 +7,9 @@
     "gulp": "3.9.0",
     "gulp-sass": "2.0.3",
     "gulp-scp2": "0.2.0",
-    "jasmine": "2.3.2",
-    "karma": "0.13.11"
+    "jasmine-core": "2.3.4",
+    "karma": "0.13.11",
+    "karma-chrome-launcher": "0.2.1",
+    "karma-jasmine": "0.3.6"
   }
 }

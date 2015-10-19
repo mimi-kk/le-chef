@@ -2,6 +2,7 @@ var gulp = require("gulp");
 var sass = require("gulp-sass");
 var browserSync = require("browser-sync");
 var scp = require("gulp-scp2");
+var Server = require("karma").Server;
 
 gulp.task("default", function() {
     console.log("Default task!");
@@ -22,6 +23,13 @@ gulp.task("server", ["sass"], function() {
     gulp.watch("client/*.html").on("change", browserSync.reload);
     gulp.watch("client/templates/*.html").on("change", browserSync.reload);
     gulp.watch("client/styles/*.sass", ["sass"]);
+});
+
+gulp.task("test", function (done) {
+  new Server({
+    configFile: __dirname + "/karma.conf.js",
+    singleRun: true
+  }, done).start();
 });
 
 gulp.task("sass", function() {
