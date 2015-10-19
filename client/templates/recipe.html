@@ -38,16 +38,16 @@
             <h4>Share this recipe</h4>
             <ul class="share-this-recipe">
                 <li>
-                    <a class="icon-pinterest-with-circle" href="#/recipe/{{recipe.$id}}" socialshare socialshare-provider="pinterest" socialshare-text="{{recipe.title}} - {{recipe.lead}}" socialshare-url="http://localhost:3000/#/recipe/{{recipe.$id}}" socialshare-media="{{recipe.thumbnail}}"></a>
+                    <a class="icon-pinterest-with-circle" href="#/recipe/{{recipe.$id}}" socialshare socialshare-provider="pinterest" socialshare-text="{{recipe.title}} - {{recipe.lead}}" socialshare-url="http://lechef.noerdli.ch/#/recipe/{{recipe.$id}}" socialshare-media="http://lechef.noerdli.ch{{recipe.slides[0]}}"></a>
                 </li>
                 <li>
-                    <a class="icon-facebook-with-circle" href="#/recipe/{{recipe.$id}}" socialshare socialshare-provider="facebook" socialshare-type="feed" socialshare-via="774079302702991" socialshare-redirect-uri="http://localhost:3000/#/recipe/{{recipe.$id}}" socialshare-text="{{recipe.title}} - {{recipe.lead}}" socialshare-url="http://localhost:3000/#/recipe/{{recipe.$id}}" socialshare-media="{{recipe.thumbnail}}"></a>
+                    <a class="icon-facebook-with-circle" href="#/recipe/{{recipe.$id}}" socialshare socialshare-provider="facebook" socialshare-type="feed" socialshare-via="774079302702991" socialshare-redirect-uri="http://lechef.noerdli.ch/#/recipe/{{recipe.$id}}" socialshare-text="{{recipe.title}} - {{recipe.lead}}" socialshare-url="http://lechef.noerdli.ch/#/recipe/{{recipe.$id}}" socialshare-media="http://lechef.noerdli.ch{{recipe.slides[0]}}"></a>
                 </li>
                 <li>
-                    <a class="icon-twitter-with-circle" href="#/recipe/{{recipe.$id}}" socialshare socialshare-provider="twitter" socialshare-text="{{recipe.title}} - {{recipe.lead}}" socialshare-url="http://localhost:3000/#/recipe/{{recipe.$id}}" socialshare-media="{{recipe.thumbnail}}" socialshare-hashtags="lechef, foodlove, {{recipe.keywords[0]}}, {{recipe.keywords[1]}}, {{recipe.keywords[2]}}"></a>
+                    <a class="icon-twitter-with-circle" href="#/recipe/{{recipe.$id}}" socialshare socialshare-provider="twitter" socialshare-text="{{recipe.title}} - {{recipe.lead}}" socialshare-url="http://lechef.noerdli.ch/#/recipe/{{recipe.$id}}" socialshare-media="http://lechef.noerdli.ch{{recipe.slides[0]}}" socialshare-hashtags="lechef, foodlove, {{recipe.keywords[0]}}, {{recipe.keywords[1]}}, {{recipe.keywords[2]}}"></a>
                 </li>
                 <li>
-                    <a class="icon-google-with-circle" href="#/recipe/{{recipe.$id}}" socialshare socialshare-provider="google+" socialshare-text="{{recipe.title}} - {{recipe.lead}}" socialshare-url="http://localhost:3000/#/recipe/{{recipe.$id}}" socialshare-media="{{recipe.thumbnail}}"></a>
+                    <a class="icon-google-with-circle" href="#/recipe/{{recipe.$id}}" socialshare socialshare-provider="google+" socialshare-text="{{recipe.title}} - {{recipe.lead}}" socialshare-url="http://lechef.noerdli.ch/#/recipe/{{recipe.$id}}" socialshare-media="http://lechef.noerdli.ch{{recipe.slides[0]}}"></a>
                 </li>
             </ul>
         </section>
@@ -99,7 +99,7 @@
                     <div class="review" ng-repeat="review in recipe.reviews track by $index"> 
                         <p class="rating" ng-model="recipe.review.stars[$index]">Stars:  {{review.stars}}</p>
                         <p class="message" ng-model="recipe.review.body[$index]">{{review.body}}</p>
-                        <p class="author" ng-model="recipe.review.author[$index]">by: {{review.author}} <span>created on {{review.createdOn | date}}</span></p>
+                        <p class="author" ng-model="recipe.review.author[$index]">by: {{review.author}} created on {{review.createdOn | date}}</p>
                     </div>
                 </div>
                 <div class="review-editor">
@@ -123,7 +123,7 @@
 
                         <div>
                             <label>by:</label>
-                            <input ng-model="recipe.review.author" placeholder="name" required>
+                            <input ng-model="recipe.review.author" placeholder="Name" required>
                         </div>
                         <button ng-click="addReview()">Send my review</button>
                     </form>
