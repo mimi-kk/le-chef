@@ -99,7 +99,7 @@
                     <div class="review" ng-repeat="review in recipe.reviews track by $index"> 
                         <p class="rating" ng-model="recipe.review.stars[$index]">Stars:  {{review.stars}}</p>
                         <p class="message" ng-model="recipe.review.body[$index]">{{review.body}}</p>
-                        <p class="author" ng-model="recipe.review.author[$index]">by: {{review.author}} created on {{review.createdOn | date}}</p>
+                        <p class="author" ng-model="recipe.review.author[$index]">by: {{review.author}} <span>created on {{review.createdOn | date}}</span></p>
                     </div>
                 </div>
                 <div class="review-editor">
