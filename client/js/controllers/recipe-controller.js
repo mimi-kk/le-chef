@@ -76,9 +76,11 @@ app.controller("AddRecipeController", ["$scope", "createRecipes", "$location",
       };
     };
 
+    $scope.upload = {};
+
     $scope.addRecipe = function() {
-      for(i = 0; i < $scope.recipe.slides.flow.files.length; i++) {
-        $scope.recipe.slides.push("/images/"+$scope.recipe.slides.flow.files[i].relativePath);
+      for(i = 0; i < $scope.upload.flow.files.length; i++) {
+        $scope.recipe.slides.push("/images/"+$scope.upload.flow.files[i].relativePath);
       };
 
       $scope.recipes = createRecipes;
@@ -133,6 +135,8 @@ app.controller("EditRecipeController", ["$scope", "$location", "$routeParams", "
       $scope.recipe = recipeid.$getRecord($routeParams.id);
     });
 
+    $scope.upload = {};
+
     $scope.addKeyword = function() {
       $scope.recipe.keywords.push("");
     };
@@ -152,8 +156,8 @@ app.controller("EditRecipeController", ["$scope", "$location", "$routeParams", "
     };
 
     $scope.editRecipe = function(){
-      for(i = 0; i < $scope.recipe.slides.flow.files.length; i++) {
-        $scope.recipe.slides.push("/images/"+$scope.recipe.slides.flow.files[i].relativePath);
+      for(i = 0; i < $scope.upload.flow.files.length; i++) {
+        $scope.recipe.slides.push("/images/"+$scope.upload.flow.files[i].relativePath);
       };
 
       $scope.recipes.$save($scope.recipe).then(function(){

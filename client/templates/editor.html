@@ -1,22 +1,20 @@
 <section id="{{recipe.$id}}" class="recipe-description editor">
     <form class="recipe-form" name="recipeForm" novalidate>
         <section class="image-column">
-            <div flow-init flow-files-submitted="$flow.upload()" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-file-success="$file.msg = $message" flow-name="recipe.slides.flow">
-                
+            <div flow-init flow-files-submitted="$flow.upload()" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-file-success="$file.msg = $message" flow-name="upload.flow">
                 <input type="file" flow-btn/>
                 <div class="drop" flow-drop>Drag And Drop your images here</div>
                 
-                <ul class="preview-title" ng-repeat="file in recipe.slides.flow.files track by $index">
+                <ul class="preview-title" ng-repeat="file in upload.flow.files track by $index">
                     <li>{{$index+1}} {{file.relativePath}}</li>
                 </ul>
                 
                 <ul class="preview">
-                    <li ng-repeat="image in recipe.slides.flow.files track by $index">
+                    <li ng-repeat="image in upload.flow.files track by $index">
                         <img flow-img="image" />
                     </li>
                 </ul>
             </div>
-
             <div>
                 <h4>Images: </h4>
                 <ul class="preview">
