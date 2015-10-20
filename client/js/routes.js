@@ -10,7 +10,7 @@ app.config(function($routeProvider) {
     }).
     when("/editor/", {
         templateUrl: "templates/editor.html",
-        controller: "AddRecipeController"
+        controller: "EditRecipeController"
     }).
     when("/editor/:id", {
         templateUrl: "templates/editor.html",

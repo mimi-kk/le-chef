@@ -19,8 +19,9 @@ app.controller("RecipeController", ["$scope", "$location", "$routeParams", "$fir
       $scope.recipe.reviews.push($scope.recipe.review);
       $scope.recipe.review.createdOn = Date.now();
       $scope.recipe.review = {};
+      
       $scope.recipes.$save($scope.recipe).then(function(){
-        alert("Your recipe has been succefully updated!");
+        alert("Your review has been succefully sent!");
         $location.path("/recipe/" + $scope.recipe.$id);
       });
     };
@@ -58,62 +59,68 @@ app.controller("RecipeController", ["$scope", "$location", "$routeParams", "$fir
   }
 ]);
 
-app.controller("AddRecipeController", ["$scope", "createRecipes", "$location",
-  function($scope, createRecipes, $location) {
+app.controller("EditRecipeController", ["$scope", "createRecipes", "$location",  "$routeParams", "$firebaseArray",
+  function($scope, createRecipes, $location, $routeParams, $firebaseArray) {
     $scope.initRecipe = function() {
       // Initialize new recipe (with default values)
-      $scope.recipe = {
-        title: "",
-        lead: "",
-        preptime: "",
-        cookingtime: "",
-        totaltime: "",
-        instructions: "",
-        ingredients: [],
-        keywords: [],
-        slides: [],
-        thumbnail: ""
+      if (typeof $routeParams.id === "undefined") {
+        $scope.recipe = {
+          title: "",
+          lead: "",
+          preptime: "",
+          cookingtime: "",
+          totaltime: "",
+          instructions: "",
+          ingredients: [],
+          keywords: [],
+          slides: [],
+          thumbnail: ""
+        };
+      } else {
+          $scope.recipes.$loaded().then(function(recipeid) {
+            $scope.recipe = recipeid.$getRecord($routeParams.id);
+          });
+        };
+      }
+
+      $scope.upload = {};
+
+      $scope.addRecipe = function() {
+        for(i = 0; i < $scope.upload.flow.files.length; i++) {
+          $scope.recipe.slides.push("/images/"+$scope.upload.flow.files[i].relativePath);
+        };
+
+        $scope.recipes = createRecipes;
+
+        $scope.recipes.$add($scope.recipe).then(function() {
+          alert("Your recipe has been succefully saved!");
+          $location.path("/");
+        });
+        
+        // reset the recipe input
+        $scope.initRecipe();
       };
-    };
 
-    $scope.upload = {};
+      $scope.editRecipe = function(){
+        for(i = 0; i < $scope.upload.flow.files.length; i++) {
+          $scope.recipe.slides.push("/images/"+$scope.upload.flow.files[i].relativePath);
+        };
 
-    $scope.addRecipe = function() {
-      for(i = 0; i < $scope.upload.flow.files.length; i++) {
-        $scope.recipe.slides.push("/images/"+$scope.upload.flow.files[i].relativePath);
+        $scope.recipes.$save($scope.recipe).then(function(){
+          alert("Your recipe has been succefully updated!");
+          $location.path("/recipe/" + $scope.recipe.$id);
+        });
       };
 
-      $scope.recipes = createRecipes;
+      $scope.deleteRecipe = function(){
+        $scope.recipes.$remove($scope.recipe).then(function(){
+          alert("Your recipe has been succefully deleted!");
+          $location.path("/");
+        });
+      };
 
-      $scope.recipes.$add($scope.recipe).then(function() {
-        alert("Your recipe has been succefully saved!");
-        $location.path("/");
-      });
-      
-      // reset the recipe input
       $scope.initRecipe();
-    };
-
-    $scope.addKeyword = function() {
-      $scope.recipe.keywords.push("");
-    };
-    
-    $scope.addIngredient = function() {
-      $scope.recipe.ingredients.push("");
-    };
-
-    $scope.removeKeyword = function() {
-      var lastKeyword = $scope.recipe.keywords.length-1;
-      $scope.recipe.keywords.splice(lastKeyword);
-    };
-
-    $scope.removeIngredient = function() {
-      var lastIngredient = $scope.recipe.ingredients.length-1;
-      $scope.recipe.ingredients.splice(lastIngredient);
-    };
-
-    $scope.initRecipe();
-  }
+    }
 ]);
 
 app.config(["flowFactoryProvider", function (flowFactoryProvider) {
@@ -127,51 +134,6 @@ app.config(["flowFactoryProvider", function (flowFactoryProvider) {
     flowFactoryProvider.on("catchAll", function (event) {
       console.log("catchAll", arguments);
     });
-  }]);
-
-app.controller("EditRecipeController", ["$scope", "$location", "$routeParams", "$firebaseArray",
-  function($scope, $location, $routeParams, $firebaseArray) {
-    $scope.recipes.$loaded().then(function(recipeid) {
-      $scope.recipe = recipeid.$getRecord($routeParams.id);
-    });
-
-    $scope.upload = {};
-
-    $scope.addKeyword = function() {
-      $scope.recipe.keywords.push("");
-    };
-    
-    $scope.addIngredient = function() {
-      $scope.recipe.ingredients.push("");
-    };
-
-    $scope.removeKeyword = function() {
-      var lastKeyword = $scope.recipe.keywords.length-1;
-      $scope.recipe.keywords.splice(lastKeyword);
-    };
-
-    $scope.removeIngredient = function() {
-      var lastIngredient = $scope.recipe.ingredients.length-1;
-      $scope.recipe.ingredients.splice(lastIngredient);
-    };
-
-    $scope.editRecipe = function(){
-      for(i = 0; i < $scope.upload.flow.files.length; i++) {
-        $scope.recipe.slides.push("/images/"+$scope.upload.flow.files[i].relativePath);
-      };
-
-      $scope.recipes.$save($scope.recipe).then(function(){
-        alert("Your recipe has been succefully updated!");
-        $location.path("/recipe/" + $scope.recipe.$id);
-      });
-    };
-
-    $scope.deleteRecipe = function(){
-      $scope.recipes.$remove($scope.recipe).then(function(){
-        alert("Your recipe has been succefully deleted!");
-        $location.path("/");
-      });
-    };
   }
 ]);
 

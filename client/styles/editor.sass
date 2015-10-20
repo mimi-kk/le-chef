@@ -10,14 +10,12 @@
 			text-align: center
 			padding: 42px
 
-		.preview-title
-			li
-				margin-top: 13px
-
 		.preview
 			+flex
 			+flex-direction-row
+			+flex-wrap
 
+			width: 100%
 			margin: 7px 0
 
 			li
@@ -25,10 +23,16 @@
 				
 				&:last-child
 					margin: 0
-					
+				
+				p
+					.preview-title
+						font-size: 13px
+
+					.remove-field
+						vertical-align: middle
+
 				img
 					height: 109px
-
 
 		input
 			margin-bottom: 7px
@@ -53,9 +57,14 @@
 			input
 				margin-right: 7px
 
-		.icon-circle-with-plus
-			line-height: 36px
-		
+		.add-field
+			color: #5D9E9B
+			padding: 2px 7px
+
+		.remove-field
+			color: #D90048
+			padding: 7px
+
 		textarea
 			width: 100%
 			height: 218px

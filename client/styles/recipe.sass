@@ -11,8 +11,9 @@
 		padding-bottom: 13px
 
 	h4
-		margin: 7px 0
+		margin: 13px 0 26px
 		font-size: 26px
+		line-height: 30px
 
 	.slider
 		margin: 13px 0
@@ -31,13 +32,17 @@
 			
 			+flex
 			+flex-direction-column
+			+flex-wrap
+
+			h4
+				margin: 7px 0
 
 			ul
 				+flex
 				+flex-direction-row
+				+flex-wrap
 
 				li
-					padding-top: 7px
 					padding-right: 4px
 
 					&.label
@@ -49,6 +54,7 @@
 
 			ul
 				+flex
+				+flex-wrap
 				margin-bottom: 13px
 				
 				&.ingredients
