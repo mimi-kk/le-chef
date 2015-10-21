@@ -12,6 +12,7 @@ app.config(function($routeProvider) {
         templateUrl: "templates/editor.html",
         controller: "EditRecipeController"
     }).
+    otherwise({
         redirectTo: "/"
     });
 });
