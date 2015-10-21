@@ -90,6 +90,8 @@ app.controller("EditRecipeController", ["$scope", "createRecipes", "$location", 
           $scope.recipe.slides.push("/images/"+$scope.upload.flow.files[i].relativePath);
         };
 
+        $scope.recipe.createdOn = Date.now();
+
         $scope.recipes = createRecipes;
 
         $scope.recipes.$add($scope.recipe).then(function() {
