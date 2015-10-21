@@ -1,6 +1,7 @@
 var app = angular.module("leChef", [
     "ngRoute", 
     "ngAnimate",
+    "ngTouch",
     "firebase",
     "720kb.socialshare",
     "flow"
