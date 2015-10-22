@@ -105,7 +105,7 @@ app.controller("EditRecipeController", ["$scope", "createRecipes", "$location", 
 
       $scope.editRecipe = function(){
         for(i = 0; i < $scope.upload.flow.files.length; i++) {
-          $scope.recipe.slides.push("/images/"+$scope.upload.flow.files[i].relativePath);
+          $scope.recipe.slides.push("/images/uploads/"+$scope.upload.flow.files[i].relativePath);
         };
 
         $scope.recipes.$save($scope.recipe).then(function(){
