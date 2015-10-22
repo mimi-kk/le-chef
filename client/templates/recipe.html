@@ -1,4 +1,5 @@
-<section id="{{recipe.$id}}" class="recipe-description">
+<section id="{{recipe.$id}}" class="recipe-description" itemscope itemtype="http://schema.org/Recipe">
+<meta itemprop="url" content="http://lechef.noerdli.ch/#/recipe/{{recipe.$id}}" />
     
     <image-slider></image-slider>
 
@@ -18,7 +19,7 @@
         <section class="side-column">
             <h4>Ingredients</h4>
             <ul class="ingredients">
-    			<li class="ingredient" ng-repeat="ingredient in recipe.ingredients">{{ingredient}}</li>
+    			<li class="ingredient" ng-repeat="ingredient in recipe.ingredients" itemprop="ingredients">{{ingredient}}</li>
     		</ul>
 
             <h4>Share this recipe</h4>
@@ -27,7 +28,7 @@
                     <a class="icon-pinterest-with-circle" href="#/recipe/{{recipe.$id}}" socialshare socialshare-provider="pinterest" socialshare-text="{{recipe.title}} - {{recipe.lead}}" socialshare-url="http://lechef.noerdli.ch/#/recipe/{{recipe.$id}}" socialshare-media="http://lechef.noerdli.ch{{recipe.slides[0]}}"></a>
                 </li>
                 <li>
-                    <a class="icon-facebook-with-circle" href="#/recipe/{{recipe.$id}}" socialshare socialshare-provider="facebook" socialshare-type="feed" socialshare-via="774079302702991" socialshare-redirect-uri="http://lechef.noerdli.ch/#/recipe/{{recipe.$id}}" socialshare-text="{{recipe.title}} - {{recipe.lead}}" socialshare-url="http://lechef.noerdli.ch/#/recipe/{{recipe.$id}}" socialshare-media="http://lechef.noerdli.ch{{recipe.slides[0]}}"></a>
+                    <a class="icon-facebook-with-circle" href="/#/recipe/{{recipe.$id}}" socialshare socialshare-provider="facebook" socialshare-type="feed" socialshare-via="774079302702991" socialshare-display="popup" socialshare-media="http://lechef.noerdli.ch{{recipe.slides[0]}}" socialshare-description="{{recipe.instructions}}" socialshare-text="{{recipe.title}} - {{recipe.lead}}" socialshare-caption="Recipe created with much love on lechef.noerdli.ch" socialshare-url="http://lechef.noerdli.ch/#/recipe/{{recipe.$id}}" socialshare-redirect-uri="http://lechef.noerdli.ch"></a>
                 </li>
                 <li>
                     <a class="icon-twitter-with-circle" href="#/recipe/{{recipe.$id}}" socialshare socialshare-provider="twitter" socialshare-text="{{recipe.title}} - {{recipe.lead}}" socialshare-url="http://lechef.noerdli.ch/#/recipe/{{recipe.$id}}" socialshare-media="http://lechef.noerdli.ch{{recipe.slides[0]}}" socialshare-hashtags="lechef, foodlove, {{recipe.keywords[0]}}, {{recipe.keywords[1]}}, {{recipe.keywords[2]}}"></a>
@@ -40,7 +41,7 @@
 
         <section class="main-column">
             <div>
-                <div class="header">
+                <div class="header" itemprop="name">
                     <h2>
                         {{recipe.title}}
                         <span>
@@ -56,23 +57,23 @@
                 <ul class="cooking-time">
                     <li class="timeline"></li>
                     <li>
-                        <span class="time">{{recipe.preptime}}</span>
+                        <span class="time" itemprop="prepTime">{{recipe.preptime}}</span>
                         <span class="time-description">Prep</span>
                     </li>
                     <li class="timeline"></li>
                     <li>
-                        <span class="time">{{recipe.cookingtime}}</span>
+                        <span class="time" itemprop="cookTime">{{recipe.cookingtime}}</span>
                         <span class="time-description">Cook</span>
                     </li>
                     <li class="timeline"></li>
                     <li>
-                        <span class="time">{{recipe.totaltime}}</span>
+                        <span class="time" itemprop="totalTime">{{recipe.totaltime}}</span>
                         <span class="time-description">Total</span>
                     </li>
                     <li class="timeline"></li>
                 </ul>
 
-                <div class="instructions">
+                <div class="instructions" itemprop="recipeInstructions">
                 	<h4>Instructions</h4>
                 	<p>{{recipe.instructions}}</p>
                     <p class="created-on">Recipe created with much love on {{recipe.createdOn | date}}</p>
