@@ -42,12 +42,14 @@ select
 
 .tooltips
     color: #D90048
-    position: relative
     padding: 13px
 
     span
         position: absolute
         visibility: hidden
+
+        top: -26px
+        right: 0
 
         width: 187px
         height: 36px
@@ -66,7 +68,7 @@ select
             position: absolute
             
             top: 100%
-            left: 50%
+            left: 80%
             
             width: 0
             height: 0
@@ -77,12 +79,9 @@ select
         
             margin-left: -8px
     
-    &:hover span
-      visibility: visible
-
-      bottom: 100%
-      left: 50%
-      margin-left: -90px
+    &:hover
+        span
+            visibility: visible
 
 [class^="icon-"], [class*=" icon-"]
     &:hover

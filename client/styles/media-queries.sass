@@ -4,6 +4,9 @@
 	body
 		width: 100%
 
+		h1, h2, h3, h4
+			font-weight: normal
+
 		header
 			+align-items-center
 
@@ -26,8 +29,49 @@
 							
 							width: 100%
 							height: 100%
-			
+
+
 			.recipe-description
+				.recipe-form
+					input
+						width: 100%
+					
+					.image-column
+						.drop
+							padding: 30px
+
 				.content
+					width: 100%
+					padding: 0 26px
+
+					+flex-direction-column
+
+					.head-column
+						ul
+							li
+								flex: 1 100%
+
 					.side-column
 						flex: 1 100%
+
+						ul
+							&.ingredients
+								+flex-direction-column
+
+					.main-column
+						flex: 1 100%
+
+						ul
+							&.cooking-time
+								+flex-direction-column
+
+								.time-description
+									position: absolute
+									top: 23px
+									left: 180px
+
+								.timeline
+									left: 83px
+
+									&:last-child
+										display: none
