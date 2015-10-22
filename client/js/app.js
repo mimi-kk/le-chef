@@ -7,6 +7,13 @@ var app = angular.module("leChef", [
     "flow"
 ]);
 
+app.directive("imageSlider", function(){ 
+  return {
+    restrict: "E",
+    templateUrl: "templates/slider.html"
+}; 
+});
+
 window.fbAsyncInit = function() {
     FB.init({
       appId      : '774079302702991',
