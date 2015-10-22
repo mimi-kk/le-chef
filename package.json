@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "angular-socialshare": "0.1.14",
+    "angular-touch": "1.4.7",
     "angularfire": "1.1.2",
     "browser-sync": "2.7.13",
     "firebase": "2.3.0",
