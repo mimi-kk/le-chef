@@ -2,10 +2,12 @@
   "name": "le-chef",
   "dependencies": {
     "angular": "1.4.2",
-    "angular-route": "1.4.4",
     "angular-animate": "1.4.5",
+    "angular-route": "1.4.4",
+    "angular-sanitize": "1.4.7",
     "angular-touch": "1.4.7",
     "angularfire": "1.1.2",
-    "angularjs-socialshare": "0.1.14"
+    "angularjs-socialshare": "0.1.14",
+    "ng-flow": "2.6.1"
   }
 }
