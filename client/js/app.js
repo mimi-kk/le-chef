@@ -3,6 +3,7 @@ var app = angular.module("leChef", [
     "ngSanitize",
     "ngAnimate",
     "ngTouch",
+    "ngIOS9UIWebViewPatch",
     "firebase",
     "720kb.socialshare",
     "flow"

@@ -1,4 +1,4 @@
-app.config(["$routeProvider", "$compileProvider", 
+app.config(["$routeProvider", "$compileProvider",
     function($routeProvider, $compileProvider) {
         $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension):/);
 
