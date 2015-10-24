@@ -2,9 +2,8 @@
     <form class="recipe-form" name="recipeForm" novalidate>
         <section class="image-column">
             <div flow-init flow-files-submitted="$flow.upload()" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-file-success="$file.msg = $message" flow-name="upload.flow">
-                <input type="file" class="flow-button" flow-btn/>
+                <input type="file" class="flow-button" flow-btn>
                 <div class="drop" flow-drop>Drag And Drop your images here</div>
-                
                 <ul class="preview">
                     <li ng-repeat="file in upload.flow.files track by $index">
                         <p>
@@ -23,7 +22,7 @@
                             <span class="preview-title">{{$index+1}}</span>
                             <span class="remove-field icon-circle-with-minus" ng-click="recipe.slides.splice($index, 1)"></span>
                         </p>
-                        <img ng-src="{{slide}}">
+                        <img ng-src="{{slide}}" ng-hide="recipe.slides.length < 0">
                     </li>
                 </ul>
             </div>
@@ -36,7 +35,12 @@
                     <li ng-repeat="keyword in recipe.keywords track by $index">
                         <input type="text" ng-model="recipe.keywords[$index]" name="recipeKeyword" ng-value="keyword" placeholder="Add a keyword" required>
 
+                        <div ng-show="recipeForm.$submitted || recipeForm.recipeKeyword.$touched">
+                            <span class="validation-error" ng-show="recipeForm.recipeKeyword.$error.required">Is it glutenfree? Or a Japanese recipe? Add some keywords to your recipe.</span>
+                        </div>
+
                         <span class="remove-field icon-circle-with-minus" ng-click="recipe.keywords.splice($index, 1)"></span>
+
                     </li>
                     <span class="add-field icon-circle-with-plus" ng-click="recipe.keywords.push('')"></span>  
                 </ul>
@@ -48,6 +52,10 @@
                     <li ng-repeat="ingredient in recipe.ingredients track by $index">
                         <input type="text" ng-model="recipe.ingredients[$index]" name="recipeIngredient" ng-value="ingredient" placeholder="Add an ingredient" required>
 
+                        <div ng-show="recipeForm.$submitted || recipeForm.recipeKeyword.$touched">
+                            <span class="validation-error" ng-show="recipeForm.recipeKeyword.$error.required">Do we need some eggs, milk or salt?</span>
+                        </div>
+
                         <span class="remove-field icon-circle-with-minus" ng-click="recipe.ingredients.splice($index, 1)"></span>
                     </li>
                     
@@ -56,37 +64,62 @@
             </section>
 
             <section class="main-column">
-                <h2>
-                    <input class="title" type="text" ng-model="recipe.title" name="recipeTitle" ng-value="recipe.title" placeholder="Title" required>
-                    <input class="lead "type="text" ng-model="recipe.lead" name="recipeLead" ng-value="recipe.lead" placeholder="Lead" required>
-                </h2>
+                    <input class="title" type="text" ng-model="recipe.title" name="recipeTitle" ng-value="recipe.title" placeholder="Give your recipe a title" required>
+                   
+                    <div ng-show="recipeForm.$submitted || recipeForm.recipePreptime.$touched">
+                        <span class="validation-error" ng-show="recipeForm.recipePreptime.$error.required">Tell us the title of your recipe.</span>
+                    </div>
+
+                    <input class="lead "type="text" ng-model="recipe.lead" name="recipeLead" ng-value="recipe.lead" placeholder="What is special about your recipe? Write a lead." required>
+
+                    <div ng-show="recipeForm.$submitted || recipeForm.recipePreptime.$touched">
+                        <span class="validation-error" ng-show="recipeForm.recipePreptime.$error.required">Tell us whats special about your recipe.
+                    </div>
                
                 <h4>Time until ready</h4>
                 <ul class="cooking-time">
                     <li>
                         <span>Preperation: </span>
                         <input type="text" ng-model="recipe.preptime" name="recipePreptime" ng-value="recipe.preptime" placeholder="Add preperation Time" required>
+                        
+                        <div ng-show="recipeForm.$submitted || recipeForm.recipePreptime.$touched">
+                            <span class="validation-error" ng-show="recipeForm.recipePreptime.$error.required">How long does it take?</span>
+                        </div>
+
                     </li>
                     <li>
                         <span>Cooking: </span>
                         <input type="text" ng-model="recipe.cookingtime" name="recipeCookingtime" ng-value="recipe.cookingtime" placeholder="Add cooking Time" required>
+                        
+                        <div ng-show="recipeForm.$submitted || recipeForm.recipeCookingtime.$touched">
+                            <span class="validation-error" ng-show="recipeForm.recipeCookingtime.$error.required">How long does it take?</span>
+                        </div>
+
                     </li>
                     <li>
                         <span>Total: </span>
                         <input type="text" ng-model="recipe.totaltime" name="recipeTotaltime" ng-value="recipe.totaltime" placeholder="Add total Time" required>
+                        
+                        <div ng-show="recipeForm.$submitted || recipeForm.recipeTotaltime.$touched">
+                            <span class="validation-error" ng-show="recipeForm.recipeTotaltime.$error.required">How long does it take?</span>
+                        </div>
+
                     </li>
                 </ul>
 
                 <div class="instructions">
                     <h4>Instructions</h4>
-                    <!--TO DO: This input should work like textarea -->
-                    <textarea ng-model="recipe.instructions" name="recipeInstructions" ng-value="recipe.instructions" required></textarea>
+                    <input class="instructions" type="text" ng-model="recipe.instructions" name="recipeInstructions" ng-value="recipe.instructions" placeholder="Write an instruction" required></input>
+                    
+                    <div ng-show="recipeForm.$submitted || recipeForm.recipeInstructions.$touched">
+                        <span class="validation-error" ng-show="recipeForm.recipeInstructions.$error.required">Write an instruction to your recipe. Otherwise we don't know how to cook it!</span>
+                    </div>
+
                 </div>
             </section>
         </section>
-
-        <button ng-click="addRecipe()" ng-hide="recipe.$id">Save the Recipe</button>
-        <button ng-click="editRecipe()" ng-show="recipe.$id">Update the Recipe</button>
+        <button ng-click="recipeForm.$valid && addRecipe()" ng-hide="recipe.$id">Save the Recipe</button>
+        <button ng-click="recipeForm.$valid && editRecipe()" ng-show="recipe.$id">Update the Recipe</button>
         <button ng-click="deleteRecipe()" ng-show="recipe.$id">Delete Recipe</button>
     </form>
 </section>

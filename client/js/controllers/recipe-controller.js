@@ -71,10 +71,9 @@ app.controller("EditRecipeController", ["$scope", "createRecipes", "$location", 
           cookingtime: "",
           totaltime: "",
           instructions: "",
-          ingredients: [],
-          keywords: [],
-          slides: [],
-          thumbnail: ""
+          ingredients: [""],
+          keywords: [""],
+          slides: ["/images/dummy-recipe.jpg"]
         };
       } else {
           $scope.recipes.$loaded().then(function(recipeid) {
