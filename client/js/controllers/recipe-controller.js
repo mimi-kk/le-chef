@@ -5,7 +5,7 @@ app.factory("createRecipes", ["$firebaseArray",
   }
 ]);
 
-app.controller("RecipesController", ["$scope", "$firebaseArray", "$scope", "$location",
+app.controller("RecipesController", ["$scope", "$firebaseArray", "$location",
   function($scope, $firebaseArray, $location) {
     var ref = new Firebase("https://fiery-inferno-8595.firebaseio.com/recipes/");
     $scope.recipes = $firebaseArray(ref);
