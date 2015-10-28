@@ -1,5 +1,5 @@
-app.controller("EditRecipeController", ["$scope", "createRecipes", "$location",  "$routeParams", "$firebaseArray",
-  function($scope, createRecipes, $location, $routeParams, $firebaseArray) {
+app.controller("EditRecipeController", ["$scope", "Recipes", "$location", "$routeParams",
+  function($scope, Recipes, $location, $routeParams) {
     $scope.initRecipe = function() {
       // Initialize new recipe (with default values)
       if (typeof $routeParams.id === "undefined") {
@@ -30,7 +30,7 @@ app.controller("EditRecipeController", ["$scope", "createRecipes", "$location", 
 
         $scope.recipe.createdOn = Date.now();
 
-        $scope.recipes = createRecipes;
+        $scope.recipes = Recipes;
 
         $scope.recipes.$add($scope.recipe).then(function() {
           alert("Your recipe has been succefully saved!");

@@ -1,5 +1,5 @@
-app.controller("RecipeController", ["$scope", "$location", "$routeParams", "$firebaseArray",
-  function($scope, $location, $routeParams, $firebaseArray) {
+app.controller("RecipeController", ["$scope", "$location", "$routeParams", "Recipes",
+  function($scope, $location, $routeParams, Recipes) {
     $scope.addReview = function() {
       $scope.recipe.reviews.push($scope.recipe.review);
       $scope.recipe.review.createdOn = Date.now();
