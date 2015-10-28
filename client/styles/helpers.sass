@@ -1,10 +1,27 @@
 @import "mixins"
 
+[class^="icon-"], [class*=" icon-"]
+    &:hover
+        #393A3D
+
 .clearfix
     &:after, &:before
         content: ""
         display: block
         clear: both
+
+.validation-error
+    color: #D90048
+
+.ng-invalid.ng-dirty.ng-invalid-required
+    border-color: validation-error
+    width: 100%
+
+.ng-invalid-required
+    border-color: #D90048
+
+.ng-valid.ng-dirty
+    border-color: #C8DBBF
 
 button
     font-family: "Josefin Regular"
@@ -82,7 +99,3 @@ select
     &:hover
         span
             visibility: visible
-
-[class^="icon-"], [class*=" icon-"]
-    &:hover
-        #393A3D
