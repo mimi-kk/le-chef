@@ -118,8 +118,11 @@
                 </div>
             </section>
         </section>
-        <button ng-click="recipeForm.$valid && addRecipe()" ng-hide="recipe.$id">Save the Recipe</button>
-        <button ng-click="recipeForm.$valid && editRecipe()" ng-show="recipe.$id">Update the Recipe</button>
-        <button ng-click="deleteRecipe()" ng-show="recipe.$id">Delete Recipe</button>
+
+        <section class="buttons">
+            <button ng-click="recipeForm.$valid && addRecipe()" ng-hide="recipe.$id">Save the Recipe</button>
+            <button ng-click="deleteRecipe()"ng-show="recipe.$id">Delete Recipe</button>
+            <button ng-click="recipeForm.$valid && editRecipe()" ng-show="recipe.$id">Update the Recipe</button>
+        </section>
     </form>
 </section>

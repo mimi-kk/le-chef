@@ -53,10 +53,12 @@ app.controller("EditRecipeController", ["$scope", "Recipes", "$location", "$rout
       };
 
       $scope.deleteRecipe = function(){
-        $scope.recipes.$remove($scope.recipe).then(function(){
-          alert("Your recipe has been succefully deleted!");
-          $location.path("/");
-        });
+        if (window.confirm("Do you really want to delete your recipe?")){
+          $scope.recipes.$remove($scope.recipe).then(function(){
+            alert("Your recipe has been succefully deleted!");
+            $location.path("/");
+          });
+        }
       };
 
       $scope.initRecipe();
