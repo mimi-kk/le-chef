@@ -1,0 +1,21 @@
+<section class="auth">
+	<h4>Email</h4>
+	<input type="text" ng-model="email">
+	<h4>Password</h4>
+	<input type="text" ng-model="password">
+
+	<br><br>
+
+	<button ng-click="login()">Login</button>
+
+	<h3>Register</h3>
+
+	<button ng-click="createUser()">Create User</button>
+
+	<br><br>
+
+	<button ng-click="removeUser()">Remove User</button>
+
+	<p ng-if="message">Message: <strong>{{ message }}</strong></p>
+	<p ng-if="error">Error: <strong>{{ error }}</strong></p>
+  </section>

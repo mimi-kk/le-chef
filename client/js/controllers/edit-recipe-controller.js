@@ -1,5 +1,5 @@
-app.controller("EditRecipeController", ["$scope", "Recipes", "$location", "$routeParams",
-  function($scope, Recipes, $location, $routeParams) {
+app.controller("EditRecipeController", ["$scope", "Recipes", "$location", "$routeParams", "currentAuth",
+  function($scope, Recipes, $location, $routeParams, currentAuth) {
     $scope.initRecipe = function() {
       // Initialize new recipe (with default values)
       if (typeof $routeParams.id === "undefined") {

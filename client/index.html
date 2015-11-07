@@ -23,9 +23,11 @@
         <script src="js/app.js"></script>
         <script src="js/routes.js"></script>
         <script src="js/services/firebase-factory.js"></script>
+        <script src="js/services/auth-factory.js"></script>
         <script src="js/controllers/recipes-controller.js"></script>
         <script src="js/controllers/recipe-controller.js"></script>
         <script src="js/controllers/edit-recipe-controller.js"></script>
+        <script src="js/controllers/auth-controller.js"></script>
         <script src="js/directives/slider-directive.js"></script>
 
         <!-- / Google Analytics -->
@@ -47,6 +49,15 @@
 
     <body ng-controller="RecipesController">
         <header>
+            <div ng-controller="AuthController">
+                <div id="login">
+                    <a ng-href="#/auth" ng-hide="authData">
+                        Sign in / Sign up
+                    </a>
+                    <a ng-href="#/auth" ng-show="authData">Hello, {{authData.password.email}}</a>
+                    <a ng-show="authData"ng-click="auth.$unauth()">Sign Out</a>
+                </div>
+            </div>
             <h1>
                 <a ng-href="#/">
                     Le Chef
@@ -72,6 +83,7 @@
             </ul>
 
             <input ng-model="search.$" id="search" results="5" type="search" placeholder="Find recipe" ng-show="currentPath.hash === '#/'">
+
         </header>
 
         <main ng-view></main>
