@@ -1,5 +1,5 @@
-<section id="{{recipe.$id}}" class="recipe-description" itemscope itemtype="http://schema.org/Recipe">
-<meta itemprop="url" content="http://lechef.noerdli.ch/#/recipe/{{recipe.$id}}" />
+<section id="{{recipe.$id}}" class="recipe-description">
+<meta content="http://lechef.noerdli.ch/#/recipe/{{recipe.$id}}" />
     
     <image-slider></image-slider>
 
@@ -17,9 +17,10 @@
         </section>
     	
         <section class="side-column">
+
             <h4>Ingredients</h4>
             <ul class="ingredients">
-    			<li class="ingredient" ng-repeat="ingredient in recipe.ingredients" itemprop="ingredients">{{ingredient}}</li>
+    			<li class="ingredient" ng-repeat="ingredient in recipe.ingredients">{{ingredient}}</li>
     		</ul>
 
             <h4>Share this recipe</h4>
@@ -41,10 +42,10 @@
 
         <section class="main-column">
             <div>
-                <div class="header" itemprop="name">
+                <div class="header">
                     <h2>
                         {{recipe.title}}
-                        <span>
+                        <span> 
                             {{recipe.lead}}
                         </span>
                     </h2>
@@ -57,23 +58,23 @@
                 <ul class="cooking-time">
                     <li class="timeline"></li>
                     <li>
-                        <span class="time" itemprop="prepTime">{{recipe.preptime}}</span>
+                        <span class="time">{{recipe.preptime}}</span>
                         <span class="time-description">Prep</span>
                     </li>
                     <li class="timeline"></li>
                     <li>
-                        <span class="time" itemprop="cookTime">{{recipe.cookingtime}}</span>
+                        <span class="time">{{recipe.cookingtime}}</span>
                         <span class="time-description">Cook</span>
                     </li>
                     <li class="timeline"></li>
                     <li>
-                        <span class="time" itemprop="totalTime">{{recipe.totaltime}}</span>
+                        <span class="time">{{recipe.totaltime}}</span>
                         <span class="time-description">Total</span>
                     </li>
                     <li class="timeline"></li>
                 </ul>
 
-                <div class="instructions" itemprop="recipeInstructions">
+                <div class="instructions">
                 	<h4>Instructions</h4>
                 	<p>{{recipe.instructions}}</p>
                     <p class="created-on">Recipe created with much love on {{recipe.createdOn | date}}</p>
