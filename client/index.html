@@ -62,10 +62,10 @@
             <div ng-controller="AuthController">
                 <div id="login">
                     <a ng-href="#/auth" ng-hide="authData">
-                        Sign in / Sign up
+                        Login
                     </a>
                     <a ng-href="#/auth" ng-show="authData">Hello, {{authData.password.email}}</a>
-                    <a ng-show="authData"ng-click="auth.$unauth()">Sign Out</a>
+                    <a ng-show="authData" ng-click="auth.$unauth()">Logout</a>
                 </div>
             </div>
             <h1>
