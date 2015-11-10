@@ -64,7 +64,7 @@
                     <a ng-href="#/auth" ng-hide="authData">
                         Login
                     </a>
-                    <a ng-href="#/auth" ng-show="authData">Hello, {{authData.password.email}}</a>
+                    <p ng-href="#/auth" ng-show="authData">Hello, {{authData.password.email}}</p>
                     <a ng-show="authData" ng-click="auth.$unauth()">Logout</a>
                 </div>
             </div>
