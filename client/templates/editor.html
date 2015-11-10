@@ -33,7 +33,7 @@
                 <h4>Keywords: </h4>
                 <ul class="keywords">
                     <li ng-repeat="keyword in recipe.keywords track by $index">
-                        <input type="text" ng-model="recipe.keywords[$index]" name="recipeKeyword" ng-value="keyword" placeholder="Add a keyword" required>
+                        <input type="text" ng-model="recipe.keywords[$index]" name="recipeKeyword" ng-value="keyword" placeholder="Add a keyword" set-focus="$last" required>
 
                         <div ng-show="recipeForm.$submitted || recipeForm.recipeKeyword.$touched">
                             <span class="validation-error" ng-show="recipeForm.recipeKeyword.$error.required">Is it glutenfree? Or a Japanese recipe? Add some keywords to your recipe.</span>
@@ -50,7 +50,7 @@
                 <h4>Ingredients: </h4>
                 <ul class="ingredients">
                     <li ng-repeat="ingredient in recipe.ingredients track by $index">
-                        <input type="text" ng-model="recipe.ingredients[$index]" name="recipeIngredient" ng-value="ingredient" placeholder="Add an ingredient" required>
+                        <input type="text" ng-model="recipe.ingredients[$index]" name="recipeIngredient" ng-value="ingredient" placeholder="Add an ingredient" set-focus="$last" required>
 
                         <div ng-show="recipeForm.$submitted || recipeForm.recipeKeyword.$touched">
                             <span class="validation-error" ng-show="recipeForm.recipeKeyword.$error.required">Do we need some eggs, milk or salt?</span>
