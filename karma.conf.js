@@ -13,10 +13,11 @@ module.exports = function(config) {
             "bower_components/angular-touch/angular-touch.js",
             "bower_components/angular-sanitize/angular-sanitize.js",
             "bower_components/angular-ios9-uiwebview-patch/angular-ios9-uiwebview-patch.js",
-            "bower_components/angularfire/dist/angularfire.min.js",
             "bower_components/angularjs-socialshare/src/js/angular-socialshare.js",
+            "bower_components/angularfire/dist/angularfire.min.js",
             "bower_components/ng-flow/dist/ng-flow-standalone.min.js",
             "client/js/app.js",
+            "client/js/services/*.js",
             "client/js/controllers/*.js",
             "client/js/routes.js",
             "test/*.js"

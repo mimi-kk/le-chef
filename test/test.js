@@ -7,11 +7,19 @@ describe("Le Chef", function() {
 
 describe('RecipesController', function(){
   beforeEach(module('leChef'));
+  
   var scope, ctrl;
 
-  beforeEach(inject(function($controller, $rootScope) {
+  beforeEach(inject(function($controller, $rootScope, Recipes) {
     scope = $rootScope.$new();
-    ctrl = $controller("RecipesController", { $scope: scope, $firebaseArray : function(){ return [{ name : "Pizza"},{}]} });
+    ctrl = $controller("RecipesController", {
+      $scope: scope,
+      Recipes : function(){
+        return [
+          {"": ""},
+          {"": ""}
+        ]}
+      });
   }));
 
   it('should create "overview" with all recipes', function() { 
