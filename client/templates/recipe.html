@@ -82,6 +82,10 @@
             </div>
 
             <div class="review-column">
+
+                <!-- TODO: Should style with stars -->
+                <h4>Rating average: {{calculateAverage(AverageData)}}</h4>
+
                 <h4>Reviews</h4>
                 <div class="reviews">
                     <p ng-show="recipe.reviews.length === 1">There is no comment yet. Write the first comment!</p>

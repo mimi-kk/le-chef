@@ -17,6 +17,18 @@ app.controller("RecipeController", ["$scope", "$location", "$routeParams", "Reci
       if (typeof $scope.recipe.reviews === "undefined") {
         $scope.recipe.reviews = [{}];
       }
+
+      $scope.calculateAverage = function(AverageData){
+        var sum = 0;
+        
+        for(var i = 1; i < $scope.recipe.reviews.length; i++){
+          sum += parseInt($scope.recipe.reviews[i].stars, 10);
+        }
+
+        var average = sum/($scope.recipe.reviews.length-1);
+
+        return average;
+      };
     });
 
     $scope.direction = 'left';
