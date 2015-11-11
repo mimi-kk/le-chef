@@ -1,5 +1,5 @@
-app.controller("AuthController", ["$scope", "$routeParams", "$firebaseAuth", "Auth",
-  function($scope, $routeParams, $firebaseAuth, Auth) {
+app.controller("AuthController", ["$scope", "$routeParams", "$location", "$firebaseAuth", "Auth",
+  function($scope, $routeParams, $location, $firebaseAuth, Auth) {
     $scope.auth = Auth;
 
      $scope.auth.$onAuth(function(authData) {
@@ -13,13 +13,18 @@ app.controller("AuthController", ["$scope", "$routeParams", "$firebaseAuth", "Au
      Auth.$authWithPassword({
      	email: $scope.email,
      	password: $scope.password
-     }).then(function(userData) {
+      }).then(function(userData) {
         $scope.message = "Loged in successfully as " + "" + userData.password.email;
       }).catch(function(error) {
         $scope.error = "Something went wrong! Please try again or contact us.";
+      }).then(function() {
+        if ($scope.error !== null) {
+          $location.path("/auth");
+        }
+        else {
+          $location.path("/");
+        }
       });
+      };
     }
-
-
-  }
 ]);
