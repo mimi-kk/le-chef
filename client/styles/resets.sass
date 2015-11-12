@@ -1,3 +1,5 @@
+@import "mixins"
+
 html
 	-webkit-box-sizing: border-box
 	-moz-box-sizing: border-box
@@ -11,8 +13,55 @@ html
 		-moz-box-sizing: inherit
 		box-sizing: inherit
 
-		li
-			list-style-type: none
+	body
+		margin: 0 auto
+		width: 100%
+
+		h1, h2, h3, h4
+			font-family: "Amatic SC Bold"
 
 		a
 			text-decoration: none
+			color: #393A3D
+
+			&:hover
+				color: #5D9E9B
+
+		li
+			list-style-type: none
+
+		button
+			font-family: "Josefin Regular"
+			font-size: 19px
+			line-height: 25px
+
+			padding: 4px
+			margin: 13px 0
+
+			background-color: #D90048
+			color: #E1FCEB
+
+			border: none
+			border-radius: 7px
+
+			&:hover
+				background-color: #393A3D
+
+		textarea,
+		input
+			+appearance
+			outline: none
+			border-radius: 5px
+			border: 1px solid #bfbfbf
+			font-size: 19px
+			font-family: "Josefin Regular"
+
+			padding: 4px
+
+		select
+			+appearance
+			border: none
+			background-color: transparent
+			padding: 7px 0
+			font-size: 19px
+			font-family: "Josefin Regular"

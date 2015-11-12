@@ -10,11 +10,8 @@ header
 	h1
 		font-size: 54px
 
-		a
-			color: #393A3D
-
-			img
-				width: 50px
+		img
+			width: 50px
 
 	h2
 		font-size: 30px
@@ -31,12 +28,7 @@ header
 		font-size: 32px
 
 		a
-			color: #393A3D
-			
 			padding: 4px
-
-			&:hover
-				color: #5D9E9B
 
 	#search
 		+appearance
@@ -50,14 +42,14 @@ header
 
 		margin: 13px auto
 
-	#login a, #login p
-		+flex
-		+justify-content-end
-		font-family: "Amatic SC Bold"
-		font-size: 24px
-		color: #393A3D
-		padding: 7px
+	#login
+		a, p
+			+flex
+			+justify-content-end
+			font-family: "Amatic SC Bold"
+			font-size: 24px
+			color: #393A3D
+			padding: 7px
 
-	#login a:hover
-			color: #5D9E9B
-
+			&:hover
+				color: #5D9E9B

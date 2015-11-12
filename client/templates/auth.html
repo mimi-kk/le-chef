@@ -1,16 +1,22 @@
 <section class="auth">
 	<h3>Login</h3>
-	<p>Please login to your le Chef account in order to add, change or delete recipes.<br>
-	If you wish to get an author account, please apply via email to <a href="mailto:contact@noerdli.ch">contact@noerdli.ch</a> and tell us more about your cooking skills.</p>
-	<h4>Email</h4>
-	<input type="text" ng-model="email">
-	<h4>Password</h4>
-	<input type="password" ng-model="password">
+	<div>
+		<p>
+			Please login to your le Chef account in order to add, change or delete recipes.
+		</p>
+		<p>
+			If you wish to get an author account, please apply via email to <a href="mailto:contact@noerdli.ch">contact@noerdli.ch</a> and tell us more about your cooking skills.
+		</p>
+		
+		<h4>Email</h4>
+		<input type="text" ng-model="email">
+		
+		<h4>Password</h4>
+		<input type="password" ng-model="password">
 
-	<br><br>
+		<button ng-click="login()">Login</button>
 
-	<button ng-click="login()">Login</button>
-
-	<p ng-if="message">Message: <strong>{{ message }}</strong></p>
-	<p ng-if="error">Error: <strong>{{ error }}</strong></p>
-  </section>
+		<p ng-if="message">Message: <strong>{{ message }}</strong></p>
+		<p ng-if="error">Error: <strong>{{ error }}</strong></p>
+	</div>
+ </section>
