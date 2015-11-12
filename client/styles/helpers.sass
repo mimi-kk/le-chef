@@ -1,9 +1,5 @@
 @import "mixins"
 
-[class^="icon-"], [class*=" icon-"]
-    &:hover
-        #393A3D
-
 .clearfix
     &:after, &:before
         content: ""
@@ -14,7 +10,6 @@
     color: #D90048
 
 .ng-invalid.ng-dirty.ng-invalid-required
-    border-color: validation-error
     width: 100%
 
 .ng-invalid-required
@@ -23,39 +18,8 @@
 .ng-valid.ng-dirty
     border-color: #C8DBBF
 
-button
-    font-family: "Josefin Regular"
-    font-size: 19px
-    line-height: 25px
-
-    padding: 4px
-    margin: 13px 0
-
-    background-color: #D90048
-    color: #E1FCEB
-
-    border: none
-    border-radius: 7px
-
-    &:hover
-        background-color: #393A3D
-
-textarea, input
-    border-radius: 5px
+.ng-pristine
     border-color: #bfbfbf
-
-    font-size: 19px
-    font-family: "Josefin Regular"
-
-    padding: 4px
-
-select
-    +appearance
-    border: none
-    background-color: transparent
-    padding: 7px 0
-    font-size: 19px
-    font-family: "Josefin Regular"
 
 .tooltips
     color: #D90048
@@ -95,3 +59,19 @@ select
     &:hover
         span
             visibility: visible
+
+@-webkit-keyframes glow 
+    from
+        background-color: #46807D
+        -webkit-box-shadow: 0 0 9px #333
+    50%
+        background-color: #5D9E9B
+        -webkit-box-shadow: 0 0 18px #5D9E9B
+    to
+        background-color: #46807D
+        -webkit-box-shadow: 0 0 9px #333
+
+.glow
+    -webkit-animation-name: glow
+    -webkit-animation-duration: 3.5s
+    -webkit-animation-iteration-count: infinite
