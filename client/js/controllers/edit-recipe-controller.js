@@ -23,6 +23,14 @@ app.controller("EditRecipeController", ["$scope", "Recipes", "$location", "$rout
 
       $scope.upload = {};
 
+      $scope.add = function(key) {
+        $scope.recipe[key].push("");
+      };
+
+      $scope.remove = function(key, index) {
+        $scope.recipe[key].splice(index, 1);
+      };
+
       $scope.addRecipe = function() {
         for(i = 0; i < $scope.upload.flow.files.length; i++) {
           $scope.recipe.slides.push("/images/uploads/"+$scope.upload.flow.files[i].relativePath);

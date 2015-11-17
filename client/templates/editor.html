@@ -33,16 +33,15 @@
                 <h4>Keywords: </h4>
                 <ul class="keywords">
                     <li ng-repeat="keyword in recipe.keywords track by $index">
-                        <input type="text" ng-model="recipe.keywords[$index]" name="recipeKeyword" ng-value="keyword" placeholder="Add a keyword" set-focus="$last" required>
+                        <input type="text" ng-model="recipe.keywords[$index]" name="recipeKeyword" ng-value="keyword" placeholder="Add a keyword" set-focus="$last" required autofocus>
 
                         <div ng-show="recipeForm.$submitted">
                             <span class="validation-error" ng-show="recipeForm.recipeKeyword.$error.required">Is it glutenfree? Or a Japanese recipe? Add some keywords to your recipe.</span>
                         </div>
-
-                        <span class="remove-field icon-circle-with-minus" ng-click="recipe.keywords.splice($index, 1)"></span>
+                        <span class="remove-field icon-circle-with-minus" ng-click="remove('keywords', $index)"></span>
                     </li>
                     
-                    <span class="add-field icon-circle-with-plus" ng-click="recipe.keywords.push('')"></span>  
+                    <span class="add-field icon-circle-with-plus" ng-click="add('keywords')"></span>  
                 </ul>
             </section>
 
@@ -56,10 +55,10 @@
                             <span class="validation-error" ng-show="recipeForm.recipeKeyword.$error.required">Do we need some eggs, milk or salt?</span>
                         </div>
 
-                        <span class="remove-field icon-circle-with-minus" ng-click="recipe.ingredients.splice($index, 1)"></span>
+                        <span class="remove-field icon-circle-with-minus" ng-click="remove('ingredients', $index)"></span>
                     </li>
                     
-                    <span class="add-field icon-circle-with-plus" ng-click="recipe.ingredients.push('')"></span>
+                    <span class="add-field icon-circle-with-plus" ng-click="add('ingredients')"></span>
                 </ul>
             </section>
 
@@ -109,7 +108,7 @@
 
                 <div class="instructions">
                     <h4>Instructions</h4>
-                    <textarea class="instructions" type="text" ng-model="recipe.instructions" name="recipeInstructions" ng-value="recipe.instructions" placeholder="Write an instruction" required></textarea>
+                    <textarea ckeditor="editorOptions" id="recipeInstructions" class="instructions" type="text" ng-model="recipe.instructions" name="recipeInstructions" ckeditor="editorOptions" ng-value="recipe.instructions" placeholder="Write an instruction" required></textarea>
                     
                     <div ng-show="recipeForm.$submitted || recipeForm.recipeInstructions.$touched">
                         <span class="validation-error" ng-show="recipeForm.recipeInstructions.$error.required">Write an instruction to your recipe. Otherwise we don't know how to cook it!</span>
