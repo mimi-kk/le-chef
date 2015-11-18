@@ -1,5 +1,5 @@
-app.controller("RecipeController", ["$scope", "$location", "$routeParams", "Recipes",
-  function($scope, $location, $routeParams, Recipes) {
+app.controller("RecipeController", ["$scope", "$location", "$routeParams", "$compile", "Recipes",
+  function($scope, $location, $routeParams, $compile, Recipes) {
     $scope.addReview = function() {
       $scope.recipe.reviews.push($scope.recipe.review);
       $scope.recipe.review.createdOn = Date.now();
@@ -13,6 +13,8 @@ app.controller("RecipeController", ["$scope", "$location", "$routeParams", "Reci
 
     $scope.recipes.$loaded().then(function(payload) {
       $scope.recipe = payload.$getRecord($routeParams.id);
+      
+      $scope.html = $scope.recipe.instructions;
 
       if (typeof $scope.recipe.reviews === "undefined") {
         $scope.recipe.reviews = [{}];

@@ -76,7 +76,7 @@
 
                 <div class="instructions">
                 	<h4>Instructions</h4>
-                	<p>{{recipe.instructions}}</p>
+                	<p ng-bind-html="html"></p>
                     <p class="created-on">Recipe created with much love on {{recipe.createdOn | date}}</p>
                 </div>
             </div>
