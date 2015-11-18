@@ -3,13 +3,14 @@
   "dependencies": {
     "angular": "1.4.2",
     "angular-animate": "1.4.5",
+    "angular-ckeditor": "1.0.0",
     "angular-ios9-uiwebview-patch": "1.1.1",
+    "angular-mocks": "1.4.7",
     "angular-route": "1.4.4",
     "angular-sanitize": "1.4.7",
     "angular-touch": "1.4.7",
     "angularfire": "1.1.2",
     "angularjs-socialshare": "0.1.14",
-    "ng-flow": "2.6.1",
-    "angular-mocks": "1.4.7"
+    "ng-flow": "2.6.1"
   }
 }

@@ -23,6 +23,9 @@ app.controller("EditRecipeController", ["$scope", "Recipes", "$location", "$rout
 
       $scope.upload = {};
 
+      /*TO DO: Should reduce options, which we really need*/
+      $scope.options = {};
+
       $scope.add = function(key) {
         $scope.recipe[key].push("");
       };
