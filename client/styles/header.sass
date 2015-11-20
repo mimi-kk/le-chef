@@ -43,13 +43,38 @@ header
 		margin: 13px auto
 
 	#login
-		a, p
-			+flex
-			+justify-content-end
-			font-family: "Amatic SC Bold"
-			font-size: 24px
-			color: #393A3D
-			padding: 7px
+		+flex
+		+justify-content-end
 
-			&:hover
-				color: #5D9E9B
+		> div
+			padding: 14px
+			background-color: #fff
+
+			&.ng-show 
+				-webkit-transition: ease-in/* Safari */
+			    transition: ease-in
+
+			&.ng-hide
+				-webkit-transition: ease-out/* Safari */
+			    transition: ease-out
+
+			span:not([class^="icon-"])
+				font-family: "Amatic SC Bold"
+				font-size: 18px
+				line-height: 18px
+
+				&:first-of-type
+					padding-right: 4px
+
+			span[class^="icon-"]
+				font-size: 18px
+				color: #D90048
+
+				&:hover
+					color: #5D9E9B
+
+			a
+				color: #D90048
+
+				&:hover
+					color: #5D9E9B

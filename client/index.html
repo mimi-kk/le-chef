@@ -68,13 +68,27 @@
 
     <body ng-controller="RecipesController">
         <header>
-            <div ng-controller="AuthController">
-                <div id="login">
-                    <a ng-href="#/auth" ng-hide="authData">
-                        Login
-                    </a>
-                    <p ng-href="#/auth" ng-show="authData">Hello, {{authData.password.email}}</p>
-                    <a ng-show="authData" ng-click="auth.$unauth()">Logout</a>
+            <div ng-controller="AuthController" id="login">
+                <div ng-show="isLoginOpen">
+                    <span ng-href="#/auth" ng-show="authData">
+                        Hello, {{authData.password.email}}
+                    </span>
+
+                    <span>
+                        <a ng-href="#/auth" ng-hide="authData">
+                            Login
+                        </a>
+                    </span>
+
+                    <span>
+                        <a ng-show="authData" ng-click="auth.$unauth()">
+                            Logout
+                        </a>
+                    </span>
+                </div>
+                <div ng-click="isLoginOpen = !isLoginOpen">
+                    <span ng-hide="isLoginOpen" class="icon-face"></span>
+                    <span ng-show="isLoginOpen" class="icon-cross"></span>
                 </div>
             </div>
             <h1>

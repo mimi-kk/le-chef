@@ -8,8 +8,13 @@
 			font-weight: normal
 
 		header
-			+align-items-center
-
+			#login
+				span[class^="icon-"]
+					&:hover
+						color: #D90048
+			h2
+				margin-bottom: 13px
+				
 			#search
 				width: 254px
 
@@ -22,7 +27,14 @@
 
 						.caption
 							opacity: 1
-							+justify-content-initial
+
+							h3
+								font-size: 34px
+								line-height: 32px
+								margin-bottom: 7px
+
+							p
+								line-height: 19px
 
 						.overlay
 							position: absolute
@@ -30,7 +42,7 @@
 							top: 50%
 							
 							width: 100%
-							height: 100%
+							height: 127px
 
 			.recipe-description
 				.slider
