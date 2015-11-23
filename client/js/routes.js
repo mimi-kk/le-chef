@@ -48,6 +48,24 @@ app.config(["$routeProvider", "$compileProvider",
                 }]
             }
             }).
+            when("/reset", {
+                templateUrl: "templates/reset.html",
+                controller: "AuthController",
+                resolve: {
+                    "currentAuth": ["Auth", function(Auth) {
+                    return Auth.$waitForAuth();
+                }]
+            }
+            }).
+            when("/new-password", {
+                templateUrl: "templates/new-password.html",
+                controller: "AuthController",
+                resolve: {
+                    "currentAuth": ["Auth", function(Auth) {
+                    return Auth.$waitForAuth();
+                }]
+            }
+            }).
             otherwise({
                 redirectTo: "/"
             });

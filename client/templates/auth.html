@@ -7,16 +7,19 @@
 		<p>
 			If you wish to get an author account, please apply via email to <a href="mailto:contact@noerdli.ch">contact@noerdli.ch</a> and tell us more about your cooking skills.
 		</p>
-		
+		<form novalidate name="authForm">
 		<h4>Email</h4>
-		<input type="text" ng-model="email">
+		<input type="text" ng-model="email" required>
 		
 		<h4>Password</h4>
 		<input type="password" ng-model="password">
 
-		<button ng-click="login()">Login</button>
+		<button ng-click="authForm.$valid && login()">Login</button>
 
-		<p ng-if="message">Message: <strong>{{ message }}</strong></p>
-		<p ng-if="error">Error: <strong>{{ error }}</strong></p>
+		<p ng-if="message"><strong>Message: {{ message }}</strong></p>
+		<p ng-if="error"><strong>Error: {{ error }}<br>
+		<a ng-href="#/reset">Reset password.</a></strong>
+		</p>
+		</form>
 	</div>
  </section>

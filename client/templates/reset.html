@@ -1,0 +1,18 @@
+<section class="auth">
+	<h3>Reset password</h3>
+	<div>
+		<p>
+			Please enter your email address.
+		</p>
+		<form novalidate name="authForm">
+		<h4>Email</h4>
+		<input type="text" ng-model="email" required>
+
+		<button ng-click="authForm.$valid && resetPassword()">Reset password</button>
+
+		<p ng-if="message">Message: <strong>{{ message }}</strong></p>
+		<p ng-if="error">Error: <strong>{{ error }}</strong>
+		</p>
+		</form>
+	</div>
+ </section>
