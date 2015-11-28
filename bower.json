@@ -12,6 +12,7 @@
     "angularfire": "1.1.2",
     "angularjs-socialshare": "0.1.14",
     "ng-flow": "2.6.1",
-    "angular-aria": "1.4.8"
+    "angular-aria": "1.4.8",
+    "angular-spinkit": "~0.3.3"
   }
 }

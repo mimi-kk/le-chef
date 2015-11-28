@@ -27,6 +27,7 @@
 
         <!-- To develop use this css -->
             <link rel="stylesheet" href="tmp/screen.css">
+            <link rel="stylesheet" href="bower_components/angular-spinkit/build/angular-spinkit.min.css">
         <!-- To develop use this css -->
     </head>
 
@@ -81,7 +82,6 @@
 
             <input ng-model="search.$" id="search" results="5" type="search" placeholder="Find recipe" ng-show="currentPath.hash === '#/'" aria-label="Type text to find recipes">
         </header>
-
         <main ng-view></main>
 
         <!-- angular -->
@@ -93,6 +93,7 @@
             <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
             <script src="bower_components/angular-ios9-uiwebview-patch/angular-ios9-uiwebview-patch.js"></script>
             <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+            <script src="bower_components/angular-spinkit/build/angular-spinkit.min.js"></script>
 
             <!-- ckeditor -->
             <script src="bower_components/ckeditor/ckeditor.js"></script>

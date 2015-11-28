@@ -8,7 +8,8 @@ var app = angular.module("leChef", [
     "ckeditor",
     "firebase",
     "720kb.socialshare",
-    "flow"
+    "flow",
+    "angular-spinkit"
 ]);
 
 app.config(["flowFactoryProvider", function (flowFactoryProvider) {

@@ -1,12 +1,7 @@
 <section id="recipes-overview">
     <ul class="recipes">
-        <li class="recipe add-recipe">
-            <a ng-href="#/editor">
-                +
-            </a>
-        </li>
-
-        <li ng-repeat="recipe in recipes | filter:search" id="{{recipe.$id}}" class="recipe" style="background-image: url({{recipe.slides[0]}})" >
+        <li><chasing-dots-spinner ng-show="loading"></chasing-dots-spinner></li>
+        <li ng-repeat="recipe in recipes | filter:search" id="{{recipe.$id}}" class="recipe" style="background-image: url({{recipe.slides[0]}})">
             <a ng-href="#/recipe/{{recipe.$id}}">
                 <div class="caption overlay">
                     <h3>
@@ -16,6 +11,11 @@
                         {{recipe.lead}}
                     </p>
                 </div>
+            </a>
+        </li>
+         <li class="recipe add-recipe" ng-hide="loading">
+            <a ng-href="#/editor">
+                +
             </a>
         </li>
     </ul>
