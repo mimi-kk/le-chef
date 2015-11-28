@@ -3,7 +3,10 @@ var sass = require("gulp-sass");
 var browserSync = require("browser-sync");
 var scp = require("gulp-scp2");
 var Server = require("karma").Server;
-
+var uglify = require("gulp-uglify");
+var concat = require("gulp-concat");
+var minifyCss = require("gulp-minify-css");
+ 
 gulp.task("default", function() {
     console.log("Default task!");
 });
@@ -41,8 +44,26 @@ gulp.task("sass", function() {
         .pipe(browserSync.stream());
 });
 
+gulp.task("minify-css", function() {
+  return gulp.src("client/tmp/screen.css")
+    .pipe(minifyCss({compatibility: "ie8"}))
+    .pipe(gulp.dest("client/dist"));
+});
+ 
+gulp.task("scripts", function() {
+  return gulp.src("client/js/**/*.js")
+    .pipe(concat("screen.js"))
+    .pipe(gulp.dest("client/dist"));
+});
+
+gulp.task("compress", function() {
+  return gulp.src("client/dist/screen.js")
+    .pipe(uglify())
+    .pipe(gulp.dest("client/dist"));
+});
+
 gulp.task("deploy", function() {
-    return gulp.src("client/**/*")
+    return gulp.src(["client/**/*", "!client/js/*", "!client/styles/*", "!client/tmp/*"])
         .pipe(scp({
             host: "noerdli.ch",
             username: "noerdli",
