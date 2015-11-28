@@ -5,44 +5,44 @@
 
     <section class="content">
         <section class="head-column">
-            <h4>My search</h4>
+            <h4 tabindex="0">My search</h4>
             <ul class="search-keywords">
-                <li ng-bind="search.$"></li>
+                <li tabindex="0" ng-bind="search.$"></li>
             </ul>
             
-            <h4>Keywords</h4>
+            <h4 tabindex="0">Keywords</h4>
             <ul class="keywords">
-                <li ng-repeat="keyword in recipe.keywords">{{keyword}}. </li>
+                <li tabindex="0" ng-repeat="keyword in recipe.keywords">{{keyword}}. </li>
             </ul>
         </section>
     	
         <section class="side-column">
 
-            <h4>Ingredients</h4>
+            <h4 tabindex="0">Ingredients</h4>
             <ul class="ingredients">
-    			<li class="ingredient" ng-repeat="ingredient in recipe.ingredients">{{ingredient}}</li>
+    			<li class="ingredient" ng-repeat="ingredient in recipe.ingredients" tabindex="0">{{ingredient}}</li>
     		</ul>
 
-            <h4>Share this recipe</h4>
+            <h4 tabindex="0">Share this recipe</h4>
             <ul class="share-this-recipe">
                 <li>
-                    <a class="icon-pinterest-with-circle" href="#/recipe/{{recipe.$id}}" socialshare socialshare-provider="pinterest" socialshare-text="{{recipe.title}} - {{recipe.lead}}" socialshare-url="http://lechef.noerdli.ch/#/recipe/{{recipe.$id}}" socialshare-media="http://lechef.noerdli.ch{{recipe.slides[0]}}"></a>
+                    <a class="icon-pinterest-with-circle" href="#/recipe/{{recipe.$id}}" socialshare socialshare-provider="pinterest" socialshare-text="{{recipe.title}} - {{recipe.lead}}" socialshare-url="http://lechef.noerdli.ch/#/recipe/{{recipe.$id}}" socialshare-media="http://lechef.noerdli.ch{{recipe.slides[0]}}" aria-label="Share this recipe on pinterest"></a>
                 </li>
                 <li>
-                    <a class="icon-facebook-with-circle" href="/#/recipe/{{recipe.$id}}" socialshare socialshare-provider="facebook" socialshare-type="feed" socialshare-via="774079302702991" socialshare-display="popup" socialshare-media="http://lechef.noerdli.ch{{recipe.slides[0]}}" socialshare-description="{{recipe.instructions}}" socialshare-text="{{recipe.title}} - {{recipe.lead}}" socialshare-caption="Recipe created with much love on lechef.noerdli.ch" socialshare-url="http://lechef.noerdli.ch/#/recipe/{{recipe.$id}}" socialshare-redirect-uri="http://lechef.noerdli.ch"></a>
+                    <a class="icon-facebook-with-circle" href="/#/recipe/{{recipe.$id}}" socialshare socialshare-provider="facebook" socialshare-type="feed" socialshare-via="774079302702991" socialshare-display="popup" socialshare-media="http://lechef.noerdli.ch{{recipe.slides[0]}}" socialshare-description="{{recipe.instructions}}" socialshare-text="{{recipe.title}} - {{recipe.lead}}" socialshare-caption="Recipe created with much love on lechef.noerdli.ch" socialshare-url="http://lechef.noerdli.ch/#/recipe/{{recipe.$id}}" socialshare-redirect-uri="http://lechef.noerdli.ch" aria-label="Share this recipe on facebook"></a>
                 </li>
                 <li>
-                    <a class="icon-twitter-with-circle" href="#/recipe/{{recipe.$id}}" socialshare socialshare-provider="twitter" socialshare-text="{{recipe.title}} - {{recipe.lead}}" socialshare-url="http://lechef.noerdli.ch/#/recipe/{{recipe.$id}}" socialshare-media="http://lechef.noerdli.ch{{recipe.slides[0]}}" socialshare-hashtags="lechef, foodlove, {{recipe.keywords[0]}}, {{recipe.keywords[1]}}, {{recipe.keywords[2]}}"></a>
+                    <a class="icon-twitter-with-circle" href="#/recipe/{{recipe.$id}}" socialshare socialshare-provider="twitter" socialshare-text="{{recipe.title}} - {{recipe.lead}}" socialshare-url="http://lechef.noerdli.ch/#/recipe/{{recipe.$id}}" socialshare-media="http://lechef.noerdli.ch{{recipe.slides[0]}}" socialshare-hashtags="lechef, foodlove, {{recipe.keywords[0]}}, {{recipe.keywords[1]}}, {{recipe.keywords[2]}}" aria-label="Share this recipe on twitter"></a>
                 </li>
                 <li>
-                    <a class="icon-google-with-circle" href="#/recipe/{{recipe.$id}}" socialshare socialshare-provider="google+" socialshare-text="{{recipe.title}} - {{recipe.lead}}" socialshare-url="http://lechef.noerdli.ch/#/recipe/{{recipe.$id}}" socialshare-media="http://lechef.noerdli.ch{{recipe.slides[0]}}"></a>
+                    <a class="icon-google-with-circle" href="#/recipe/{{recipe.$id}}" socialshare socialshare-provider="google+" socialshare-text="{{recipe.title}} - {{recipe.lead}}" socialshare-url="http://lechef.noerdli.ch/#/recipe/{{recipe.$id}}" socialshare-media="http://lechef.noerdli.ch{{recipe.slides[0]}}" aria-label="Share this recipe on google+"></a>
                 </li>
             </ul>
         </section>
 
         <section class="main-column">
             <div>
-                <div class="header">
+                <div class="header" tabindex="0">
                     <h2>
                         {{recipe.title}}
                         <span> 
@@ -54,29 +54,29 @@
                     </span>
                 </div>
 
-                <h4>Time until ready</h4>
+                <h4 tabindex="0">Time until ready</h4>
                 <ul class="cooking-time">
                     <li class="timeline"></li>
                     <li>
-                        <span class="time">{{recipe.preptime}}</span>
+                        <span class="time" tabindex="0">{{recipe.preptime}}</span>
                         <span class="time-description">Prep</span>
                     </li>
                     <li class="timeline"></li>
                     <li>
-                        <span class="time">{{recipe.cookingtime}}</span>
+                        <span class="time" tabindex="0">{{recipe.cookingtime}}</span>
                         <span class="time-description">Cook</span>
                     </li>
                     <li class="timeline"></li>
                     <li>
-                        <span class="time">{{recipe.totaltime}}</span>
+                        <span class="time" tabindex="0">{{recipe.totaltime}}</span>
                         <span class="time-description">Total</span>
                     </li>
                     <li class="timeline"></li>
                 </ul>
 
                 <div class="instructions">
-                	<h4>Instructions</h4>
-                	<p ng-bind-html="html"></p>
+                	<h4 tabindex="0">Instructions</h4>
+                	<p ng-bind-html="html" tabindex="0"></p>
                     <p class="created-on">Recipe created with much love on {{recipe.createdOn | date}}</p>
                 </div>
             </div>
@@ -84,10 +84,10 @@
             <div class="review-column">
 
                 <!-- TODO: Should style with stars -->
-                <h4>Rating average: {{calculateAverage(AverageData)}}</h4>
+                <h4 tabindex="0">Rating average: {{calculateAverage(AverageData)}}</h4>
 
-                <h4>Reviews</h4>
-                <div class="reviews">
+                <h4 tabindex="0">Reviews</h4>
+                <div class="reviews"  tabindex="0">
                     <p ng-show="recipe.reviews.length === 1">There is no comment yet. Write the first comment!</p>
                     <div class="review" ng-repeat="review in recipe.reviews track by $index"> 
                         <p class="rating" ng-model="recipe.review.stars[$index]">Stars:  {{review.stars}}</p>
@@ -96,7 +96,7 @@
                     </div>
                 </div>
                 <div class="review-editor">
-                    <h4>Write a Review</h4>
+                    <h4 tabindex="0">Write a Review</h4>
                     <form class="review-form" novalidate>
                         <div class="select-form">
                             <select ng-model="recipe.review.stars" required>

@@ -4,6 +4,7 @@ var app = angular.module("leChef", [
     "ngAnimate",
     "ngTouch",
     "ngIOS9UIWebViewPatch",
+    "ngAria",
     "ckeditor",
     "firebase",
     "720kb.socialshare",

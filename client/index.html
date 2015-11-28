@@ -5,7 +5,6 @@
         <meta charset="UTF-8">
         <meta name="description" content="A recipe sharing platform" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        <meta name="p:domain_verify" content="b291bef12ea69bc6a51b909cc6d67e3c"/>
         <meta name="google-site-verification" content="vPax4dl48baMq_-DBfCVVevUnCKvEhbbAt2yVeEoFGs" />
 
         <title>Le Chef a toujours raison</title>
@@ -51,13 +50,13 @@
                         </a>
                     </span>
                 </div>
-                <div ng-click="isLoginOpen = !isLoginOpen">
+                <div ng-click="isLoginOpen = !isLoginOpen" tabindex="0" aria-label="Link to login page only for page administrator">
                     <span ng-hide="isLoginOpen" class="icon-face"></span>
                     <span ng-show="isLoginOpen" class="icon-cross"></span>
                 </div>
             </div>
             <h1>
-                <a ng-href="#/">
+                <a ng-href="#/" aria-label="Link to main page">
                     Le Chef
                     <img src="/images/lechef-logo-150px.png">
                 </a>
@@ -67,20 +66,20 @@
             </h2>
             <ul class="follow-us" ng-show="currentPath.hash === '#/'">
                 <li>
-                    <a class="icon-pinterest-with-circle" href="http://www.pinterest.com/norarusterholz" target="_blank"></a>
+                    <a class="icon-pinterest-with-circle" href="http://www.pinterest.com/norarusterholz" target="_blank" aria-label="Follow us on pinterest"></a>
                 </li>
                 <li>
-                    <a class="icon-instagram-with-circle" href="https://instagram.com/mimi.k.k/" target="_blank"></a>
+                    <a class="icon-instagram-with-circle" href="https://instagram.com/mimi.k.k/" target="_blank" aria-label="Follow us on instagram"></a>
                 </li>
                 <li>
-                    <a class="icon-twitter-with-circle" href="https://twitter.com/norarusterholz" target="_blank"></a>
+                    <a class="icon-twitter-with-circle" href="https://twitter.com/norarusterholz" target="_blank" aria-label="Follow us on twister"></a>
                 </li>
                 <li>
-                    <a class="icon-vimeo-with-circle" href="https://vimeo.com/greenkitchenstories" target="_blank"></a>
+                    <a class="icon-vimeo-with-circle" href="https://vimeo.com/greenkitchenstories" target="_blank" aria-label="Follow us on vimeo"></a>
                 </li>
             </ul>
 
-            <input ng-model="search.$" id="search" results="5" type="search" placeholder="Find recipe" ng-show="currentPath.hash === '#/'">
+            <input ng-model="search.$" id="search" results="5" type="search" placeholder="Find recipe" ng-show="currentPath.hash === '#/'" aria-label="Type text to find recipes">
         </header>
 
         <main ng-view></main>
@@ -93,6 +92,7 @@
             <script src="bower_components/angularjs-socialshare/dist/angular-socialshare.min.js"></script>
             <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
             <script src="bower_components/angular-ios9-uiwebview-patch/angular-ios9-uiwebview-patch.js"></script>
+            <script src="bower_components/angular-aria/angular-aria.min.js"></script>
 
             <!-- ckeditor -->
             <script src="bower_components/ckeditor/ckeditor.js"></script>
@@ -101,7 +101,7 @@
             <!-- ckeditor -->
 
             <!-- / Test -->
-            <script src="bower_components/angular-mocks/angular-mocks.js"></script>
+            <!-- <script src="bower_components/angular-mocks/angular-mocks.js"></script> -->
             <!-- / Test -->
         <!-- angular -->
 
