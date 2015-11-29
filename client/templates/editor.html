@@ -3,7 +3,7 @@
         <section class="image-column">
             <div flow-init flow-files-submitted="$flow.upload()" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-file-success="$file.msg = $message" flow-name="upload.flow">
                 <input type="file" class="flow-button" flow-btn>
-                <div class="drop" flow-drop>Drag And Drop your images here</div>
+                <div class="drop" flow-drop>Drag and drop your images here</div>
                 <ul class="preview">
                     <li ng-repeat="file in upload.flow.files track by $index">
                         <p>
@@ -119,9 +119,10 @@
         </section>
 
         <section class="buttons">
-            <button ng-click="recipeForm.$valid && addRecipe()" ng-hide="recipe.$id" class="glow">Save the Recipe</button>
+            <button ng-click="cancelEditRecipe()">Cancel</button>
+            <button ng-click="recipeForm.$valid && addRecipe()" ng-hide="recipe.$id" class="glow">Save Recipe</button>
             <button ng-click="deleteRecipe()"ng-show="recipe.$id">Delete Recipe</button>
-            <button ng-click="recipeForm.$valid && editRecipe()" ng-show="recipe.$id" class="glow">Update the Recipe</button>
+            <button ng-click="recipeForm.$valid && editRecipe()" ng-show="recipe.$id" class="glow">Update Recipe</button>
         </section>
     </form>
 </section>
