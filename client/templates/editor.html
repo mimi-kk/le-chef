@@ -33,15 +33,16 @@
                 <h4>Keywords: </h4>
                 <ul class="keywords">
                     <li ng-repeat="keyword in recipe.keywords track by $index">
-                        <input type="text" ng-model="recipe.keywords[$index]" name="recipeKeyword" ng-value="keyword" placeholder="Add a keyword" set-focus="$last" required autofocus>
+                        <input type="text" ng-model="recipe.keywords[$index]" name="recipeKeyword" ng-value="keyword" placeholder="Add a keyword" ng-attr-id="{{'last-keyword-'+$last}}" required>
 
                         <div ng-show="recipeForm.$submitted">
                             <span class="validation-error" ng-show="recipeForm.recipeKeyword.$error.required">Is it glutenfree? Or a Japanese recipe? Add some keywords to your recipe.</span>
                         </div>
+
                         <span class="remove-field icon-circle-with-minus" ng-click="remove('keywords', $index)"></span>
                     </li>
-                    
-                    <span class="add-field icon-circle-with-plus" ng-click="add('keywords')"></span>  
+
+                    <span class="add-field icon-circle-with-plus" ng-click="add('keywords')" event-focus="click" event-focus-id="last-keyword-true"></span>  
                 </ul>
             </section>
 
@@ -49,16 +50,15 @@
                 <h4>Ingredients: </h4>
                 <ul class="ingredients">
                     <li ng-repeat="ingredient in recipe.ingredients track by $index">
-                        <input type="text" ng-model="recipe.ingredients[$index]" name="recipeIngredient" ng-value="ingredient" placeholder="Add an ingredient" set-focus="$last" required>
+                        <input type="text" ng-model="recipe.ingredients[$index]" name="recipeIngredient" ng-value="ingredient" placeholder="Add an ingredient" ng-attr-id="{{'last-ingredient-'+$last}}" required>
 
                         <div ng-show="recipeForm.$submitted">
                             <span class="validation-error" ng-show="recipeForm.recipeKeyword.$error.required">Do we need some eggs, milk or salt?</span>
                         </div>
 
-                        <span class="remove-field icon-circle-with-minus" ng-click="remove('ingredients', $index)"></span>
+                        <span class="remove-field icon-circle-with-minus" ng-click="remove('ingredients', $index)" ></span>
                     </li>
-                    
-                    <span class="add-field icon-circle-with-plus" ng-click="add('ingredients')"></span>
+                    <span class="add-field icon-circle-with-plus" ng-click="add('ingredients')" event-focus="click" event-focus-id="last-ingredient-true"></span>
                 </ul>
             </section>
 
