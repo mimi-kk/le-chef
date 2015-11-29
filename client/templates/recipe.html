@@ -87,7 +87,7 @@
 
                 <h4 tabindex="0">Reviews</h4>
 
-                <div class="review-average">
+                <div ng-show="recipe.reviews.length > 1" class="review-average">
                     <span ng-show="recipe.reviews.length > 1" ng-repeat="i in calculateAverage(AverageData) track by $index" class="icon-star"></span>
                     <span class="review-full-marks">out of 5 stars</span>
                 </div>
