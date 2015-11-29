@@ -84,9 +84,14 @@
             <div class="review-column">
 
                 <!-- TODO: Should style with stars -->
-                <h4 tabindex="0">Rating average: {{calculateAverage(AverageData)}}</h4>
 
                 <h4 tabindex="0">Reviews</h4>
+
+                <div class="review-average">
+                    <span ng-show="recipe.reviews.length > 1" ng-repeat="i in calculateAverage(AverageData) track by $index" class="icon-star"></span>
+                    <span class="review-full-marks">out of 5 stars</span>
+                </div>
+
                 <div class="reviews"  tabindex="0">
                     <p ng-show="recipe.reviews.length === 1">There is no comment yet. Write the first comment!</p>
                     <div class="review" ng-repeat="review in recipe.reviews track by $index"> 

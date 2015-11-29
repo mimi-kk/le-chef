@@ -28,8 +28,9 @@ app.controller("RecipeController", ["$scope", "$location", "$routeParams", "$com
         }
 
         var average = sum/($scope.recipe.reviews.length-1);
+        var roundedAverage = Math.round(average);
 
-        return average;
+        return new Array(roundedAverage);
       };
     });
 
