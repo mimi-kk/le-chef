@@ -50,20 +50,20 @@ gulp.task("minify-css", function() {
     .pipe(gulp.dest("client/dist"));
 });
  
-gulp.task("scripts", function() {
+gulp.task("concat", function() {
   return gulp.src("client/js/**/*.js")
     .pipe(concat("screen.js"))
     .pipe(gulp.dest("client/dist"));
 });
 
-gulp.task("compress", function() {
+gulp.task("uglify", function() {
   return gulp.src("client/dist/screen.js")
     .pipe(uglify())
     .pipe(gulp.dest("client/dist"));
 });
 
 gulp.task("deploy", function() {
-    return gulp.src(["client/**/*", "!client/js/*", "!client/styles/*", "!client/tmp/*"])
+    return gulp.src(["client/**/*","!client/js/**/*", "!client/styles/*", "!client/tmp/*", "bower_components/**"])
         .pipe(scp({
             host: "noerdli.ch",
             username: "noerdli",
