@@ -52,6 +52,15 @@ app.controller("EditRecipeController", ["$scope", "Recipes", "$location", "$rout
         $scope.initRecipe();
       };
 
+      $scope.cancelEditRecipe = function(){
+        alert("If you wish jellyfish!");
+        if ($scope.recipe.$id) {
+          $location.path("/recipe/" + $scope.recipe.$id);
+        } else {
+          $location.path("/");
+        }
+      };
+
       $scope.editRecipe = function(){
         for(i = 0; i < $scope.upload.flow.files.length; i++) {
           $scope.recipe.slides.push("/images/uploads/"+$scope.upload.flow.files[i].relativePath);
