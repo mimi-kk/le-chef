@@ -1,4 +1,4 @@
-app.controller("EditRecipeController", ["$scope", "Recipes", "$location", "$routeParams", "currentAuth",
+app.controller("EditorController", ["$scope", "Recipes", "$location", "$routeParams", "currentAuth",
   function($scope, Recipes, $location, $routeParams, currentAuth, focus) {
     $scope.initRecipe = function() {
       // Initialize new recipe (with default values)

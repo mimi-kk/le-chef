@@ -23,7 +23,7 @@ app.config(["$routeProvider", "$compileProvider",
             }).
             when("/editor/", {
                 templateUrl: "templates/editor.html",
-                controller: "EditRecipeController",
+                controller: "EditorController",
                 resolve: {
                     "currentAuth": ["Auth", function(Auth) {
                     return Auth.$requireAuth();
@@ -32,7 +32,7 @@ app.config(["$routeProvider", "$compileProvider",
             }).
             when("/editor/:id", {
                 templateUrl: "templates/editor.html",
-                controller: "EditRecipeController",
+                controller: "EditorController",
                 resolve: {
                     "currentAuth": ["Auth", function(Auth) {
                     return Auth.$requireAuth();
