@@ -23,8 +23,19 @@ app.controller("EditRecipeController", ["$scope", "Recipes", "$location", "$rout
 
       $scope.upload = {};
 
-      /*TO DO: Should reduce options, which we really need*/
-      $scope.options = {};
+      /*CK Editor Options*/
+      $scope.options = {
+        toolbar : [{ 
+          items : [
+            "Bold",
+            "Italic",
+            "NumberedList",
+            "BulletedList",
+            "Link",
+            "Unlink"
+          ]
+        }]
+      };
 
       $scope.add = function(key) {
         $scope.recipe[key].push("");
