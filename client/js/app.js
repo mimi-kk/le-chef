@@ -12,7 +12,7 @@ var app = angular.module("leChef", [
     "angular-spinkit"
 ]);
 
-app.config(["flowFactoryProvider", function (flowFactoryProvider) {
+app.config(["flowFactoryProvider", function(flowFactoryProvider) {
     flowFactoryProvider.defaults = {
       target: "/images/upload.php",
       permanentErrors: [500, 501],
@@ -20,7 +20,7 @@ app.config(["flowFactoryProvider", function (flowFactoryProvider) {
       chunkRetryInterval: 5000,
       simultaneousUploads: 1
     };
-    flowFactoryProvider.on("catchAll", function (event) {
+    flowFactoryProvider.on("catchAll", function(event) {
       console.log("catchAll", arguments);
     });
   }
@@ -35,10 +35,12 @@ app.run(["$rootScope", "$location", "$anchorScroll", "$routeParams",
   }
 ]);
 
-app.run(["$rootScope", "$location", function($rootScope, $location) {
-$rootScope.$on("$routeChangeError", function(event, next, previous, error) {
-  if (error === "AUTH_REQUIRED") {
-    $location.path("/auth");
+app.run(["$rootScope", "$location", 
+  function($rootScope, $location) {
+    $rootScope.$on("$routeChangeError", function(event, next, previous, error) {
+      if (error === "AUTH_REQUIRED") {
+        $location.path("/auth");
+      }
+    });
   }
-});
-}]);
+]);

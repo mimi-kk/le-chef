@@ -34,26 +34,26 @@ app.controller("RecipeController", ["$scope", "$location", "$routeParams", "$com
       };
     });
 
-    $scope.direction = 'left';
+    $scope.direction = "left";
     $scope.currentIndex = 0;
 
-    $scope.setCurrentSlideIndex = function (index) {
+    $scope.setCurrentSlideIndex = function(index) {
       $scope.currentIndex = index;
     };
 
-    $scope.isCurrentSlideIndex = function (index) {
+    $scope.isCurrentSlideIndex = function(index) {
       return $scope.currentIndex === index;
     };
 
-    $scope.prevSlide = function () {
+    $scope.prevSlide = function() {
       $scope.currentIndex = ($scope.currentIndex < $scope.recipe.slides.length - 1) ? ++$scope.currentIndex : 0;
     };
 
-    $scope.nextSlide = function () {
+    $scope.nextSlide = function() {
       $scope.currentIndex = ($scope.currentIndex > 0) ? --$scope.currentIndex : $scope.recipe.slides.length - 1;
     };
 
-    $scope.goToEditor = function () {
+    $scope.goToEditor = function() {
       $location.path("/editor/" + $scope.recipe.$id);
     };
   }

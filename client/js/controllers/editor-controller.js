@@ -25,8 +25,8 @@ app.controller("EditorController", ["$scope", "Recipes", "$location", "$routePar
 
       /*CK Editor Options*/
       $scope.options = {
-        toolbar : [{ 
-          items : [
+        toolbar: [{ 
+          items: [
             "Bold",
             "Italic",
             "NumberedList",
@@ -46,7 +46,7 @@ app.controller("EditorController", ["$scope", "Recipes", "$location", "$routePar
       };
 
       $scope.addRecipe = function() {
-        for(i = 0; i < $scope.upload.flow.files.length; i++) {
+        for(var i = 0; i < $scope.upload.flow.files.length; i++) {
           $scope.recipe.slides.push("/images/uploads/"+$scope.upload.flow.files[i].relativePath);
         };
 
@@ -63,7 +63,7 @@ app.controller("EditorController", ["$scope", "Recipes", "$location", "$routePar
         $scope.initRecipe();
       };
 
-      $scope.cancelEditRecipe = function(){
+      $scope.cancelEditRecipe = function() {
         alert("If you wish jellyfish!");
         if ($scope.recipe.$id) {
           $location.path("/recipe/" + $scope.recipe.$id);
@@ -72,12 +72,12 @@ app.controller("EditorController", ["$scope", "Recipes", "$location", "$routePar
         }
       };
 
-      $scope.editRecipe = function(){
-        for(i = 0; i < $scope.upload.flow.files.length; i++) {
+      $scope.editRecipe = function() {
+        for (var i = 0; i < $scope.upload.flow.files.length; i++) {
           $scope.recipe.slides.push("/images/uploads/"+$scope.upload.flow.files[i].relativePath);
-        };
+        }
 
-        $scope.recipes.$save($scope.recipe).then(function(){
+        $scope.recipes.$save($scope.recipe).then(function() {
           alert("Your recipe has been succefully updated!");
           $location.path("/recipe/" + $scope.recipe.$id);
         });
