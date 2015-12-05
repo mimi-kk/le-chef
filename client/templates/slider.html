@@ -1,14 +1,14 @@
 <section class="container slider" tabindex="0" aria-label="slideshow with recipe images">
-	<img ng-repeat="slide in recipe.slides" class="slide" ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()" ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide}}" tabindex="-1">
+	<img ng-repeat="slide in recipe.slides" class="slide" ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()" ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide}}" tabindex="-1" alt="Slider image">
 
-	<a class="arrow prev" href="" ng-click="nextSlide()" tabindex="-1"></a>
-	<a class="arrow next" href="" ng-click="prevSlide()" tabindex="-1"></a>
+	<a class="arrow prev" href="" ng-click="nextSlide()" tabindex="-1" aria-label="Next slide"></a>
+	<a class="arrow next" href="" ng-click="prevSlide()" tabindex="-1" aria-label="Previous slide"></a>
 
 	<nav class="nav">
 		<div class="wrapper">
 			<ul class="dots">
 				<li class="dot" ng-repeat="slide in recipe.slides">
-					<a href="" ng-class="{'active':isCurrentSlideIndex($index)}" ng-click="setCurrentSlideIndex($index);" tabindex="-1">{{slide.description}}</a>
+					<a href="" ng-class="{'active':isCurrentSlideIndex($index)}" ng-click="setCurrentSlideIndex($index);" tabindex="-1" aria-label="Current Slide">{{slide.description}}</a>
 				</li>
 			</ul>
 		</div>

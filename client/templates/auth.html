@@ -10,10 +10,10 @@
 		
 		<form novalidate name="authForm">
 			<h4>Email</h4>
-			<input type="text" ng-model="email" required>
+			<input type="text" ng-model="email" aria-label="Enter email" required>
 			
 			<h4>Password</h4>
-			<input type="password" ng-model="password">
+			<input type="password" ng-model="password" aria-label="Enter password">
 
 			<button ng-click="authForm.$valid && login()">Login</button>
 

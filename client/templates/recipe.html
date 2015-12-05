@@ -116,12 +116,12 @@
                         </div>
 
                         <div>
-                            <textarea ng-model="recipe.review.body" required placeholder="Write a review"></textarea>
+                            <textarea ng-model="recipe.review.body" required placeholder="Write a review" aria-label="Write a review"></textarea>
                         </div>
 
                         <div>
-                            <label>by:</label>
-                            <input ng-model="recipe.review.author" placeholder="Name" required>
+                            <label for="reviewAuthor">by:</label>
+                            <input ng-model="recipe.review.author" placeholder="Name" id="reviewAuthor" required>
                         </div>
                         <button ng-click="addReview()">Send my review</button>
                     </form>

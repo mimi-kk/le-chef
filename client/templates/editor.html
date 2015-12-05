@@ -2,7 +2,7 @@
     <form class="recipe-form" name="recipeForm" novalidate>
         <section class="image-column">
             <div flow-init flow-files-submitted="$flow.upload()" flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]" flow-file-success="$file.msg = $message" flow-name="upload.flow">
-                <input type="file" class="flow-button" flow-btn>
+                <input type="file" class="flow-button" flow-btn aria-label="Upload file">
                 <div class="drop" flow-drop>Drag and drop your images here</div>
                 <ul class="preview">
                     <li ng-repeat="file in upload.flow.files track by $index">
@@ -22,7 +22,7 @@
                             <span class="preview-title">{{$index+1}}</span>
                             <span class="remove-field icon-circle-with-minus" ng-click="recipe.slides.splice($index, 1)"></span>
                         </p>
-                        <img ng-src="{{slide}}" ng-hide="recipe.slides.length < 0">
+                        <img ng-src="{{slide}}" ng-hide="recipe.slides.length < 0" alt="Recipe image">
                     </li>
                 </ul>
             </div>
@@ -33,7 +33,7 @@
                 <h4>Keywords: </h4>
                 <ul class="keywords">
                     <li ng-repeat="keyword in recipe.keywords track by $index">
-                        <input type="text" ng-model="recipe.keywords[$index]" name="recipeKeyword" ng-value="keyword" placeholder="Add a keyword" ng-attr-id="{{'last-keyword-'+$last}}" required>
+                        <input type="text" ng-model="recipe.keywords[$index]" name="recipeKeyword" ng-value="keyword" placeholder="Add a keyword" ng-attr-id="{{'last-keyword-'+$last}}" aria-label="Add a keyword" required>
 
                         <div ng-show="recipeForm.$submitted">
                             <span class="validation-error" ng-show="recipeForm.recipeKeyword.$error.required">Is it glutenfree? Or a Japanese recipe? Add some keywords to your recipe.</span>
@@ -50,7 +50,7 @@
                 <h4>Ingredients: </h4>
                 <ul class="ingredients">
                     <li ng-repeat="ingredient in recipe.ingredients track by $index">
-                        <input type="text" ng-model="recipe.ingredients[$index]" name="recipeIngredient" ng-value="ingredient" placeholder="Add an ingredient" ng-attr-id="{{'last-ingredient-'+$last}}" required>
+                        <input type="text" ng-model="recipe.ingredients[$index]" name="recipeIngredient" ng-value="ingredient" placeholder="Add an ingredient" ng-attr-id="{{'last-ingredient-'+$last}}"  aria-label="Add an ingredient" required>
 
                         <div ng-show="recipeForm.$submitted">
                             <span class="validation-error" ng-show="recipeForm.recipeKeyword.$error.required">Do we need some eggs, milk or salt?</span>
@@ -63,13 +63,13 @@
             </section>
 
             <section class="main-column">
-                    <input class="title" type="text" ng-model="recipe.title" name="recipeTitle" ng-value="recipe.title" placeholder="Give your recipe a title" required>
+                    <input class="title" type="text" ng-model="recipe.title" name="recipeTitle" ng-value="recipe.title" placeholder="Give your recipe a title" aria-label="Give your recipe a title" required>
                    
                     <div ng-show="recipeForm.$submitted || recipeForm.recipePreptime.$touched">
                         <span class="validation-error" ng-show="recipeForm.recipePreptime.$error.required">Tell us the title of your recipe.</span>
                     </div>
 
-                    <input class="lead "type="text" ng-model="recipe.lead" name="recipeLead" ng-value="recipe.lead" placeholder="What is special about your recipe? Write a lead." required>
+                    <input class="lead "type="text" ng-model="recipe.lead" name="recipeLead" ng-value="recipe.lead" placeholder="What is special about your recipe? Write a lead." aria-label="Write a lead" required>
 
                     <div ng-show="recipeForm.$submitted || recipeForm.recipePreptime.$touched">
                         <span class="validation-error" ng-show="recipeForm.recipePreptime.$error.required">Tell us whats special about your recipe.
@@ -79,7 +79,7 @@
                 <ul class="cooking-time">
                     <li>
                         <span>Preperation: </span>
-                        <input type="text" ng-model="recipe.preptime" name="recipePreptime" ng-value="recipe.preptime" placeholder="Add preperation Time" required>
+                        <input type="text" ng-model="recipe.preptime" name="recipePreptime" ng-value="recipe.preptime" placeholder="Add preperation Time" aria-label="Add preperation time" required>
                         
                         <div ng-show="recipeForm.$submitted || recipeForm.recipePreptime.$touched">
                             <span class="validation-error" ng-show="recipeForm.recipePreptime.$error.required">How long does it take?</span>
@@ -88,7 +88,7 @@
                     </li>
                     <li>
                         <span>Cooking: </span>
-                        <input type="text" ng-model="recipe.cookingtime" name="recipeCookingtime" ng-value="recipe.cookingtime" placeholder="Add cooking Time" required>
+                        <input type="text" ng-model="recipe.cookingtime" name="recipeCookingtime" ng-value="recipe.cookingtime" placeholder="Add cooking Time" aria-label="Add cooking time" required>
                         
                         <div ng-show="recipeForm.$submitted || recipeForm.recipeCookingtime.$touched">
                             <span class="validation-error" ng-show="recipeForm.recipeCookingtime.$error.required">How long does it take?</span>
@@ -97,7 +97,7 @@
                     </li>
                     <li>
                         <span>Total: </span>
-                        <input type="text" ng-model="recipe.totaltime" name="recipeTotaltime" ng-value="recipe.totaltime" placeholder="Add total Time" required>
+                        <input type="text" ng-model="recipe.totaltime" name="recipeTotaltime" ng-value="recipe.totaltime" placeholder="Add total Time" aria-label="Add total time" required>
                         
                         <div ng-show="recipeForm.$submitted || recipeForm.recipeTotaltime.$touched">
                             <span class="validation-error" ng-show="recipeForm.recipeTotaltime.$error.required">How long does it take?</span>
@@ -108,7 +108,7 @@
 
                 <div class="instructions">
                     <h4>Instructions</h4>
-                    <textarea ckeditor="options" class="instructions" type="text" ng-model="recipe.instructions" name="recipeInstructions" ng-value="recipe.instructions" placeholder="Write an instruction" required ready="onReady()"></textarea>
+                    <textarea ckeditor="options" class="instructions" type="text" ng-model="recipe.instructions" name="recipeInstructions" ng-value="recipe.instructions" placeholder="Write an instruction" aria-label="Write recipe instructions" required ready="onReady()"></textarea>
                     
                     <div ng-show="recipeForm.$submitted || recipeForm.recipeInstructions.$touched">
                         <span class="validation-error" ng-show="recipeForm.recipeInstructions.$error.required">Write an instruction to your recipe. Otherwise we don't know how to cook it!</span>
