@@ -23,14 +23,20 @@ app.controller("RecipeController", ["$scope", "$location", "$routeParams", "$com
       $scope.calculateAverage = function(AverageData){
         var sum = 0;
         
-        for(var i = 1; i < $scope.recipe.reviews.length; i++){
-          sum += parseInt($scope.recipe.reviews[i].stars, 10);
+        if ($scope.recipe.reviews.length > 1) {
+          for(var i = 1; i < $scope.recipe.reviews.length; i++){
+            sum += parseInt($scope.recipe.reviews[i].stars, 10);
+          }
+
+          var average = sum/($scope.recipe.reviews.length-1);
+          var roundedAverage = Math.round(average);
+          return { 
+            average: roundedAverage,
+            markedStars: new Array(roundedAverage)
+          };
+        } else {
+          return sum;
         }
-
-        var average = sum/($scope.recipe.reviews.length-1);
-        var roundedAverage = Math.round(average);
-
-        return new Array(roundedAverage);
       };
     });
 
