@@ -1,8 +1,6 @@
 <section id="recipes-overview">
+    <chasing-dots-spinner ng-show="loading"></chasing-dots-spinner>
     <ul class="recipes">
-        <li>
-            <chasing-dots-spinner ng-show="loading"></chasing-dots-spinner>
-        </li>
         <li ng-repeat="recipe in recipes | filter:search" id="{{recipe.$id}}" class="recipe" style="background-image: url({{recipe.slides[0]}})">
             <a ng-href="#/recipe/{{recipe.$id}}">
                 <div class="caption overlay">
