@@ -7,7 +7,12 @@
 		
 		<form novalidate name="authForm">
 			<h4>Email</h4>
-			<input type="text" ng-model="email" required>
+			<input type="text" ng-model="email" name="email" required>
+			<div ng-show="authForm.$submitted">
+				<p class="validation-error" ng-show="authForm.email.$error.required">
+				Please enter your email address.
+				</p>
+			</div>
 
 			<button ng-click="authForm.$valid && resetPassword()">Reset password</button>
 
