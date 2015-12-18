@@ -9,7 +9,8 @@ var app = angular.module("leChef", [
     "firebase",
     "720kb.socialshare",
     "flow",
-    "angular-spinkit"
+    "angular-spinkit",
+    "toastr"
 ]);
 
 app.config(["flowFactoryProvider", function(flowFactoryProvider) {
@@ -25,6 +26,12 @@ app.config(["flowFactoryProvider", function(flowFactoryProvider) {
     });
   }
 ]);
+
+app.config(function(toastrConfig) {
+  angular.extend(toastrConfig, {
+    positionClass: 'toast-bottom-left'
+  });
+});
 
 app.run(["$rootScope", "$location", "$anchorScroll", "$routeParams", 
   function($rootScope, $location, $anchorScroll, $routeParams) {

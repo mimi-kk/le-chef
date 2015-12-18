@@ -1,5 +1,5 @@
-app.controller("EditorController", ["$scope", "Recipes", "$location", "$routeParams", "currentAuth",
-  function($scope, Recipes, $location, $routeParams, currentAuth, focus) {
+app.controller("EditorController", ["$scope", "toastr", "Recipes", "$location", "$routeParams", "currentAuth",
+  function($scope, toastr, Recipes, $location, $routeParams, currentAuth, focus) {
     $scope.initRecipe = function() {
       // Initialize new recipe (with default values)
       if (typeof $routeParams.id === "undefined") {
@@ -55,7 +55,7 @@ app.controller("EditorController", ["$scope", "Recipes", "$location", "$routePar
         $scope.recipes = Recipes;
 
         $scope.recipes.$add($scope.recipe).then(function() {
-          alert("Your recipe has been succefully saved!");
+          toastr.success("Your recipe has been succefully saved!");
           $location.path("/");
         });
         
@@ -64,7 +64,7 @@ app.controller("EditorController", ["$scope", "Recipes", "$location", "$routePar
       };
 
       $scope.cancelEditRecipe = function() {
-        alert("If you wish jellyfish!");
+        toastr.success("If you wish jellyfish!");
         if ($scope.recipe.$id) {
           $location.path("/recipe/" + $scope.recipe.$id);
         } else {
@@ -78,7 +78,7 @@ app.controller("EditorController", ["$scope", "Recipes", "$location", "$routePar
         }
 
         $scope.recipes.$save($scope.recipe).then(function() {
-          alert("Your recipe has been succefully updated!");
+          toastr.success("Your recipe has been succefully updated!");
           $location.path("/recipe/" + $scope.recipe.$id);
         });
       };
@@ -86,7 +86,7 @@ app.controller("EditorController", ["$scope", "Recipes", "$location", "$routePar
       $scope.deleteRecipe = function(){
         if (window.confirm("Do you really want to delete your recipe?")){
           $scope.recipes.$remove($scope.recipe).then(function(){
-            alert("Your recipe has been succefully deleted!");
+            toastr.success("Your recipe has been succefully deleted!");
             $location.path("/");
           });
         }

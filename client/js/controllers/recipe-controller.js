@@ -1,5 +1,5 @@
-app.controller("RecipeController", ["$scope", "$location", "$routeParams", "$compile", "Recipes",
-  function($scope, $location, $routeParams, $compile, Recipes) {
+app.controller("RecipeController", ["$scope", "toastr", "$location", "$routeParams", "$compile", "Recipes",
+  function($scope, toastr, $location, $routeParams, $compile, Recipes) {
     $scope.addReview = function() {
       $scope.recipe.reviews.push($scope.recipe.review);
       $scope.recipe.review.createdOn = Date.now();
@@ -7,7 +7,7 @@ app.controller("RecipeController", ["$scope", "$location", "$routeParams", "$com
 
       $scope.recipes.$save($scope.recipe).then(function(){
         $scope.reviewForm.$setPristine();
-        alert("Your review has been succefully sent!");
+        toastr.success("Your review has been succefully sent!");
         $location.path("/recipe/" + $scope.recipe.$id);
       });
     };

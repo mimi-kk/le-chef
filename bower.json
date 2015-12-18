@@ -13,6 +13,7 @@
     "angularjs-socialshare": "0.1.14",
     "ng-flow": "2.6.1",
     "angular-aria": "1.4.8",
-    "angular-spinkit": "0.3.3"
+    "angular-spinkit": "0.3.3",
+    "angular-toastr": "1.6.0"
   }
 }
