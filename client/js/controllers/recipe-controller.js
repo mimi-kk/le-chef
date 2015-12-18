@@ -4,8 +4,9 @@ app.controller("RecipeController", ["$scope", "$location", "$routeParams", "$com
       $scope.recipe.reviews.push($scope.recipe.review);
       $scope.recipe.review.createdOn = Date.now();
       $scope.recipe.review = {};
-      
+
       $scope.recipes.$save($scope.recipe).then(function(){
+        $scope.reviewForm.$setPristine();
         alert("Your review has been succefully sent!");
         $location.path("/recipe/" + $scope.recipe.$id);
       });

@@ -102,9 +102,9 @@
                 </div>
                 <div class="review-editor">
                     <h4 tabindex="0">Write a Review</h4>
-                    <form class="review-form" novalidate>
+                    <form class="review-form" name="reviewForm" novalidate>
                         <div class="select-form">
-                            <select ng-model="recipe.review.stars" required>
+                            <select ng-model="recipe.review.stars" name="recipeReview" required>
                                 <option value="" disabled>Give stars</option> 
                                 <option value="5">5 stars</option> 
                                 <option value="4">4 stars</option> 
@@ -114,16 +114,31 @@
                             </select>
                             <span class="icon-chevron-down"></span>
                         </div>
+                        <div ng-show="reviewForm.$submitted">
+                            <span class="validation-error" ng-show="reviewForm.recipeReview.$error.required" ng-hide="reviewForm.$valid">
+                                Stars are the best friends of kitchen chefs. Give us some.
+                            </span>
+                        </div>
 
                         <div>
-                            <textarea ng-model="recipe.review.body" required placeholder="Write a review" aria-label="Write a review"></textarea>
+                            <textarea ng-model="recipe.review.body" name="reviewBody" placeholder="Write a review" aria-label="Write a review" required></textarea>
+                            <div ng-show="reviewForm.$submitted">
+                                <span class="validation-error" ng-show="reviewForm.reviewBody.$error.required">
+                                    How did you like the recipe? Write about it.
+                                </span>
+                            </div>
                         </div>
 
                         <div>
                             <label for="reviewAuthor">by:</label>
-                            <input ng-model="recipe.review.author" placeholder="Name" id="reviewAuthor" required>
+                            <input ng-model="recipe.review.author" name="reviewAuthor" placeholder="Name" id="reviewAuthor" required>
+                            <div ng-show="reviewForm.$submitted">
+                                <span class="validation-error" ng-show="reviewForm.reviewAuthor.$error.required">
+                                    What's your name?
+                                </span>
+                            </div>
                         </div>
-                        <button ng-click="addReview()">Send my review</button>
+                        <button ng-click="reviewForm.$valid && addReview()">Send my review</button>
                     </form>
                 </div> 
             </div>

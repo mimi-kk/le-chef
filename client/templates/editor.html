@@ -53,7 +53,7 @@
                         <input type="text" ng-model="recipe.ingredients[$index]" name="recipeIngredient" ng-value="ingredient" placeholder="Add an ingredient" ng-attr-id="{{'last-ingredient-'+$last}}"  aria-label="Add an ingredient" required>
 
                         <div ng-show="recipeForm.$submitted">
-                            <span class="validation-error" ng-show="recipeForm.recipeKeyword.$error.required">Do we need some eggs, milk or salt?</span>
+                            <span class="validation-error" ng-show="recipeForm.recipeIngredient.$error.required">Do we need some eggs, milk or salt?</span>
                         </div>
 
                         <span class="remove-field icon-circle-with-minus" ng-click="remove('ingredients', $index)" ></span>
@@ -66,13 +66,13 @@
                     <input class="title" type="text" ng-model="recipe.title" name="recipeTitle" ng-value="recipe.title" placeholder="Give your recipe a title" aria-label="Give your recipe a title" required>
                    
                     <div ng-show="recipeForm.$submitted || recipeForm.recipePreptime.$touched">
-                        <span class="validation-error" ng-show="recipeForm.recipePreptime.$error.required">Tell us the title of your recipe.</span>
+                        <span class="validation-error" ng-show="recipeForm.recipeTitle.$error.required">Tell us the title of your recipe.</span>
                     </div>
 
                     <input class="lead "type="text" ng-model="recipe.lead" name="recipeLead" ng-value="recipe.lead" placeholder="What is special about your recipe? Write a lead." aria-label="Write a lead" required>
 
                     <div ng-show="recipeForm.$submitted || recipeForm.recipePreptime.$touched">
-                        <span class="validation-error" ng-show="recipeForm.recipePreptime.$error.required">Tell us whats special about your recipe.
+                        <span class="validation-error" ng-show="recipeForm.recipeLead.$error.required">Tell us whats special about your recipe.
                     </div>
                
                 <h4>Time until ready</h4>
