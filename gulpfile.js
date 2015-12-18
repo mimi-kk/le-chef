@@ -62,7 +62,7 @@ gulp.task("uglify", function() {
     .pipe(gulp.dest("client/dist"));
 });
 
-gulp.task("deploy", function() {
+gulp.task("deploy", ["minify-css", "concat", "uglify"], function() {
     return gulp.src(["client/**/*","!client/js/**/*", "!client/styles/*", "!client/tmp/*", "bower_components/**"])
         .pipe(scp({
             host: "noerdli.ch",
