@@ -7,7 +7,7 @@ What more:
 
 * Build with AngularJS
 * Custom CMS
-* Realtime database
+* Realtime database with Firebase
 * User authentication
 * Responsive design with Flexbox
 * Image Slider with swipe functionality
